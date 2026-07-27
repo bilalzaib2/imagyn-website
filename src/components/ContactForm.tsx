@@ -1,0 +1,115 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
+import { Button } from "./Button";
+
+type Status = "idle" | "submitting" | "success" | "error";
+
+export function ContactForm() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("submitting");
+    setErrorMessage("");
+
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      name: String(formData.get("name") || ""),
+      email: String(formData.get("email") || ""),
+      subject: String(formData.get("subject") || ""),
+      message: String(formData.get("message") || ""),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.ok) {
+        setStatus("error");
+        setErrorMessage(result.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setStatus("success");
+      event.currentTarget.reset();
+    } catch {
+      setStatus("error");
+      setErrorMessage("Something went wrong. Please try again.");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="rounded-2xl border border-border bg-surface p-8 text-center">
+        <h3 className="text-lg font-semibold text-foreground">Message sent.</h3>
+        <p className="mt-2 text-[15px] text-muted-foreground">
+          Thanks for reaching out — we&apos;ll reply by email within one business day.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      <div className="grid gap-5 sm:grid-cols-2">
+        <Field label="Name" name="name" type="text" required autoComplete="name" />
+        <Field label="Email" name="email" type="email" required autoComplete="email" />
+      </div>
+      <Field label="Subject" name="subject" type="text" required />
+      <div className="flex flex-col gap-2">
+        <label htmlFor="message" className="text-sm font-semibold text-foreground">
+          Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows={6}
+          className="w-full rounded-xl border border-border bg-white px-4 py-3 text-[15px] text-foreground transition-colors hover:border-foreground/30 focus:border-accent"
+        />
+      </div>
+
+      {status === "error" ? <p className="text-sm text-red-600">{errorMessage}</p> : null}
+
+      <Button type="submit" size="lg" className="w-fit" disabled={status === "submitting"}>
+        {status === "submitting" ? "Sending…" : "Send message"}
+      </Button>
+    </form>
+  );
+}
+
+function Field({
+  label,
+  name,
+  type,
+  required,
+  autoComplete,
+}: {
+  label: string;
+  name: string;
+  type: string;
+  required?: boolean;
+  autoComplete?: string;
+}) {
+  return (
+    <div className="flex flex-col gap-2">
+      <label htmlFor={name} className="text-sm font-semibold text-foreground">
+        {label}
+      </label>
+      <input
+        id={name}
+        name={name}
+        type={type}
+        required={required}
+        autoComplete={autoComplete}
+        className="w-full rounded-xl border border-border bg-white px-4 py-3 text-[15px] text-foreground transition-colors hover:border-foreground/30 focus:border-accent"
+      />
+    </div>
+  );
+}
