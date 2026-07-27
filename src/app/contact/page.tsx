@@ -12,6 +12,8 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function ContactPage() {
+  const isEmailConfigured = Boolean(process.env.RESEND_API_KEY);
+
   return (
     <section className="pt-20 pb-24 md:pt-28 md:pb-32">
       <Container className="max-w-2xl">
@@ -23,7 +25,7 @@ export default function ContactPage() {
         />
 
         <div className="mt-12">
-          <ContactForm />
+          <ContactForm isEmailConfigured={isEmailConfigured} />
         </div>
       </Container>
     </section>
