@@ -15,7 +15,7 @@ export default function ContactPage() {
   const isEmailConfigured = Boolean(process.env.RESEND_API_KEY);
 
   return (
-    <section className="pt-20 pb-24 md:pt-28 md:pb-32">
+    <section className="pt-24 pb-28 md:pt-32 md:pb-36">
       <Container className="max-w-2xl">
         <SectionHeading
           eyebrow="Contact"

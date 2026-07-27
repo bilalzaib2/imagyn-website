@@ -33,7 +33,7 @@ const FAQS = [
 export default function SupportPage() {
   return (
     <>
-      <section className="pt-20 pb-16 md:pt-28 md:pb-20">
+      <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
             eyebrow="Support"
@@ -49,23 +49,23 @@ export default function SupportPage() {
             <SupportCard
               title="Email support"
               description="The fastest way to reach us for setup help, billing questions or bug reports."
-              action={{ label: siteConfig.supportEmail, href: `mailto:${siteConfig.supportEmail}` }}
+              action={{ label: "Email Support", href: `mailto:${siteConfig.supportEmail}` }}
             />
             <SupportCard
               title="Documentation"
               description="Step-by-step guides for installation, widgets, moderation rules and more."
-              action={{ label: "Browse docs", href: "/docs" }}
+              action={{ label: "Documentation", href: "/docs" }}
             />
             <SupportCard
               title="Contact form"
               description="Prefer a form? Send us a message and we'll get back to you by email."
-              action={{ label: "Contact us", href: "/contact" }}
+              action={{ label: "Contact", href: "/contact" }}
             />
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border py-28 md:py-36">
         <Container className="flex flex-col gap-12">
           <SectionHeading eyebrow="Common questions" title="Frequently asked questions" align="left" />
           <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">

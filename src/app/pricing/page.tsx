@@ -82,7 +82,7 @@ const FAQS = [
 export default function PricingPage() {
   return (
     <>
-      <section className="pt-20 pb-16 md:pt-28 md:pb-20">
+      <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
             eyebrow="Pricing"
@@ -148,7 +148,7 @@ export default function PricingPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border py-28 md:py-36">
         <Container className="flex flex-col gap-12">
           <SectionHeading eyebrow="Questions" title="Frequently asked questions" align="left" />
           <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">

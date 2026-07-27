@@ -85,7 +85,7 @@ const DETAIL_SECTIONS = [
 export default function FeaturesPage() {
   return (
     <>
-      <section className="pt-20 pb-16 md:pt-28 md:pb-20">
+      <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
             eyebrow="Features"
@@ -96,7 +96,7 @@ export default function FeaturesPage() {
       </section>
 
       {DETAIL_SECTIONS.map((section, index) => (
-        <section key={section.title} className="border-t border-border py-20 md:py-24">
+        <section key={section.title} className="border-t border-border py-24 md:py-28">
           <Container
             className={section.image ? "grid items-center gap-14 lg:grid-cols-2" : ""}
           >
@@ -120,7 +120,7 @@ export default function FeaturesPage() {
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
                 {section.eyebrow}
               </span>
-              <h2 className="text-[clamp(1.75rem,3.4vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-foreground">
+              <h2 className="text-[clamp(1.75rem,3.4vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.035em] text-foreground">
                 {section.title}
               </h2>
               <p className="text-lg leading-relaxed text-muted-foreground">{section.description}</p>
@@ -137,10 +137,10 @@ export default function FeaturesPage() {
         </section>
       ))}
 
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border py-28 md:py-36">
         <Container>
           <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-foreground">
+            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               See it running on your own store.
             </h2>
             <Button href="/pricing" size="lg">

@@ -2,17 +2,20 @@ import Link from "next/link";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 
 const BASE =
-  "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 ease-out focus-visible:outline-2 focus-visible:outline-accent";
+  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors duration-200 ease-out focus-visible:outline-2 focus-visible:outline-accent";
 
+// Apple's own current button proportions: a fixed 52px pill for prominent CTAs (hero,
+// pricing, footer), scaled down for compact contexts (nav bar, card actions) while
+// keeping the exact same shape language, weight and color system.
 const SIZES = {
-  md: "px-6 py-3 text-[15px]",
-  lg: "px-8 py-4 text-[16px]",
+  md: "h-11 px-6 text-[15px]",
+  lg: "h-[52px] px-[34px] text-[16px]",
 };
 
 const VARIANTS = {
-  primary: "bg-accent text-white shadow-soft hover:opacity-90 hover:-translate-y-0.5",
+  primary: "bg-button-primary text-white hover:bg-button-primary-hover",
   secondary:
-    "bg-white text-foreground border border-border hover:border-foreground/30 hover:-translate-y-0.5",
+    "bg-transparent text-button-primary border-2 border-button-primary hover:bg-button-primary hover:text-white",
   ghost: "text-foreground hover:text-accent",
 };
 

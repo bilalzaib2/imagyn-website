@@ -22,7 +22,7 @@ const TOPICS = [
 export default function DocsPage() {
   return (
     <>
-      <section className="pt-20 pb-16 md:pt-28 md:pb-20">
+      <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
             eyebrow="Documentation"
@@ -160,7 +160,7 @@ export default function DocsPage() {
 
 function DocSection({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="scroll-mt-24 py-14">
+    <section id={id} className="scroll-mt-24 py-16">
       <div className="grid gap-8 lg:grid-cols-[1fr_2fr]">
         <h2 className="text-2xl font-semibold tracking-[-0.02em] text-foreground">{title}</h2>
         <div className="flex max-w-2xl flex-col gap-4 text-[15px] leading-relaxed text-muted-foreground">

@@ -60,14 +60,14 @@ const STEPS = [
 export default function Home() {
   return (
     <>
-      <section className="pt-20 pb-24 md:pt-28 md:pb-32">
+      <section className="pt-20 pb-28 md:pt-28 md:pb-36">
         <Container>
           <div className="grid items-center gap-16 lg:grid-cols-[2fr_3fr] lg:gap-12">
             <div className="flex flex-col gap-6">
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
                 Shopify Review App
               </span>
-              <h1 className="text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-foreground">
+              <h1 className="text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.045em] text-foreground">
                 Build trust with every customer review.
               </h1>
               <p className="text-lg leading-relaxed text-muted-foreground">
@@ -78,7 +78,7 @@ export default function Home() {
                   Get Started
                 </Button>
                 <Button href="/features" variant="secondary" size="lg">
-                  See Features
+                  Learn More
                 </Button>
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border py-28 md:py-36">
         <Container className="flex flex-col gap-16">
           <SectionHeading
             eyebrow="Everything you need"
@@ -121,7 +121,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border py-28 md:py-36">
         <Container className="grid items-center gap-16 lg:grid-cols-2">
           <div className="order-2 overflow-hidden rounded-[30px] shadow-elevated lg:order-1">
             <Image
@@ -136,7 +136,7 @@ export default function Home() {
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
               Moderation
             </span>
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-foreground">
+            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               A moderation queue that respects your time.
             </h2>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -148,7 +148,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border py-28 md:py-36">
         <Container className="flex flex-col gap-16">
           <SectionHeading
             eyebrow="How it works"
@@ -169,10 +169,10 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border py-28 md:py-36">
         <Container>
           <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-foreground">
+            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               Start building trust today.
             </h2>
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
