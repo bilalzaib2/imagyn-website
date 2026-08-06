@@ -19,10 +19,14 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
@@ -47,6 +51,7 @@ const organizationJsonLd = {
   operatingSystem: "Web",
   description: siteConfig.description,
   url: siteConfig.url,
+  image: `${siteConfig.url}/logo.svg`,
   offers: {
     "@type": "Offer",
     price: "0",
