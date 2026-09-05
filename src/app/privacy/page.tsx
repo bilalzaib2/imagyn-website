@@ -9,7 +9,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/privacy",
 });
 
-const LAST_UPDATED = "July 28, 2026";
+const LAST_UPDATED = "September 5, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -43,9 +43,10 @@ export default function PrivacyPage() {
               through a review-request link tied to an order, we also record that it is a verified purchase.
             </p>
             <p>
-              <strong className="font-semibold">Automatically.</strong>{" "}Standard technical data such as IP
-              address and browser type, collected for fraud prevention and to keep the widget helpful-vote
-              feature limited to one vote per visitor.
+              <strong className="font-semibold">Automatically.</strong>{" "}A random, anonymous identifier stored
+              in your browser&apos;s local storage, used only to keep the widget&apos;s helpful-vote feature
+              limited to one vote per visitor. This identifier is not linked to your name, email, or any other
+              personal information, and we do not use it to track you across other websites.
             </p>
           </LegalSection>
 
