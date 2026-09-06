@@ -1,12 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  /* Warm off-white, not pure white — the light-background hard requirement, with enough
+     warmth that it doesn't read as a default Tailwind/shadcn white canvas. */
+  --background: #fbfbf6;
   --foreground: #0a0a0a;
   --muted-foreground: #6b6b6b;
-  /* Monochrome brand: no blue, anywhere. --accent (eyebrows, links, bullets) and the
-     button system both resolve to the same near-black as --foreground — hierarchy comes
-     from typography, spacing, weight and contrast, not a separate brand color. */
+  /* --accent (eyebrows, links, bullets) stays near-black — hierarchy comes from
+     typography/spacing/weight, not a separate brand color for body-level text. Lime is
+     reserved for the signature moments below, never for running text or links, so it
+     keeps its impact instead of becoming wallpaper. */
   --accent: var(--foreground);
   --accent-soft: #f2f2f2;
   --border: #e6e6e6;
@@ -14,6 +17,14 @@
 
   --button-primary: var(--foreground);
   --button-primary-hover: #262626;
+
+  /* The brand's chartreuse — used deliberately and sparingly: a handful of full-bleed
+     section backgrounds, small label pills, and the decorative circle motif. Never body
+     text, never a wash over the whole page. --lime-ink is near-black text sitting on top
+     of it (same foreground, named separately so its intent at each call site is obvious). */
+  --lime: #d6ff5c;
+  --lime-soft: #eeffc7;
+  --lime-ink: var(--foreground);
 }
 
 @theme inline {
@@ -26,6 +37,9 @@
   --color-surface: var(--surface);
   --color-button-primary: var(--button-primary);
   --color-button-primary-hover: var(--button-primary-hover);
+  --color-lime: var(--lime);
+  --color-lime-soft: var(--lime-soft);
+  --color-lime-ink: var(--lime-ink);
 
   --font-sans: Helvetica, Arial, sans-serif;
 

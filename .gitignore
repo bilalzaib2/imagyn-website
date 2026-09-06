@@ -10,6 +10,11 @@
 !.yarn/releases
 !.yarn/versions
 
+# downloaded agent skills — restorable from skills-lock.json via `npx skills experimental_install`,
+# same convention as node_modules/package-lock.json
+/.agents
+/.claude
+
 # testing
 /coverage
 

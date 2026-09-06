@@ -10,7 +10,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/80 bg-white/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border/80 bg-background/80 backdrop-blur-md">
       <Container className="flex h-20 items-center justify-between">
         <Logo />
 
@@ -19,9 +19,10 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-[15px] font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="group relative text-[15px] font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
+              <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-lime transition-all duration-200 group-hover:w-full" />
             </a>
           ))}
         </nav>
@@ -57,7 +58,7 @@ export function Header() {
       </Container>
 
       {open ? (
-        <div className="border-t border-border bg-white md:hidden">
+        <div className="border-t border-border bg-background md:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {NAV_LINKS.map((link) => (
               <a
