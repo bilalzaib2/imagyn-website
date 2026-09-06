@@ -1,9 +1,14 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { Pill } from "@/components/Pill";
 import { CircleCluster } from "@/components/CircleCluster";
+import { Reveal } from "@/components/Reveal";
+import { HeroStream } from "@/components/visuals/HeroStream";
+import { AnalyticsVisualization } from "@/components/visuals/AnalyticsVisualization";
+import { WidgetPreview } from "@/components/visuals/WidgetPreview";
+import { JourneySection } from "@/components/visuals/JourneySection";
+import { BrandTransformation } from "@/components/visuals/BrandTransformation";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/constants";
 
@@ -40,28 +45,11 @@ const CAPABILITIES = [
   },
 ];
 
-const STEPS = [
-  {
-    step: "01",
-    title: "Collect",
-    description: "Customers leave star ratings, written reviews and photos — manually, or through a review request.",
-  },
-  {
-    step: "02",
-    title: "Moderate",
-    description: "Trustworthy reviews auto-publish. Everything else waits in one clean queue for your approval.",
-  },
-  {
-    step: "03",
-    title: "Showcase",
-    description: "Reviews go live across your storefront in widgets that feel like part of your brand, not a bolt-on.",
-  },
-];
-
 export default function Home() {
   return (
     <>
-      {/* HERO — the product's own review UI is the proof, not a stock illustration. */}
+      {/* HERO — an animated, custom-built visual of reviews arriving and settling into
+          trust, not a screenshot of the app's own UI. */}
       <section className="relative overflow-hidden bg-foreground pt-20 pb-24 md:pt-28 md:pb-32">
         <CircleCluster
           layout="corner"
@@ -84,16 +72,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[24px] bg-white shadow-elevated">
-            <Image
-              src="/hero-reviews.png"
-              alt="Imagyn Reviews moderation queue with an AI summary and a customer review selected"
-              width={1600}
-              height={1000}
-              priority
-              className="h-auto w-full"
-            />
-          </div>
+          <HeroStream />
         </Container>
       </section>
 
@@ -101,7 +80,7 @@ export default function Home() {
           earns the boldest section treatment on the page. Used exactly once. */}
       <section className="bg-lime py-24 md:py-32">
         <Container className="grid items-center gap-14 lg:grid-cols-2">
-          <div className="flex flex-col gap-5">
+          <Reveal className="flex flex-col gap-5">
             <Pill tone="dark">Analytics + AI</Pill>
             <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-lime-ink">
               Know what your customers love.
@@ -111,23 +90,16 @@ export default function Home() {
               an AI-generated read on what customers consistently praise and flag, refreshed as
               new reviews come in.
             </p>
-          </div>
-          <div className="overflow-hidden rounded-[24px] bg-white shadow-elevated">
-            <Image
-              src="/hero-dashboard.png"
-              alt="Imagyn Reviews dashboard showing trust overview, rating distribution and an AI spotlight"
-              width={1600}
-              height={1000}
-              className="h-auto w-full"
-            />
-          </div>
+          </Reveal>
+          <AnalyticsVisualization />
         </Container>
       </section>
 
-      {/* LIGHT — on-site widgets, the part a shopper actually sees. */}
+      {/* LIGHT — on-site widgets, the part a shopper actually sees. Cycles the same
+          review through all four real widget formats instead of one static screenshot. */}
       <section className="py-24 md:py-32">
         <Container className="grid items-center gap-14 lg:grid-cols-2">
-          <div className="flex flex-col gap-5">
+          <Reveal className="flex flex-col gap-5">
             <Pill tone="dark">On-site widgets</Pill>
             <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               Make every product more trusted.
@@ -136,84 +108,55 @@ export default function Home() {
               Review lists, star-rating badges and collection-grid ratings — styled through
               Brand Studio so nothing looks bolted onto your theme.
             </p>
-          </div>
-          <div className="overflow-hidden rounded-[24px] border border-border shadow-elevated">
-            <Image
-              src="/feature-widgets.png"
-              alt="Imagyn Reviews widget gallery — Product Reviews Widget, Product Rating Badge and Collection Rating Badge"
-              width={1600}
-              height={1000}
-              className="h-auto w-full"
-            />
-          </div>
+          </Reveal>
+          <WidgetPreview />
         </Container>
       </section>
 
-      {/* BLACK — brand customization, the emotional close before the how-it-works beat. */}
+      {/* SIGNATURE INTERACTION — the same review object visibly becomes
+          Collect → Understand → Showcase as the visitor scrolls. */}
+      <JourneySection />
+
+      {/* BLACK — brand customization, the emotional close before capabilities. */}
       <section className="bg-foreground py-24 md:py-32">
-        <Container className="flex flex-col items-start gap-6">
-          <Pill tone="lime">Customization + conversion</Pill>
-          <h2 className="max-w-2xl text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
-            Your reviews.
-            <br />
-            Your <span className="text-lime">brand</span>.
-          </h2>
-          <p className="max-w-xl text-lg leading-relaxed text-white/70">
-            Brand Studio hands you five starting styles — Minimal, Modern, Editorial, Luxury and
-            Custom — then lets you fine-tune button style, radius and type until every widget
-            looks like it shipped with your theme.
-          </p>
-        </Container>
-      </section>
-
-      {/* How it works — editorial numerals instead of another card row. */}
-      <section className="py-24 md:py-32">
-        <Container className="flex flex-col gap-16">
-          <div className="max-w-xl">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              How it works
-            </span>
-            <h2 className="mt-4 text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
-              From first review to storefront, in three steps.
+        <Container className="grid items-center gap-14 lg:grid-cols-2">
+          <Reveal className="flex flex-col items-start gap-6">
+            <Pill tone="lime">Customization + conversion</Pill>
+            <h2 className="max-w-2xl text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
+              Your reviews.
+              <br />
+              Your <span className="text-lime">brand</span>.
             </h2>
-          </div>
-
-          <div className="grid gap-10 border-t border-border pt-10 md:grid-cols-3">
-            {STEPS.map((item) => (
-              <div key={item.step} className="flex flex-col gap-3">
-                <span className="text-4xl font-semibold tracking-[-0.03em] text-transparent [-webkit-text-stroke:1.5px_var(--foreground)]">
-                  {item.step}
-                </span>
-                <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
-                <p className="text-[15px] leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
+            <p className="max-w-xl text-lg leading-relaxed text-white/70">
+              Brand Studio hands you five starting styles — Minimal, Modern, Editorial, Luxury
+              and Custom — then lets you fine-tune button style, radius and type until every
+              widget looks like it shipped with your theme.
+            </p>
+          </Reveal>
+          <BrandTransformation />
         </Container>
       </section>
 
       {/* Capabilities — a plain two-column list, not a grid of identical bordered cards. */}
       <section className="border-t border-border py-24 md:py-32">
         <Container className="flex flex-col gap-16">
-          <div className="max-w-xl">
+          <Reveal className="max-w-xl">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
               Everything you need
             </span>
             <h2 className="mt-4 text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               A complete review experience, out of the box.
             </h2>
-          </div>
+          </Reveal>
 
           <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2">
-            {CAPABILITIES.map((feature) => (
-              <div key={feature.title} className="flex flex-col gap-2 border-t border-border pt-6">
+            {CAPABILITIES.map((feature, i) => (
+              <Reveal key={feature.title} delayMs={i * 60} className="flex flex-col gap-2 border-t border-border pt-6">
                 <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
                 <p className="text-[15px] leading-relaxed text-muted-foreground">
                   {feature.description}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </Container>

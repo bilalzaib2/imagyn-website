@@ -1,8 +1,8 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
+import { WidgetPreview } from "@/components/visuals/WidgetPreview";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -56,7 +56,7 @@ const DETAIL_SECTIONS = [
       "Product Rating Badge: a compact star-and-count signal near the buy box",
       "Collection Rating Badge: ratings across your collection and search grids",
     ],
-    image: "/feature-widgets.png",
+    visual: "widgets",
   },
   {
     eyebrow: "Brand Studio",
@@ -98,24 +98,16 @@ export default function FeaturesPage() {
       {DETAIL_SECTIONS.map((section, index) => (
         <section key={section.title} className="border-t border-border py-24 md:py-28">
           <Container
-            className={section.image ? "grid items-center gap-14 lg:grid-cols-2" : ""}
+            className={section.visual ? "grid items-center gap-14 lg:grid-cols-2" : ""}
           >
-            {section.image ? (
+            {section.visual === "widgets" ? (
               <div className={index % 2 === 1 ? "order-2 lg:order-1" : "order-2"}>
-                <div className="overflow-hidden rounded-[30px] shadow-elevated">
-                  <Image
-                    src={section.image}
-                    alt={section.title}
-                    width={1600}
-                    height={1000}
-                    className="h-auto w-full"
-                  />
-                </div>
+                <WidgetPreview />
               </div>
             ) : null}
 
             <div
-              className={`flex flex-col gap-5 ${section.image ? (index % 2 === 1 ? "order-1 lg:order-2" : "order-1") : "max-w-2xl"}`}
+              className={`flex flex-col gap-5 ${section.visual ? (index % 2 === 1 ? "order-1 lg:order-2" : "order-1") : "max-w-2xl"}`}
             >
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
                 {section.eyebrow}
