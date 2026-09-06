@@ -4,16 +4,16 @@
   --background: #ffffff;
   --foreground: #0a0a0a;
   --muted-foreground: #6b6b6b;
-  --accent: #4c73c9;
-  --accent-soft: #eef2fb;
+  /* Monochrome brand: no blue, anywhere. --accent (eyebrows, links, bullets) and the
+     button system both resolve to the same near-black as --foreground — hierarchy comes
+     from typography, spacing, weight and contrast, not a separate brand color. */
+  --accent: var(--foreground);
+  --accent-soft: #f2f2f2;
   --border: #e6e6e6;
   --surface: #fafafa;
 
-  /* Apple-style button system — deliberately its own pair of tokens, distinct from the
-     site's --accent (used for eyebrows, links and bullets), since the button spec calls
-     for Apple's exact signature blue rather than the brand accent. */
-  --button-primary: #0071e3;
-  --button-primary-hover: #0066cc;
+  --button-primary: var(--foreground);
+  --button-primary-hover: #262626;
 }
 
 @theme inline {
@@ -27,8 +27,7 @@
   --color-button-primary: var(--button-primary);
   --color-button-primary-hover: var(--button-primary-hover);
 
-  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
-    Arial, sans-serif;
+  --font-sans: Helvetica, Arial, sans-serif;
 
   /* Soft, layered shadows built from the same neutral rather than a generic Tailwind
      gray — this is what keeps cards/panels feeling like they belong to the same product

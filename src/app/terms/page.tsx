@@ -52,7 +52,7 @@ export default function TermsPage() {
 
           <LegalSection title="4. Subscription plans and billing">
             <p>
-              The App offers a free Starter plan and paid Growth and Pro plans, billed monthly through
+              The App offers a free Starter plan and paid Growth and Scale plans, billed monthly through
               Shopify&apos;s billing system as described on our{" "}
               <a href="/pricing" className="font-medium text-accent underline-offset-4 hover:underline">
                 Pricing

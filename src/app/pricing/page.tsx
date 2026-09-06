@@ -12,7 +12,21 @@ export const metadata: Metadata = pageMetadata({
   path: "/pricing",
 });
 
-const PLANS = [
+type PlanFeature = { label: string; comingSoon?: boolean };
+
+// Mirrors app/services/billing/plans.ts in the imagyn-reviews repo — a separate codebase, so
+// this list is kept in sync by hand. `comingSoon` features are real roadmap commitments, not
+// available today; per the pre-launch truthfulness pass, only features with an actual
+// enforcement point in the app render without that tag. Update both files together.
+const PLANS: {
+  id: string;
+  name: string;
+  price: string;
+  trial: string | null;
+  tagline: string;
+  features: PlanFeature[];
+  popular: boolean;
+}[] = [
   {
     id: "starter",
     name: "Starter",
@@ -20,11 +34,14 @@ const PLANS = [
     trial: null,
     tagline: "Everything you need to start collecting reviews.",
     features: [
-      "Up to 50 published reviews",
-      "Manual review requests",
-      "Basic review widget",
-      "Standard email template",
-      "Basic moderation",
+      { label: "Up to 50 reviews" },
+      { label: "Manual review requests" },
+      { label: "Basic review widgets" },
+      { label: "Basic moderation" },
+      { label: "Email notifications" },
+      { label: "Verified buyer badge" },
+      { label: "CSV import (limited)" },
+      { label: "Community support" },
     ],
     popular: false,
   },
@@ -35,26 +52,36 @@ const PLANS = [
     trial: "14-day free trial",
     tagline: "For stores actively growing customer trust.",
     features: [
-      "Unlimited reviews",
-      "AI review summaries",
-      "Photo reviews",
-      "Branded review request emails",
-      "Automatic review requests",
+      { label: "Everything in Starter" },
+      { label: "Unlimited reviews" },
+      { label: "Unlimited CSV imports" },
+      { label: "Automatic review requests", comingSoon: true },
+      { label: "Automatic email reminders", comingSoon: true },
+      { label: "AI review summaries" },
+      { label: "Photo reviews" },
+      { label: "Advanced analytics", comingSoon: true },
+      { label: "Custom branding" },
+      { label: "Multiple widget themes" },
+      { label: "Brand Studio" },
+      { label: "Priority support" },
     ],
     popular: true,
   },
   {
-    id: "pro",
-    name: "Pro",
+    id: "scale",
+    name: "Scale",
     price: "$29.99",
     trial: "14-day free trial",
-    tagline: "Full control for high-volume stores.",
+    tagline: "For high-volume stores that need white-label control.",
     features: [
-      "Everything in Growth",
-      "Video reviews",
-      "Multiple email templates",
-      "Advanced branding controls",
-      "Priority support",
+      { label: "Everything in Growth" },
+      { label: "Video reviews", comingSoon: true },
+      { label: "White label", comingSoon: true },
+      { label: "Custom email domain (SMTP, Resend, Postmark)", comingSoon: true },
+      { label: "API access", comingSoon: true },
+      { label: "Webhooks", comingSoon: true },
+      { label: "Unlimited team members", comingSoon: true },
+      { label: "Premium support" },
     ],
     popular: false,
   },
@@ -63,7 +90,7 @@ const PLANS = [
 const FAQS = [
   {
     q: "Do I need a credit card to start?",
-    a: "No. The Starter plan is free for as long as you use it, with no card required. Growth and Pro both include a 14-day free trial before you're charged.",
+    a: "No. The Starter plan is free for as long as you use it, with no card required. Growth and Scale both include a 14-day free trial before you're charged.",
   },
   {
     q: "Can I change plans later?",
@@ -127,9 +154,21 @@ export default function PricingPage() {
 
                 <ul className="mt-8 flex flex-col gap-3">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-[15px] text-foreground">
+                    <li
+                      key={feature.label}
+                      className={`flex items-start gap-3 text-[15px] ${
+                        feature.comingSoon ? "text-muted-foreground" : "text-foreground"
+                      }`}
+                    >
                       <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                      {feature}
+                      <span>
+                        {feature.label}
+                        {feature.comingSoon ? (
+                          <span className="ml-2 inline-flex items-center rounded-full bg-surface px-2 py-0.5 text-xs font-semibold text-muted-foreground">
+                            Coming soon
+                          </span>
+                        ) : null}
+                      </span>
                     </li>
                   ))}
                 </ul>
