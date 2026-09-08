@@ -5,6 +5,8 @@ import { Pill } from "@/components/Pill";
 import { CircleCluster } from "@/components/CircleCluster";
 import { Reveal } from "@/components/Reveal";
 import { HeroStream } from "@/components/visuals/HeroStream";
+import { EmailStudioVisual } from "@/components/visuals/EmailStudioVisual";
+import { AutomationTimeline } from "@/components/visuals/AutomationTimeline";
 import { AnalyticsVisualization } from "@/components/visuals/AnalyticsVisualization";
 import { WidgetPreview } from "@/components/visuals/WidgetPreview";
 import { JourneySection } from "@/components/visuals/JourneySection";
@@ -73,6 +75,42 @@ export default function Home() {
           </div>
 
           <HeroStream />
+        </Container>
+      </section>
+
+      {/* LIGHT — Collect: the review request email itself, with its real merge tokens
+          resolving and the send moving through its actual lifecycle. */}
+      <section className="py-24 md:py-32">
+        <Container className="grid items-center gap-14 lg:grid-cols-2">
+          <Reveal className="flex flex-col gap-5">
+            <Pill tone="dark">Collect</Pill>
+            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+              Ask at the right moment.
+            </h2>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              Every review request is a real email, personalized with the customer&apos;s name,
+              your store name and the product they bought — written and styled in Email
+              Studio, sent under your name.
+            </p>
+          </Reveal>
+          <EmailStudioVisual />
+        </Container>
+      </section>
+
+      {/* LIGHT — Automation: when requests go out, with zero manual work. */}
+      <section className="border-t border-border py-24 md:py-32">
+        <Container className="grid items-center gap-14 lg:grid-cols-2">
+          <Reveal className="flex flex-col gap-5">
+            <Pill tone="dark">Automation</Pill>
+            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+              Set the schedule once. It runs itself.
+            </h2>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              A request goes out after fulfillment, with reminders on your own schedule if a
+              customer hasn&apos;t reviewed yet — and stops the moment they do.
+            </p>
+          </Reveal>
+          <AutomationTimeline />
         </Container>
       </section>
 

@@ -1,8 +1,14 @@
+import type { ComponentType } from "react";
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { WidgetPreview } from "@/components/visuals/WidgetPreview";
+import { CollectionFlow } from "@/components/visuals/CollectionFlow";
+import { ModerationFlow } from "@/components/visuals/ModerationFlow";
+import { AISummaryVisual } from "@/components/visuals/AISummaryVisual";
+import { BrandTransformation } from "@/components/visuals/BrandTransformation";
+import { SEOVisual } from "@/components/visuals/SEOVisual";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -23,6 +29,7 @@ const DETAIL_SECTIONS = [
       "Photo reviews, with a moderated media gallery per product",
       "Verified Buyer badges on any review tied to a real order",
     ],
+    visual: "collection",
   },
   {
     eyebrow: "Moderation",
@@ -34,6 +41,7 @@ const DETAIL_SECTIONS = [
       "One scannable queue for everything that needs a human decision",
       "Reply publicly to any review, right from the same screen",
     ],
+    visual: "moderation",
   },
   {
     eyebrow: "AI Insights",
@@ -45,6 +53,7 @@ const DETAIL_SECTIONS = [
       "Surfaced directly in your moderation queue and dashboard",
       "Regenerates automatically as review volume grows",
     ],
+    visual: "ai",
   },
   {
     eyebrow: "Widgets",
@@ -68,6 +77,7 @@ const DETAIL_SECTIONS = [
       "Full control over button style, border radius and text size",
       "Changes apply instantly across every widget on your storefront",
     ],
+    visual: "brand",
   },
   {
     eyebrow: "SEO",
@@ -79,8 +89,18 @@ const DETAIL_SECTIONS = [
       "Kept in sync as reviews are approved, edited or removed",
       "Zero extra requests on your storefront — rendered server-side",
     ],
+    visual: "seo",
   },
 ];
+
+const VISUALS: Record<string, ComponentType> = {
+  collection: CollectionFlow,
+  moderation: ModerationFlow,
+  ai: AISummaryVisual,
+  widgets: WidgetPreview,
+  brand: BrandTransformation,
+  seo: SEOVisual,
+};
 
 export default function FeaturesPage() {
   return (
@@ -95,14 +115,17 @@ export default function FeaturesPage() {
         </Container>
       </section>
 
-      {DETAIL_SECTIONS.map((section, index) => (
+      {DETAIL_SECTIONS.map((section, index) => {
+        const Visual = section.visual ? VISUALS[section.visual] : null;
+
+        return (
         <section key={section.title} className="border-t border-border py-24 md:py-28">
           <Container
             className={section.visual ? "grid items-center gap-14 lg:grid-cols-2" : ""}
           >
-            {section.visual === "widgets" ? (
+            {Visual ? (
               <div className={index % 2 === 1 ? "order-2 lg:order-1" : "order-2"}>
-                <WidgetPreview />
+                <Visual />
               </div>
             ) : null}
 
@@ -127,7 +150,8 @@ export default function FeaturesPage() {
             </div>
           </Container>
         </section>
-      ))}
+        );
+      })}
 
       <section className="border-t border-border py-28 md:py-36">
         <Container>

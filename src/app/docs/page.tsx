@@ -121,9 +121,9 @@ export default function DocsPage() {
               review, tracked through sent, opened and completed states.
             </p>
             <p>
-              Automatic review requests — triggered after order fulfillment — are included on the Growth and
-              Scale plans. This feature is completing Shopify&apos;s protected customer data review and will
-              activate for eligible stores as soon as that approval lands.
+              Automatic review requests — triggered after order fulfillment — have completed Shopify&apos;s
+              protected customer data review and are activating for eligible stores. Manual review requests are
+              unaffected and fully available today on every plan, including their full reminder-email schedule.
             </p>
           </DocSection>
 
@@ -132,21 +132,21 @@ export default function DocsPage() {
               Brand Studio is a no-code design surface for every review widget on your storefront. Start from a
               preset — Minimal, Modern, Editorial, Luxury or Custom — then fine-tune button style, border radius
               and text size with an instant live preview. Changes apply the moment you save. Brand Studio is
-              included on the Growth and Scale plans.
+              included on the Pro plan.
             </p>
           </DocSection>
 
           <DocSection id="ai-summaries" title="AI Summaries">
             <p>
-              On the Growth and Scale plans, every product with approved reviews gets an AI-generated summary:
-              a plain-language read of what customers consistently praise and flag, refreshed automatically as
-              new reviews come in. Summaries appear in your moderation queue and on your Dashboard.
+              On the Pro plan, every product with approved reviews gets an AI-generated summary: a plain-language
+              read of what customers consistently praise and flag, refreshed automatically as new reviews come
+              in. Summaries appear in your moderation queue and on your Dashboard.
             </p>
           </DocSection>
 
           <DocSection id="billing" title="Billing & Plans">
             <p>
-              Imagyn Reviews has three plans — Starter (free), Growth and Scale — billed through Shopify. See the{" "}
+              Imagyn Reviews has two plans — Free and Pro — billed through Shopify. See the{" "}
               <a href="/pricing" className="font-medium text-accent underline-offset-4 hover:underline">
                 Pricing
               </a>{" "}

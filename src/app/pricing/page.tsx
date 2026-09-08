@@ -8,16 +8,18 @@ import { siteConfig } from "@/lib/constants";
 export const metadata: Metadata = pageMetadata({
   title: "Pricing",
   description:
-    "Simple, transparent pricing for Imagyn Reviews. Start free, upgrade for AI summaries, photo reviews and automated review requests.",
+    "Simple, transparent pricing for Imagyn Reviews. Free plan with unlimited reviews, or Pro for AI summaries and full brand control.",
   path: "/pricing",
 });
 
 type PlanFeature = { label: string; comingSoon?: boolean };
 
-// Mirrors app/services/billing/plans.ts in the imagyn-reviews repo — a separate codebase, so
-// this list is kept in sync by hand. `comingSoon` features are real roadmap commitments, not
-// available today; per the pre-launch truthfulness pass, only features with an actual
-// enforcement point in the app render without that tag. Update both files together.
+// Mirrors app/services/billing/plans.ts in the imagyn-reviews repo exactly — a separate
+// codebase, so this is kept in sync by hand. Only two plans are ever merchant-facing there
+// (PLAN_ORDER = ["starter", "growth"]); a third "Scale" tier exists in that file only to
+// preserve existing subscribers' entitlements and must never appear here. `comingSoon`
+// mirrors that file's own flag — a feature only renders without the tag if it has a real
+// enforcement point in the app today. Update both files together.
 const PLANS: {
   id: string;
   name: string;
@@ -29,36 +31,40 @@ const PLANS: {
 }[] = [
   {
     id: "starter",
-    name: "Starter",
+    name: "Free",
     price: "Free",
     trial: null,
-    tagline: "Everything you need to start collecting reviews.",
+    tagline: "Everything you need to start collecting reviews — free, no limits on the core.",
     features: [
-      { label: "Up to 50 reviews" },
-      { label: "Manual review requests" },
-      { label: "Basic review widgets" },
-      { label: "Basic moderation" },
-      { label: "Email notifications" },
+      { label: "Unlimited reviews" },
+      { label: "Unlimited review requests" },
+      { label: "Automated initial review-request emails" },
+      { label: "Email Studio — customize your review-request email" },
+      { label: "Photo reviews" },
+      { label: "Video reviews" },
+      { label: "Review widgets & rating badges" },
+      { label: "Moderation & merchant replies" },
+      { label: "Unlimited CSV imports" },
       { label: "Verified buyer badge" },
-      { label: "CSV import (limited)" },
+      { label: "Helpful voting" },
+      { label: "Core analytics" },
+      { label: "SEO structured data" },
       { label: "Community support" },
     ],
     popular: false,
   },
   {
     id: "growth",
-    name: "Growth",
+    name: "Pro",
     price: "$9.99",
     trial: "14-day free trial",
-    tagline: "For stores actively growing customer trust.",
+    tagline: "For stores that want AI, deeper automation, and full brand control.",
     features: [
-      { label: "Everything in Starter" },
-      { label: "Unlimited reviews" },
-      { label: "Unlimited CSV imports" },
-      { label: "Automatic review requests", comingSoon: true },
-      { label: "Automatic email reminders", comingSoon: true },
+      { label: "Everything in Free" },
       { label: "AI review summaries" },
-      { label: "Photo reviews" },
+      { label: "Automatic email reminders (3 & 7 days)" },
+      { label: "Multiple email templates & reminder emails" },
+      { label: "Advanced email styling", comingSoon: true },
       { label: "Advanced analytics", comingSoon: true },
       { label: "Custom branding" },
       { label: "Multiple widget themes" },
@@ -67,30 +73,12 @@ const PLANS: {
     ],
     popular: true,
   },
-  {
-    id: "scale",
-    name: "Scale",
-    price: "$29.99",
-    trial: "14-day free trial",
-    tagline: "For high-volume stores that need white-label control.",
-    features: [
-      { label: "Everything in Growth" },
-      { label: "Video reviews", comingSoon: true },
-      { label: "White label", comingSoon: true },
-      { label: "Custom email domain (SMTP, Resend, Postmark)", comingSoon: true },
-      { label: "API access", comingSoon: true },
-      { label: "Webhooks", comingSoon: true },
-      { label: "Unlimited team members", comingSoon: true },
-      { label: "Premium support" },
-    ],
-    popular: false,
-  },
 ];
 
 const FAQS = [
   {
     q: "Do I need a credit card to start?",
-    a: "No. The Starter plan is free for as long as you use it, with no card required. Growth and Scale both include a 14-day free trial before you're charged.",
+    a: "No. The Free plan has no time limit and no card required. Pro includes a 14-day free trial before you're charged.",
   },
   {
     q: "Can I change plans later?",
@@ -98,7 +86,7 @@ const FAQS = [
   },
   {
     q: "What happens to my reviews if I downgrade?",
-    a: "Nothing is ever deleted. If you're over the Starter plan's published-review limit, the most recent reviews stay published and older ones simply stop counting toward new publishes until you're back under the limit.",
+    a: "Nothing is ever deleted, hidden, or limited. Review collection, requests, widgets, and moderation are unlimited on the Free plan — downgrading only turns off Pro-only features like AI summaries and Brand Studio.",
   },
   {
     q: "Is there a setup fee?",
@@ -114,14 +102,14 @@ export default function PricingPage() {
           <SectionHeading
             eyebrow="Pricing"
             title="Simple pricing that grows with your store."
-            description="Start free. Upgrade only when you need automated requests, AI summaries and photo reviews."
+            description="Start free, with no limits on the core. Upgrade only when you want AI summaries and full brand control."
           />
         </Container>
       </section>
 
       <section className="pb-24 md:pb-32">
         <Container>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-2">
             {PLANS.map((plan) => (
               <div
                 key={plan.id}
