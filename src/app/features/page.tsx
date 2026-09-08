@@ -9,6 +9,8 @@ import { ModerationFlow } from "@/components/visuals/ModerationFlow";
 import { AISummaryVisual } from "@/components/visuals/AISummaryVisual";
 import { BrandTransformation } from "@/components/visuals/BrandTransformation";
 import { SEOVisual } from "@/components/visuals/SEOVisual";
+import { RewardsVisual } from "@/components/visuals/RewardsVisual";
+import { DistributionVisual } from "@/components/visuals/DistributionVisual";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -91,6 +93,30 @@ const DETAIL_SECTIONS = [
     ],
     visual: "seo",
   },
+  {
+    eyebrow: "Rewards, Coupons & Referrals",
+    title: "Give customers a real reason to come back.",
+    description:
+      "Three independent mechanisms, each issuing a real Shopify discount code automatically — no manual code generation, ever.",
+    points: [
+      "Review Rewards: a discount for a review meeting your own conditions — rating, verified purchase, photo or video",
+      "Coupons: a standalone promotional campaign, independent of any review",
+      "Referrals: a code your customers share, rewarding them the moment a friend's real order uses it",
+    ],
+    visual: "rewards",
+  },
+  {
+    eyebrow: "Distribution",
+    title: "Reviews that work beyond your storefront.",
+    description:
+      "The same approved reviews your widgets show, published in the formats other channels actually accept.",
+    points: [
+      "A Google Shopping-ready feed, in the format Merchant Center accepts",
+      "A public, shareable review page for an email signature, social bio or ad landing page",
+      "A plain-JSON feed for any ad network, affiliate feed or script that isn't Google Merchant Center",
+    ],
+    visual: "distribution",
+  },
 ];
 
 const VISUALS: Record<string, ComponentType> = {
@@ -100,6 +126,8 @@ const VISUALS: Record<string, ComponentType> = {
   widgets: WidgetPreview,
   brand: BrandTransformation,
   seo: SEOVisual,
+  rewards: RewardsVisual,
+  distribution: DistributionVisual,
 };
 
 export default function FeaturesPage() {

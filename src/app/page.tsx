@@ -11,6 +11,8 @@ import { AnalyticsVisualization } from "@/components/visuals/AnalyticsVisualizat
 import { WidgetPreview } from "@/components/visuals/WidgetPreview";
 import { JourneySection } from "@/components/visuals/JourneySection";
 import { BrandTransformation } from "@/components/visuals/BrandTransformation";
+import { RewardsVisual } from "@/components/visuals/RewardsVisual";
+import { DistributionVisual } from "@/components/visuals/DistributionVisual";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/constants";
 
@@ -44,6 +46,14 @@ const CAPABILITIES = [
   {
     title: "Brand Studio",
     description: "Tune every color, radius and type scale — no code, no theme editing required.",
+  },
+  {
+    title: "Rewards, coupons & referrals",
+    description: "Real Shopify discount codes for a review, a standalone campaign, or a friend's first order.",
+  },
+  {
+    title: "Distribution",
+    description: "A Google Shopping-ready feed, a public review page, and JSON for any other channel.",
   },
 ];
 
@@ -155,6 +165,24 @@ export default function Home() {
           Collect → Understand → Showcase as the visitor scrolls. */}
       <JourneySection />
 
+      {/* LIGHT — Reward: the fourth real stage, three independent mechanisms. */}
+      <section className="border-t border-border py-24 md:py-32">
+        <Container className="grid items-center gap-14 lg:grid-cols-2">
+          <Reveal className="flex flex-col gap-5">
+            <Pill tone="dark">Reward</Pill>
+            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+              Give customers a real reason to come back.
+            </h2>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              A discount for leaving a review, a standalone coupon campaign, or a code your
+              best customers share with friends — every one issues a real Shopify discount
+              code automatically.
+            </p>
+          </Reveal>
+          <RewardsVisual />
+        </Container>
+      </section>
+
       {/* BLACK — brand customization, the emotional close before capabilities. */}
       <section className="bg-foreground py-24 md:py-32">
         <Container className="grid items-center gap-14 lg:grid-cols-2">
@@ -172,6 +200,24 @@ export default function Home() {
             </p>
           </Reveal>
           <BrandTransformation />
+        </Container>
+      </section>
+
+      {/* LIGHT — Grow: the fifth real stage, reviews reaching shoppers beyond your storefront. */}
+      <section className="border-t border-border py-24 md:py-32">
+        <Container className="grid items-center gap-14 lg:grid-cols-2">
+          <Reveal className="flex flex-col gap-5">
+            <Pill tone="dark">Grow</Pill>
+            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+              Reviews that work beyond your storefront.
+            </h2>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              A Google Shopping-ready feed, a shareable public review page, and a plain-JSON
+              feed for anything else — the same approved reviews, reaching shoppers wherever
+              they&apos;re already looking.
+            </p>
+          </Reveal>
+          <DistributionVisual />
         </Container>
       </section>
 
