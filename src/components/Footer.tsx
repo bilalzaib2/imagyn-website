@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <Container className="py-16">
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-6">
           <div className="col-span-2">
             <Logo />
             <p className="mt-4 max-w-xs text-[15px] leading-relaxed text-muted-foreground">
@@ -17,6 +17,7 @@ export function Footer() {
           </div>
 
           <FooterColumn title="Product" links={FOOTER_LINKS.product} />
+          <FooterColumn title="Resources" links={FOOTER_LINKS.resources} />
           <FooterColumn title="Company" links={FOOTER_LINKS.company} />
           <FooterColumn title="Legal" links={FOOTER_LINKS.legal} />
         </div>

@@ -1,7 +1,22 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/constants";
 
-const PATHS = ["/", "/features", "/pricing", "/docs", "/support", "/contact", "/privacy", "/terms"];
+const PATHS = [
+  "/",
+  "/features",
+  "/widgets",
+  "/brand-studio",
+  "/ai",
+  "/rewards",
+  "/integrations",
+  "/pricing",
+  "/docs",
+  "/support",
+  "/about",
+  "/contact",
+  "/privacy",
+  "/terms",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
