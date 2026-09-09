@@ -22,6 +22,11 @@ export const PRODUCT_LINKS = [
     description: "Star ratings, photos and review requests — collected the way customers actually give them.",
   },
   {
+    label: "Review Requests",
+    href: "/review-requests",
+    description: "Manual or automatic requests after fulfillment, with configurable reminders.",
+  },
+  {
     label: "Widgets",
     href: "/widgets",
     description: "Product review lists, rating badges and collection-grid stars, styled to match your brand.",
@@ -35,6 +40,11 @@ export const PRODUCT_LINKS = [
     label: "AI Insights",
     href: "/ai",
     description: "A plain-language summary of what customers consistently praise and flag, per product.",
+  },
+  {
+    label: "Analytics",
+    href: "/analytics",
+    description: "Rating distribution, review volume and request performance, from your real data.",
   },
   {
     label: "Rewards & Referrals",

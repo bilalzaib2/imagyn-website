@@ -4,9 +4,11 @@ import { siteConfig } from "@/lib/constants";
 const PATHS = [
   "/",
   "/features",
+  "/review-requests",
   "/widgets",
   "/brand-studio",
   "/ai",
+  "/analytics",
   "/rewards",
   "/integrations",
   "/pricing",
