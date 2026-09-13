@@ -129,6 +129,14 @@ export const NAV_LINKS = [
 
 export const FOOTER_LINKS = {
   product: PRODUCT_LINKS.map(({ label, href }) => ({ label, href })),
+  // Real segment pages only (see merchantSegments.ts) — no fabricated "for agencies" or
+  // "for enterprise" columns invented just to fill space.
+  solutions: [
+    SOLUTIONS_LINK,
+    { label: "New stores", href: "/solutions/new-stores" },
+    { label: "Growing stores", href: "/solutions/growing-stores" },
+    { label: "Switching platforms", href: "/solutions/switching-platforms" },
+  ],
   resources: [
     { label: "Resources", href: "/resources" },
     { label: "Documentation", href: "/docs" },
@@ -136,7 +144,7 @@ export const FOOTER_LINKS = {
     { label: "Support", href: "/support" },
     { label: "Pricing", href: "/pricing" },
   ],
-  company: [WHY_LINK, SOLUTIONS_LINK, ...COMPANY_LINKS],
+  company: [WHY_LINK, ...COMPANY_LINKS],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },

@@ -32,7 +32,7 @@ export default function SolutionsPage() {
             <Reveal key={segment.slug} delayMs={index * 80}>
               <a
                 href={`/solutions/${segment.slug}`}
-                className="flex h-full flex-col gap-3 rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-accent"
+                className="flex h-full flex-col gap-3 rounded-2xl border border-border bg-surface p-7 transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-soft motion-reduce:hover:translate-y-0"
               >
                 <h2 className="text-lg font-semibold text-foreground">{segment.name}</h2>
                 <p className="text-[15px] leading-relaxed text-muted-foreground">{segment.summary}</p>

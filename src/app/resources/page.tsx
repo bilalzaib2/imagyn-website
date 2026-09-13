@@ -57,7 +57,7 @@ export default function ResourcesPage() {
             <Reveal key={group.title} delayMs={index * 80}>
               <a
                 href={group.href}
-                className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-accent"
+                className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7 transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-soft motion-reduce:hover:translate-y-0"
               >
                 <h2 className="text-lg font-semibold text-foreground">{group.title}</h2>
                 <p className="text-[15px] leading-relaxed text-muted-foreground">{group.description}</p>

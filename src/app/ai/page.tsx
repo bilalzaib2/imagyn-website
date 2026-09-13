@@ -59,7 +59,7 @@ export default function AiPage() {
               <Reveal key={surface.slug} delayMs={index * 80}>
                 <a
                   href={`/ai/${surface.slug}`}
-                  className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-accent"
+                  className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7 transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-soft motion-reduce:hover:translate-y-0"
                 >
                   <h3 className="text-lg font-semibold text-foreground">{surface.name}</h3>
                   <p className="text-[15px] leading-relaxed text-muted-foreground">{surface.summary}</p>

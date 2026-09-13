@@ -32,6 +32,16 @@
   --lime: #5c9754;
   --lime-soft: #e7efe4;
   --lime-ink: var(--foreground);
+
+  /* A tonal system built outward from the one brand green, for the site's dark sections —
+     never an unrelated dark navy or gray. --forest is a deep, desaturated green-black (not
+     pure black) used as a dark section's own background; --sage is a muted, lower-contrast
+     green for secondary text and borders sitting on top of it; --forest-border is a barely-
+     there green-tinted hairline for dividing content within a dark section. */
+  --forest: #0e1710;
+  --forest-surface: #16221a;
+  --sage: #9db797;
+  --forest-border: rgba(157, 183, 151, 0.16);
 }
 
 @theme inline {
@@ -47,6 +57,10 @@
   --color-lime: var(--lime);
   --color-lime-soft: var(--lime-soft);
   --color-lime-ink: var(--lime-ink);
+  --color-forest: var(--forest);
+  --color-forest-surface: var(--forest-surface);
+  --color-sage: var(--sage);
+  --color-forest-border: var(--forest-border);
 
   --font-sans: Helvetica, Arial, sans-serif;
 
@@ -56,6 +70,22 @@
   --shadow-soft: 0 1px 2px rgba(10, 10, 10, 0.04), 0 8px 24px rgba(10, 10, 10, 0.06);
   --shadow-elevated: 0 2px 6px rgba(10, 10, 10, 0.05), 0 16px 40px rgba(10, 10, 10, 0.08),
     0 40px 80px rgba(10, 10, 10, 0.07);
+
+  /* Used by ProductCarousel's slide transition (`animate-[fadeIn_...]`) — a plain opacity
+     and rise, respected by the same `motion-reduce:` convention every other animated
+     component on this site already follows. */
+  --animate-fade-in: fadeIn 400ms ease-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 /* Tailwind v4 emits its own utilities inside a `utilities` cascade layer. Any plain,

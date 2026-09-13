@@ -4,7 +4,7 @@ import { Button } from "@/components/Button";
 import { Pill } from "@/components/Pill";
 import { CircleCluster } from "@/components/CircleCluster";
 import { Reveal } from "@/components/Reveal";
-import { HeroStream } from "@/components/visuals/HeroStream";
+import { HeroComposition } from "@/components/visuals/HeroComposition";
 import { EmailStudioVisual } from "@/components/visuals/EmailStudioVisual";
 import { AutomationTimeline } from "@/components/visuals/AutomationTimeline";
 import { AnalyticsVisualization } from "@/components/visuals/AnalyticsVisualization";
@@ -15,6 +15,7 @@ import { RewardsVisual } from "@/components/visuals/RewardsVisual";
 import { DistributionVisual } from "@/components/visuals/DistributionVisual";
 import { TrustCertificationVisual } from "@/components/visuals/TrustCertificationVisual";
 import { ImportMigrationVisual } from "@/components/visuals/ImportMigrationVisual";
+import { ProductCarousel } from "@/components/visuals/ProductCarousel";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/constants";
 
@@ -94,7 +95,23 @@ export default function Home() {
             </div>
           </div>
 
-          <HeroStream />
+          <HeroComposition />
+        </Container>
+      </section>
+
+      {/* LIGHT, a fast platform overview before the page walks through each stage on its
+          own: five real surfaces, cycling automatically. */}
+      <section className="py-24 md:py-28">
+        <Container className="flex flex-col items-center gap-10">
+          <div className="max-w-xl text-center">
+            <span className="text-xs font-semibold tracking-[0.02em] text-accent">The platform</span>
+            <h2 className="mt-4 text-[clamp(1.75rem,3.4vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+              One system, five real surfaces.
+            </h2>
+          </div>
+          <div className="w-full max-w-xl">
+            <ProductCarousel />
+          </div>
         </Container>
       </section>
 
@@ -193,20 +210,21 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* LIGHT, Trust: its own homepage moment, since Imagyn's certification model (four
-          real, repeatable checks, never purchased) is more differentiated than a typical
-          review app's trust story. */}
-      <section className="border-t border-border py-24 md:py-32">
+      {/* DARK (forest), Trust: its own homepage moment, since Imagyn's certification model
+          (four real, repeatable checks, never purchased) is more differentiated than a
+          typical review app's trust story. Real product UI floats above the dark
+          background exactly as it does on a light section, unchanged internally. */}
+      <section className="bg-forest py-24 md:py-32">
         <Container className="grid items-center gap-14 lg:grid-cols-2">
           <Reveal>
             <TrustCertificationVisual />
           </Reveal>
           <Reveal className="flex flex-col gap-5 lg:order-2" delayMs={80}>
-            <Pill tone="dark">Trust</Pill>
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+            <Pill tone="lime">Trust</Pill>
+            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-white">
               A trust badge that has to earn it.
             </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
+            <p className="text-lg leading-relaxed text-sage">
               Four independent checks, calculated from your store&apos;s own real data on their
               own schedule. No pillar can be talked into passing, and a review only earns a
               Verified Buyer badge when Imagyn can check it against an actual order.

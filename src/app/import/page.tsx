@@ -90,7 +90,7 @@ export default function ImportPage() {
               <Reveal key={source.slug} delayMs={index * 70}>
                 <a
                   href={`/import/${source.slug}`}
-                  className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-accent"
+                  className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7 transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-soft motion-reduce:hover:translate-y-0"
                 >
                   <div className="flex items-center justify-between gap-2">
                     <h3 className="text-lg font-semibold text-foreground">{source.name}</h3>
