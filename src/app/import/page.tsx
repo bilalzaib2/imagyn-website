@@ -4,6 +4,7 @@ import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { ImportMigrationVisual } from "@/components/visuals/ImportMigrationVisual";
+import { IMPORT_SOURCES } from "@/lib/importSources";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -12,14 +13,6 @@ export const metadata: Metadata = pageMetadata({
     "Bring your existing reviews to Imagyn from Judge.me, Loox, Stamped, Ali Reviews or a plain CSV file, with a full preview before anything is imported and nothing ever fabricated.",
   path: "/import",
 });
-
-const SOURCES = [
-  { name: "Judge.me", description: "A real Judge.me export, matched by product and checked for duplicates automatically." },
-  { name: "Loox", description: "Loox's own export format, mapped to the same review fields every other source uses." },
-  { name: "Stamped", description: "Stamped's export format, supported the same way as every other source." },
-  { name: "Ali Reviews", description: "Ali Reviews' export format, including photos where the file provides them." },
-  { name: "Plain CSV", description: "Any spreadsheet export, with columns you map yourself before anything is imported." },
-];
 
 const STEPS = [
   {
@@ -93,12 +86,23 @@ export default function ImportPage() {
         <Container>
           <SectionHeading eyebrow="Supported sources" title="Coming from somewhere else? We probably read that file." align="left" />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SOURCES.map((source, index) => (
-              <Reveal key={source.name} delayMs={index * 70}>
-                <div className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7">
-                  <h3 className="text-lg font-semibold text-foreground">{source.name}</h3>
-                  <p className="text-[15px] leading-relaxed text-muted-foreground">{source.description}</p>
-                </div>
+            {IMPORT_SOURCES.map((source, index) => (
+              <Reveal key={source.slug} delayMs={index * 70}>
+                <a
+                  href={`/import/${source.slug}`}
+                  className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-accent"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="text-lg font-semibold text-foreground">{source.name}</h3>
+                    {source.status === "verified" ? (
+                      <span className="rounded-full bg-lime-soft px-3 py-1 text-xs font-semibold text-lime-ink">
+                        Verified
+                      </span>
+                    ) : null}
+                  </div>
+                  <p className="text-[15px] leading-relaxed text-muted-foreground">{source.summary}</p>
+                  <span className="mt-2 text-[14px] font-medium text-foreground">See details →</span>
+                </a>
               </Reveal>
             ))}
           </div>

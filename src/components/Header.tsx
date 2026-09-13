@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { Button } from "./Button";
-import { PRODUCT_GROUPS, RESOURCES_LINKS, COMPANY_LINKS, siteConfig } from "@/lib/constants";
+import { PRODUCT_GROUPS, WHY_LINK, RESOURCES_LINKS, COMPANY_LINKS, siteConfig } from "@/lib/constants";
 
 // A single top-level link (Pricing, and each Resources/Company item), same underline-on-
 // hover treatment the old flat nav used, kept for the items that don't need a dropdown.
@@ -120,6 +120,7 @@ export function Header() {
 
         <nav className="hidden items-center gap-9 md:flex">
           <ProductMenu />
+          <TopLink href={WHY_LINK.href} label={WHY_LINK.label} />
           <TopLink href="/pricing" label="Pricing" />
           {RESOURCES_LINKS.map((link) => (
             <TopLink key={link.href} href={link.href} label={link.label} />
@@ -201,6 +202,13 @@ export function Header() {
               </div>
             ) : null}
 
+            <a
+              href={WHY_LINK.href}
+              onClick={() => setOpen(false)}
+              className="rounded-lg px-3 py-3 text-[15px] font-medium text-foreground hover:bg-surface"
+            >
+              {WHY_LINK.label}
+            </a>
             <a
               href="/pricing"
               onClick={() => setOpen(false)}

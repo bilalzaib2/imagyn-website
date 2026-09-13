@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/constants";
+import { IMPORT_SOURCES } from "@/lib/importSources";
 
 const PATHS = [
   "/",
@@ -12,7 +13,10 @@ const PATHS = [
   "/rewards",
   "/trust",
   "/import",
+  ...IMPORT_SOURCES.map((source) => `/import/${source.slug}`),
+  "/public-review-site",
   "/integrations",
+  "/why-imagyn",
   "/pricing",
   "/docs",
   "/support",

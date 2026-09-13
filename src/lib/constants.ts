@@ -77,6 +77,11 @@ export const PRODUCT_GROUPS = [
         description: "Bring your reviews from Judge.me, Loox, Stamped, Ali Reviews or a plain CSV.",
       },
       {
+        label: "Public Review Site",
+        href: "/public-review-site",
+        description: "A shareable, public review page for every product, built from your real approved reviews.",
+      },
+      {
         label: "Integrations",
         href: "/integrations",
         description: "Native Shopify data, Google Shopping feeds, and a public review site.",
@@ -84,6 +89,10 @@ export const PRODUCT_GROUPS = [
     ],
   },
 ];
+
+// Its own top level nav item, matching how judge.me treats "Why Judge.me" as a category
+// alongside Products and Pricing rather than burying it in a dropdown.
+export const WHY_LINK = { label: "Why Imagyn", href: "/why-imagyn" };
 
 // Flat form of PRODUCT_GROUPS, kept for the mobile drawer, the footer, and NAV_LINKS below —
 // generated from the grouped source so the two views can never drift out of sync.
@@ -104,6 +113,7 @@ export const COMPANY_LINKS = [
 // hand.
 export const NAV_LINKS = [
   ...PRODUCT_LINKS.map(({ label, href }) => ({ label, href })),
+  WHY_LINK,
   { label: "Pricing", href: "/pricing" },
   ...RESOURCES_LINKS,
   ...COMPANY_LINKS,
@@ -112,7 +122,7 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = {
   product: PRODUCT_LINKS.map(({ label, href }) => ({ label, href })),
   resources: [...RESOURCES_LINKS, { label: "Pricing", href: "/pricing" }],
-  company: COMPANY_LINKS,
+  company: [WHY_LINK, ...COMPANY_LINKS],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },

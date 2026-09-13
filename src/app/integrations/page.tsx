@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -91,9 +92,12 @@ export default function IntegrationsPage() {
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Related</p>
           <div className="flex flex-wrap gap-6">
-            <a href="/import" className="text-[15px] font-medium text-foreground hover:text-accent">
-              Import & Migration →
+            <a href="/public-review-site" className="text-[15px] font-medium text-foreground hover:text-accent">
+              Public Review Site →
             </a>
+            <Link href="/import" className="text-[15px] font-medium text-foreground hover:text-accent">
+              Import & Migration →
+            </Link>
             <a href="/features" className="text-[15px] font-medium text-foreground hover:text-accent">
               All features →
             </a>
