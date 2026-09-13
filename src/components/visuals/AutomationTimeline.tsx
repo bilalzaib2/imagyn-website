@@ -23,7 +23,7 @@ export function AutomationTimeline() {
 
   useEffect(() => {
     // Reduced motion shows every step already complete via the render-time fallback below,
-    // instead of a setState call here — this effect only ever runs the staggered animation.
+    // instead of a setState call here, this effect only ever runs the staggered animation.
     if (!inView || reducedMotion) return;
     const timers = STEPS.map((_, i) => setTimeout(() => setActiveStep(i), 260 * (i + 1)));
     return () => timers.forEach(clearTimeout);

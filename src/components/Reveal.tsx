@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import { useInView } from "@/lib/motion";
 
-// The one reveal-on-scroll primitive every section below composes with — a single
+// The one reveal-on-scroll primitive every section below composes with, a single
 // mechanism (fade + rise, CSS transition, IntersectionObserver-triggered) instead of a
 // different bespoke animation per section, which is what keeps the page feeling like one
 // system rather than a demo reel of unrelated effects.

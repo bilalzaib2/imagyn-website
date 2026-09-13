@@ -3,9 +3,9 @@
 import { DEMO_REVIEWS, ReviewCardVisual, Stars } from "./ReviewCard";
 import { useInView } from "@/lib/motion";
 
-// Features page — Collection section. A compact, static (not scroll-tracked) version of the
+// Features page, Collection section. A compact, static (not scroll-tracked) version of the
 // same "request becomes review" idea JourneySection's Collect stage tells at the signature-
-// interaction scale — reused here as its own self-contained visual for a section that doesn't
+// interaction scale, reused here as its own self-contained visual for a section that doesn't
 // need the full scroll-driven treatment.
 export function CollectionFlow() {
   const { ref, inView } = useInView<HTMLDivElement>();
@@ -19,7 +19,7 @@ export function CollectionFlow() {
             inView ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
           }`}
         >
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Review request</p>
+          <p className="text-xs font-semibold tracking-wide text-muted-foreground">Review request</p>
           <p className="mt-1 text-sm font-semibold text-foreground">Sent after fulfillment</p>
         </div>
 

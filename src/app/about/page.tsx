@@ -8,22 +8,22 @@ import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
-  description: "Imagyn Reviews is built by Imagyn Studios — a focused, Shopify-native review platform, built to be genuinely used, not just installed.",
+  description: "Imagyn Reviews is built by Imagyn Studios, a focused, Shopify native review platform, built to be genuinely used, not just installed.",
   path: "/about",
 });
 
 const PRINCIPLES = [
   {
     title: "Built natively on Shopify",
-    description: "Every feature is built directly on Shopify's own Admin API and Theme App Extensions — no separate dashboard to learn, no iframe hack, no data export required.",
+    description: "Every feature is built directly on Shopify's own Admin API and Theme App Extensions, no separate dashboard to learn, no iframe hack, no data export required.",
   },
   {
     title: "Nothing advertised that isn't real",
-    description: "If a feature is listed on this site or in the app, it works today. We'd rather say less than overclaim — pricing and feature pages are kept in sync with what's actually shipped.",
+    description: "If a feature is listed on this site or in the app, it works today. We'd rather say less than overclaim, pricing and feature pages are kept in sync with what's actually shipped.",
   },
   {
     title: "Never fabricated data",
-    description: "Ratings, review counts and AI summaries are always generated from a store's real, approved reviews — never invented, never padded.",
+    description: "Ratings, review counts and AI summaries are always generated from a store's real, approved reviews, never invented, never padded.",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="About"
             title="A focused review platform, built to be used."
-            description={`${siteConfig.name} is built by Imagyn Studios — one product, built for Shopify merchants who want their reviews to look like part of their store, not a plugin.`}
+            description={`${siteConfig.name} is built by Imagyn Studios, one product, built for Shopify merchants who want their reviews to look like part of their store, not a plugin.`}
           />
         </Container>
       </section>

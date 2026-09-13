@@ -4,7 +4,7 @@ import { DEMO_REVIEWS, Stars } from "./ReviewCard";
 import { useInView } from "@/lib/motion";
 
 // Incoming reviews -> moderation -> publish, matching the app's real rule (minimum rating +
-// banned-word list auto-publish/auto-hold — see moderationRules.server.ts) rather than a
+// banned-word list auto-publish/auto-hold, see moderationRules.server.ts) rather than a
 // generic "AI moderation" graphic.
 const ROWS = [
   { review: DEMO_REVIEWS[0], outcome: "published" as const },
@@ -17,7 +17,7 @@ export function ModerationFlow() {
 
   return (
     <div ref={ref} className="rounded-[28px] border border-border bg-white p-6 md:p-8">
-      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+      <p className="text-xs font-semibold tracking-wide text-muted-foreground">
         Minimum rating: 4 stars &middot; banned words: on
       </p>
 

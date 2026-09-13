@@ -10,6 +10,8 @@ const PATHS = [
   "/ai",
   "/analytics",
   "/rewards",
+  "/trust",
+  "/import",
   "/integrations",
   "/pricing",
   "/docs",

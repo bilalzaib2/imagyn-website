@@ -3,7 +3,7 @@
 import { Stars } from "./ReviewCard";
 import { useInView } from "@/lib/motion";
 
-// Review -> structured data -> search snippet. Deliberately makes no ranking promises — just
+// Review -> structured data -> search snippet. Deliberately makes no ranking promises, just
 // shows the real, shipped mechanism (JSON-LD synced from approved reviews) as a search-result
 // preview, which is what actually happens today.
 export function SEOVisual() {
@@ -50,7 +50,7 @@ export function SEOVisual() {
             <span className="text-[11px] text-muted-foreground">Rating: 4.8 · 128 reviews</span>
           </div>
           <p className="mt-1 text-[11px] text-muted-foreground">
-            Example search result snippet — illustrative, not a ranking guarantee.
+            Example search result snippet, illustrative, not a ranking guarantee.
           </p>
         </div>
       </div>

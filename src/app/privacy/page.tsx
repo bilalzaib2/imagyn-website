@@ -40,7 +40,7 @@ export default function PrivacyPage() {
               <strong className="font-semibold">From your customers, when they leave a review.</strong>{" "}Reviewer
               name, email address (used only to confirm review authenticity and for optional merchant replies),
               star rating, written review text, and any photos voluntarily uploaded. If a review is submitted
-              through a review-request link tied to an order, we also record that it is a verified purchase.
+              through a review request link tied to an order, we also record that it is a verified purchase.
             </p>
             <p>
               <strong className="font-semibold">Automatically.</strong>{" "}A random, anonymous identifier stored
@@ -52,8 +52,8 @@ export default function PrivacyPage() {
 
           <LegalSection title="3. How we use information">
             <ul className="flex list-disc flex-col gap-2 pl-5">
-              <li>To operate the app: display reviews, run moderation rules, and send review-request emails.</li>
-              <li>To generate AI-powered review summaries, on plans that include this feature.</li>
+              <li>To operate the app: display reviews, run moderation rules, and send review request emails.</li>
+              <li>To generate AI powered review summaries, on plans that include this feature.</li>
               <li>To detect and prevent fraudulent or duplicate reviews.</li>
               <li>To provide support when a merchant or their customer contacts us.</li>
               <li>To comply with legal obligations, including Shopify&apos;s mandatory data-protection requirements.</li>
@@ -64,20 +64,20 @@ export default function PrivacyPage() {
             <p>We do not sell personal information. We share data only as follows:</p>
             <ul className="flex list-disc flex-col gap-2 pl-5">
               <li>
-                <strong className="font-semibold">Shopify</strong>{" "}— as the platform Imagyn Reviews runs on,
+                <strong className="font-semibold">Shopify</strong>, as the platform Imagyn Reviews runs on,
                 for authentication, billing and store data access.
               </li>
               <li>
-                <strong className="font-semibold">Infrastructure providers</strong>{" "}— our hosting and database
+                <strong className="font-semibold">Infrastructure providers</strong>, our hosting and database
                 providers, who process data on our behalf under standard data-processing terms.
               </li>
               <li>
-                <strong className="font-semibold">AI providers</strong>{" "}— review text may be sent to a
+                <strong className="font-semibold">AI providers</strong>, review text may be sent to a
                 third-party AI provider solely to generate the AI review summary feature, on plans that include
                 it. Reviewer contact details are never included in this data.
               </li>
               <li>
-                <strong className="font-semibold">Email providers</strong>{" "}— used to deliver review-request
+                <strong className="font-semibold">Email providers</strong>, used to deliver review request
                 emails and merchant notifications.
               </li>
             </ul>
@@ -107,7 +107,7 @@ export default function PrivacyPage() {
           <LegalSection title="7. Cookies">
             <p>
               The storefront review widget uses a minimal, first-party, anonymous identifier stored in local
-              storage — used only to remember a visitor&apos;s own helpful-vote choices on reviews. It does not
+              storage, used only to remember a visitor&apos;s own helpful-vote choices on reviews. It does not
               track visitors across other websites.
             </p>
           </LegalSection>

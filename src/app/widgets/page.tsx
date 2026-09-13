@@ -9,37 +9,37 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Widgets",
   description:
-    "Product review lists, star-rating badges and collection-grid ratings for Shopify — styled through Brand Studio so nothing looks bolted on.",
+    "Product review lists, star rating badges and collection grid ratings for Shopify, styled through Brand Studio so nothing looks bolted on.",
   path: "/widgets",
 });
 
 const WIDGETS = [
   {
     name: "Product Reviews Widget",
-    description: "The full review experience on a product page — summary, rating histogram, review list and a write-a-review form.",
+    description: "The full review experience on a product page, summary, rating histogram, review list and a write a review form.",
   },
   {
     name: "Product Rating Badge",
-    description: "A compact star-and-count signal placed near the buy box, for shoppers who never scroll to the review list.",
+    description: "A compact star and count signal placed near the buy box, for shoppers who never scroll to the review list.",
   },
   {
     name: "Collection Rating Badge",
-    description: "Star ratings on product cards everywhere they appear in a grid — collections, search results, featured sections.",
+    description: "Star ratings on product cards everywhere they appear in a grid, collections, search results, featured sections.",
   },
   {
     name: "Review Carousel",
-    description: "A store-wide, scrollable showcase of your best real reviews — typically placed on the homepage.",
+    description: "A store wide, scrollable showcase of your best real reviews, typically placed on the homepage.",
   },
 ];
 
 const STEPS = [
   {
     title: "Choose a widget",
-    description: "Pick from the Widgets page inside the app — each one shows exactly where it will appear before you add it.",
+    description: "Pick from the Widgets page inside the app, each one shows exactly where it will appear before you add it.",
   },
   {
     title: "Add it to your theme",
-    description: "One click opens the Shopify Theme Editor with the widget already selected — no manual embed code, no Liquid to write.",
+    description: "One click opens the Shopify Theme Editor with the widget already selected, no manual embed code, no Liquid to write.",
   },
   {
     title: "Style it in Brand Studio",
@@ -53,13 +53,13 @@ export default function WidgetsPage() {
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="grid items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Widgets</span>
+            <span className="text-xs font-semibold tracking-[0.02em] text-accent">Widgets</span>
             <h1 className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
               Storefront widgets that match your brand, not ours.
             </h1>
             <p className="text-lg leading-relaxed text-muted-foreground">
               Four real widgets, one design system. Every star, badge and review card reads its style from Brand
-              Studio — change your accent color once, and it updates everywhere reviews appear on your storefront.
+              Studio, change your accent color once, and it updates everywhere reviews appear on your storefront.
             </p>
             <div className="mt-2 flex flex-wrap gap-4">
               <Button href="/pricing" size="lg">

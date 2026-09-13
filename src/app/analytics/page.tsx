@@ -9,13 +9,13 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Analytics",
   description:
-    "See your rating distribution, review volume, and request performance at a glance — built from your store's real review data.",
+    "See your rating distribution, review volume, and request performance at a glance, built from your store's real review data.",
   path: "/analytics",
 });
 
 const METRICS = [
-  { title: "Rating distribution", description: "Every approved review, broken down star by star — spot a slipping product before it shows up in support tickets." },
-  { title: "Request performance", description: "Scheduled, sent, completed, and completion rate — know whether your request schedule is actually working." },
+  { title: "Rating distribution", description: "Every approved review, broken down star by star, spot a slipping product before it shows up in support tickets." },
+  { title: "Request performance", description: "Scheduled, sent, completed, and completion rate, know whether your request schedule is actually working." },
   { title: "AI Spotlight", description: "The most recent AI summary generated for any of your products, surfaced right on your dashboard." },
 ];
 
@@ -25,12 +25,12 @@ export default function AnalyticsPage() {
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="grid items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Analytics</span>
+            <span className="text-xs font-semibold tracking-[0.02em] text-accent">Analytics</span>
             <h1 className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
-              Your reviews, read as a trend — not a pile.
+              Your reviews, read as a trend, not a pile.
             </h1>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              A rating distribution, review volume over time, and review-request completion rate — all built from
+              A rating distribution, review volume over time, and review request completion rate, all built from
               your store&apos;s own real data, on your dashboard, no separate report to check.
             </p>
             <div className="mt-2 flex flex-wrap gap-4">

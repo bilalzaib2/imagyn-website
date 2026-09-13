@@ -1,29 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm off-white, not pure white — the light-background hard requirement, with enough
-     warmth that it doesn't read as a default Tailwind/shadcn white canvas. */
-  --background: #fbfbf6;
+  /* IMAGYN off white — the brand's actual, specified background value (not a generic
+     off-white approximation). Sits under everything as 60 to 70% of the page. */
+  --background: #f1f1f1;
   --foreground: #0a0a0a;
   --muted-foreground: #6b6b6b;
   /* --accent (eyebrows, links, bullets) stays near-black — hierarchy comes from
-     typography/spacing/weight, not a separate brand color for body-level text. Lime is
-     reserved for the signature moments below, never for running text or links, so it
+     typography/spacing/weight, not a separate brand color for body-level text. The green
+     below is reserved for the signature moments, never for running text or links, so it
      keeps its impact instead of becoming wallpaper. */
   --accent: var(--foreground);
   --accent-soft: #f2f2f2;
-  --border: #e6e6e6;
+  --border: #e0e0e0;
   --surface: #fafafa;
 
   --button-primary: var(--foreground);
   --button-primary-hover: #262626;
 
-  /* The brand's chartreuse — used deliberately and sparingly: a handful of full-bleed
-     section backgrounds, small label pills, and the decorative circle motif. Never body
-     text, never a wash over the whole page. --lime-ink is near-black text sitting on top
-     of it (same foreground, named separately so its intent at each call site is obvious). */
-  --lime: #d6ff5c;
-  --lime-soft: #eeffc7;
+  /* IMAGYN green (#5C9754) — the brand's one restrained color accent: a handful of
+     full-bleed section backgrounds, small label pills, the decorative circle motif, star
+     ratings and small UI moments. Kept to roughly 5 to 10% of any given screen, per brand
+     guidelines. Never body text, never a wash over the whole page. Token names below stay
+     "lime" for historical reasons (this file used to hold a chartreuse accent before the
+     brand guidelines specified a real green) — renaming them would mean touching every
+     `bg-lime`/`text-lime-ink` call site across the codebase for no visual benefit, so only
+     the actual color values changed here. --lime-ink is near-black text sitting on top of
+     the accent (same foreground, named separately so its intent at each call site is
+     obvious), except where the accent itself is used as a text color on a light surface,
+     where it needs to be the accent's own darker read for contrast. */
+  --lime: #5c9754;
+  --lime-soft: #e7efe4;
   --lime-ink: var(--foreground);
 }
 

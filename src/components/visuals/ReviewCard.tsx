@@ -1,4 +1,4 @@
-// A purpose-built, illustrative review card — not a screenshot of the real app, and not
+// A purpose-built, illustrative review card, not a screenshot of the real app, and not
 // styled to impersonate it. This is the one visual unit every feature demo below reuses
 // (hero stream, journey, widget showcase, Brand Studio switcher), so the whole page reads
 // as one system: the same "review object" moving through different product moments.
@@ -12,7 +12,7 @@ export type DemoReview = {
 
 export const DEMO_REVIEWS: DemoReview[] = [
   { name: "Priya K.", rating: 5, title: "Exactly as described", body: "Fits perfectly and the color is even better in person.", verified: true },
-  { name: "Marcus T.", rating: 5, title: "Fast shipping, great quality", body: "Second order from this store — never disappoints.", verified: true },
+  { name: "Marcus T.", rating: 5, title: "Fast shipping, great quality", body: "Second order from this store, never disappoints.", verified: true },
   { name: "Aiko S.", rating: 4, title: "Really happy with this", body: "Small sizing issue but customer support sorted it fast.", verified: true },
   { name: "Diego R.", rating: 5, title: "Worth every penny", verified: true },
   { name: "Nora B.", rating: 5, title: "My new favorite", body: "Already ordered two more for gifts.", verified: true },
@@ -52,7 +52,7 @@ export function ReviewCardVisual({
       <div className="flex items-center justify-between gap-2">
         <Stars rating={review.rating} />
         {review.verified ? (
-          <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+          <span className="text-[10px] font-semibold tracking-wide text-muted-foreground">
             Verified
           </span>
         ) : null}

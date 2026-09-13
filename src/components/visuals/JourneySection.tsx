@@ -9,7 +9,7 @@ const STAGES = [
     key: "collect",
     eyebrow: "Collect",
     title: "A request goes out. A review comes back.",
-    body: "Customers rate and write a review directly from a review request — no account, no friction.",
+    body: "Customers rate and write a review directly from a review request, no account, no friction.",
   },
   {
     key: "understand",
@@ -21,13 +21,13 @@ const STAGES = [
     key: "showcase",
     eyebrow: "Showcase",
     title: "One review, everywhere it matters.",
-    body: "The same approved review becomes a storefront review, a rating badge, and a collection-grid star — styled to match your brand.",
+    body: "The same approved review becomes a storefront review, a rating badge, and a collection grid star, styled to match your brand.",
   },
 ] as const;
 
 // The signature interaction: one review object visibly becomes Collect → Understand →
 // Showcase as the visitor scrolls, using three IntersectionObserver triggers (one per
-// stage) instead of a scroll-position listener — no per-frame scroll math, just three
+// stage) instead of a scroll-position listener, no per-frame scroll math, just three
 // cheap, native, disconnect-when-done observers.
 export function JourneySection() {
   const [activeStage, setActiveStage] = useState(0);
@@ -58,7 +58,7 @@ export function JourneySection() {
             {STAGES.map((stage, index) => (
               <div key={stage.key} ref={triggerRefs[index]} className="flex flex-col gap-4">
                 <span
-                  className={`text-xs font-semibold uppercase tracking-[0.2em] transition-colors duration-300 motion-reduce:transition-none ${
+                  className={`text-xs font-semibold tracking-[0.02em] transition-colors duration-300 motion-reduce:transition-none ${
                     activeStage === index ? "text-foreground" : "text-muted-foreground/50"
                   }`}
                 >
@@ -90,13 +90,13 @@ export function JourneySection() {
         </div>
 
         {/* Mobile/small tablet: pinning three stages behind ~250vh of scroll doesn't
-            translate below lg — instead each stage gets its own text + illustration,
+            translate below lg, instead each stage gets its own text + illustration,
             revealed in sequence. Same storytelling, no scroll-position tracking needed. */}
         <div className="flex flex-col gap-16 lg:hidden">
           {STAGES.map((stage, index) => (
             <Reveal key={stage.key} className="flex flex-col gap-6">
               <div className="flex flex-col gap-3">
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground">
+                <span className="text-xs font-semibold tracking-[0.02em] text-foreground">
                   {stage.eyebrow}
                 </span>
                 <h3 className="text-[clamp(1.5rem,5vw,2rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-foreground">
@@ -128,7 +128,7 @@ function StageVisual({ stage }: { stage: number }) {
       >
         <div className="flex flex-col items-center gap-4">
           <div className="rounded-2xl bg-white px-6 py-4 shadow-soft">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Review request</p>
+            <p className="text-xs font-semibold tracking-wide text-muted-foreground">Review request</p>
             <p className="mt-1 text-sm font-semibold text-foreground">How was your order?</p>
             <div className="mt-3 flex justify-center">
               <Stars rating={5} size={18} />
@@ -159,7 +159,7 @@ function StageVisual({ stage }: { stage: number }) {
                   ✓
                 </span>
               ) : (
-                <span className="text-[10px] font-medium uppercase text-muted-foreground">Review</span>
+                <span className="text-[10px] font-medium text-muted-foreground">Review</span>
               )}
               <span className="sr-only">{i === 0 ? "auto-approved" : ""}</span>
             </div>

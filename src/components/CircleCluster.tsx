@@ -1,9 +1,9 @@
-// The signature shape motif — an extension of the logomark's own 3x3 grid of
+// The signature shape motif, an extension of the logomark's own 3x3 grid of
 // variable-sized circles, used as a decorative accent rather than scattered randomly.
-// Two fixed, hand-placed layouts (not random — random would also hydration-mismatch in
+// Two fixed, hand-placed layouts (not random, random would also hydration-mismatch in
 // Next.js SSR) so every render is identical and intentional.
 const LAYOUTS = {
-  // Loose corner cluster — for the hero and closing CTA, framing real product UI rather
+  // Loose corner cluster, for the hero and closing CTA, framing real product UI rather
   // than competing with it.
   corner: [
     { cx: 20, cy: 18, r: 30 },
@@ -12,7 +12,7 @@ const LAYOUTS = {
     { cx: 55, cy: 55, r: 10 },
     { cx: 10, cy: 68, r: 12 },
   ],
-  // A tighter row, echoing the logomark's own grid more literally — for use as a quiet
+  // A tighter row, echoing the logomark's own grid more literally, for use as a quiet
   // section divider.
   row: [
     { cx: 8, cy: 20, r: 8 },

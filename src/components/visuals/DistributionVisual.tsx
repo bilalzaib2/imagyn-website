@@ -2,14 +2,14 @@
 
 import { useInView } from "@/lib/motion";
 
-// Three real distribution surfaces — see googleReviewFeed.server.ts (the same eligible-
+// Three real distribution surfaces, see googleReviewFeed.server.ts (the same eligible-
 // review set served as both a Google-Merchant-Center-ready XML feed and a plain JSON feed
 // for any other channel) and reviewSite.server.ts (the public, shareable review page). No
-// fabricated integrations or partner logos — only channels the app actually generates today.
+// fabricated integrations or partner logos, only channels the app actually generates today.
 const CHANNELS = [
   {
     name: "Google Shopping",
-    description: "Approved reviews as a Merchant Center-ready feed",
+    description: "Approved reviews as a Merchant Center ready feed",
     status: "Feed ready",
   },
   {
@@ -29,7 +29,7 @@ export function DistributionVisual() {
 
   return (
     <div ref={ref} className="rounded-[28px] border border-border bg-white p-6 md:p-8">
-      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+      <p className="text-xs font-semibold tracking-wide text-muted-foreground">
         Your approved reviews, everywhere shoppers look
       </p>
 

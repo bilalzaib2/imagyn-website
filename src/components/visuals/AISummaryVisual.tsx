@@ -3,7 +3,7 @@
 import { DEMO_REVIEWS, Stars } from "./ReviewCard";
 import { useInView } from "@/lib/motion";
 
-// Many real reviews condensing into one plain-language read — the actual shape of the app's
+// Many real reviews condensing into one plain language read, the actual shape of the app's
 // AI summary feature (a generated read of what reviews consistently praise/flag), not a
 // generic "AI sparkle" graphic.
 export function AISummaryVisual() {
@@ -53,7 +53,7 @@ export function AISummaryVisual() {
           inView ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
         }`}
       >
-        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">AI summary</p>
+        <p className="text-xs font-semibold tracking-wide text-muted-foreground">AI summary</p>
         <p className="mt-2 text-sm leading-relaxed text-foreground">
           &ldquo;Customers consistently praise the fit and fast shipping. A few mention sizing runs
           small.&rdquo;

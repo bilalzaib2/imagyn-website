@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { DEMO_REVIEWS, ReviewCardVisual, Stars } from "./ReviewCard";
 import { useCountUp, usePrefersReducedMotion } from "@/lib/motion";
 
-// The hero's signature visual: review cards arrive and settle into a trust summary — the
+// The hero's signature visual: review cards arrive and settle into a trust summary, the
 // same "reviews become proof" idea the rest of the page develops, established up front.
 // Entirely custom-built (no app screenshot): three real review cards drift in with a
 // gentle stagger, and a rating/count chip counts up to illustrate what they become. Values
@@ -61,7 +61,7 @@ export function HeroStream() {
         </div>
       </div>
 
-      <span className="absolute bottom-0 right-0 text-[11px] uppercase tracking-wide text-white/30">
+      <span className="absolute bottom-0 right-0 text-[11px] tracking-wide text-white/30">
         Example storefront
       </span>
     </div>

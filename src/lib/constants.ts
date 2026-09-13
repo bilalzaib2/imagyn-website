@@ -11,52 +11,83 @@ export const siteConfig = {
   twitter: "@imagynreviews",
 };
 
-// Every entry here resolves to a real, built page — no "coming soon" placeholders. The
-// mega-menu (Header.tsx) renders `product` as a dropdown of real destinations; `resources`
-// and `company` render as simple links. Pricing stays a standalone top-level item, matching
-// how every serious SaaS marketing site treats it — never buried in a dropdown.
-export const PRODUCT_LINKS = [
+// Every entry here resolves to a real, built page — no "coming soon" placeholders. Grouped
+// into three jobs a merchant actually has (collect and manage, display and grow, trust and
+// distribution), rendered as one panel with quiet sub headers in Header.tsx's mega menu —
+// closer to how a mature review platform organizes ten real destinations than one flat list.
+// `resources` and `company` render as simple links. Pricing stays a standalone top-level
+// item, matching how every serious SaaS marketing site treats it — never buried in a dropdown.
+export const PRODUCT_GROUPS = [
   {
-    label: "Reviews & Collection",
-    href: "/features",
-    description: "Star ratings, photos and review requests — collected the way customers actually give them.",
+    label: "Collect & manage",
+    items: [
+      {
+        label: "Reviews & Collection",
+        href: "/features",
+        description: "Star ratings, photos and review requests, collected the way customers actually give them.",
+      },
+      {
+        label: "Review Requests",
+        href: "/review-requests",
+        description: "Manual or automatic requests after fulfillment, with configurable reminders.",
+      },
+      {
+        label: "AI Insights",
+        href: "/ai",
+        description: "A plain language summary of what customers consistently praise and flag, per product.",
+      },
+    ],
   },
   {
-    label: "Review Requests",
-    href: "/review-requests",
-    description: "Manual or automatic requests after fulfillment, with configurable reminders.",
+    label: "Display & grow",
+    items: [
+      {
+        label: "Widgets",
+        href: "/widgets",
+        description: "Product review lists, rating badges and collection grid stars, styled to match your brand.",
+      },
+      {
+        label: "Brand Studio",
+        href: "/brand-studio",
+        description: "Design your review experience without touching a theme file.",
+      },
+      {
+        label: "Rewards, Coupons & Referrals",
+        href: "/rewards",
+        description: "Real Shopify discount codes for reviews, referrals and standalone promotions.",
+      },
+      {
+        label: "Analytics",
+        href: "/analytics",
+        description: "Rating distribution, review volume and request performance, from your real data.",
+      },
+    ],
   },
   {
-    label: "Widgets",
-    href: "/widgets",
-    description: "Product review lists, rating badges and collection-grid stars, styled to match your brand.",
-  },
-  {
-    label: "Brand Studio",
-    href: "/brand-studio",
-    description: "Design your review experience without touching a theme file.",
-  },
-  {
-    label: "AI Insights",
-    href: "/ai",
-    description: "A plain-language summary of what customers consistently praise and flag, per product.",
-  },
-  {
-    label: "Analytics",
-    href: "/analytics",
-    description: "Rating distribution, review volume and request performance, from your real data.",
-  },
-  {
-    label: "Rewards & Referrals",
-    href: "/rewards",
-    description: "Real Shopify discount codes for reviews, referrals and standalone promotions.",
-  },
-  {
-    label: "Integrations",
-    href: "/integrations",
-    description: "Native Shopify data, Google Shopping feeds, and a public review site.",
+    label: "Trust & distribution",
+    items: [
+      {
+        label: "Trust & Certification",
+        href: "/trust",
+        description: "An honest trust badge, built from checks that actually run, never a purchased seal.",
+      },
+      {
+        label: "Import & Migration",
+        href: "/import",
+        description: "Bring your reviews from Judge.me, Loox, Stamped, Ali Reviews or a plain CSV.",
+      },
+      {
+        label: "Integrations",
+        href: "/integrations",
+        description: "Native Shopify data, Google Shopping feeds, and a public review site.",
+      },
+    ],
   },
 ];
+
+// Flat form of PRODUCT_GROUPS, kept for the mobile drawer, the footer, and NAV_LINKS below —
+// generated from the grouped source so the two views can never drift out of sync.
+export const PRODUCT_LINKS = PRODUCT_GROUPS.flatMap((group) => group.items);
 
 export const RESOURCES_LINKS = [
   { label: "Documentation", href: "/docs" },

@@ -11,9 +11,9 @@ const FORMATS = [
   { key: "collection", label: "Collection ratings" },
 ] as const;
 
-// Replaces feature-widgets.png. Cycles the same review object through the four real
+// Cycles the same review object through the four real
 // on-site widget formats (see app/routes/app.widgets.tsx) instead of a single static
-// screenshot — the "one review, everywhere it matters" idea made concrete.
+// screenshot, the "one review, everywhere it matters" idea made concrete.
 export function WidgetPreview() {
   const { ref, inView } = useInView<HTMLDivElement>();
   const reducedMotion = usePrefersReducedMotion();
@@ -53,7 +53,7 @@ export function WidgetPreview() {
           <div className="w-full max-w-[320px] rounded-2xl border border-border p-4">
             <div className="flex items-center justify-between">
               <Stars rating={review.rating} size={13} />
-              <span className="text-[10px] font-semibold uppercase text-muted-foreground">Verified</span>
+              <span className="text-[10px] font-semibold text-muted-foreground">Verified</span>
             </div>
             <p className="mt-2 text-sm font-semibold text-foreground">{review.title}</p>
             <p className="mt-1 text-xs text-muted-foreground">{review.body}</p>

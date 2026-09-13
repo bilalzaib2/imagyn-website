@@ -33,7 +33,7 @@ export default function TermsPage() {
           <LegalSection title="2. The service">
             <p>
               Imagyn Reviews lets you collect, moderate and display customer reviews on your Shopify storefront,
-              along with related features such as AI-generated review summaries, review request emails and
+              along with related features such as AI generated review summaries, review request emails and
               customizable widgets, as described on our{" "}
               <a href="/features" className="font-medium text-accent underline-offset-4 hover:underline">
                 Features

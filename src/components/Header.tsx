@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { Button } from "./Button";
-import { PRODUCT_LINKS, RESOURCES_LINKS, COMPANY_LINKS, siteConfig } from "@/lib/constants";
+import { PRODUCT_GROUPS, RESOURCES_LINKS, COMPANY_LINKS, siteConfig } from "@/lib/constants";
 
-// A single top-level link (Pricing, and each Resources/Company item) — same underline-on-
+// A single top-level link (Pricing, and each Resources/Company item), same underline-on-
 // hover treatment the old flat nav used, kept for the items that don't need a dropdown.
 function TopLink({ href, label }: { href: string; label: string }) {
   return (
@@ -20,7 +20,7 @@ function TopLink({ href, label }: { href: string; label: string }) {
   );
 }
 
-// The "Product" mega-menu — a quiet, single dropdown panel (not tabs, not icons-everywhere)
+// The "Product" mega-menu, a quiet, single dropdown panel (not tabs, not icons-everywhere)
 // listing every real product destination with a one-line description, closer to an
 // editorial index than a busy SaaS mega-menu. Opens on hover (desktop) with a short close
 // delay so moving the cursor from trigger to panel doesn't close it, and on click for
@@ -80,21 +80,28 @@ function ProductMenu() {
       </button>
 
       <div
-        className={`absolute left-1/2 top-full z-50 w-[560px] -translate-x-1/2 pt-4 transition-all duration-200 ${
+        className={`absolute left-1/2 top-full z-50 w-[620px] -translate-x-1/2 pt-4 transition-all duration-200 ${
           open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none translate-y-1 opacity-0"
         }`}
       >
-        <div className="grid grid-cols-2 gap-1 rounded-2xl border border-border bg-background p-3 shadow-elevated">
-          {PRODUCT_LINKS.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="group flex flex-col gap-1 rounded-xl px-4 py-3 transition-colors hover:bg-surface"
-            >
-              <span className="text-[14px] font-semibold text-foreground">{item.label}</span>
-              <span className="text-[13px] leading-snug text-muted-foreground">{item.description}</span>
-            </a>
+        <div className="grid grid-cols-3 gap-6 rounded-2xl border border-border bg-background p-5 shadow-elevated">
+          {PRODUCT_GROUPS.map((group) => (
+            <div key={group.label} className="flex flex-col gap-1">
+              <p className="px-3 pb-1 text-[12px] font-semibold tracking-[0.02em] text-muted-foreground">
+                {group.label}
+              </p>
+              {group.items.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="group flex flex-col gap-1 rounded-xl px-3 py-2.5 transition-colors hover:bg-surface"
+                >
+                  <span className="text-[13.5px] font-semibold text-foreground">{item.label}</span>
+                  <span className="text-[12px] leading-snug text-muted-foreground">{item.description}</span>
+                </a>
+              ))}
+            </div>
           ))}
         </div>
       </div>
@@ -173,16 +180,23 @@ export function Header() {
               </svg>
             </button>
             {mobileProductOpen ? (
-              <div className="mb-1 flex flex-col gap-1 pl-3">
-                {PRODUCT_LINKS.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="rounded-lg px-3 py-2.5 text-[14px] text-muted-foreground hover:bg-surface hover:text-foreground"
-                  >
-                    {link.label}
-                  </a>
+              <div className="mb-1 flex flex-col gap-3 pl-3">
+                {PRODUCT_GROUPS.map((group) => (
+                  <div key={group.label} className="flex flex-col gap-0.5">
+                    <p className="px-3 pb-1 text-[11px] font-semibold tracking-[0.02em] text-muted-foreground/70">
+                      {group.label}
+                    </p>
+                    {group.items.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className="rounded-lg px-3 py-2.5 text-[14px] text-muted-foreground hover:bg-surface hover:text-foreground"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
                 ))}
               </div>
             ) : null}

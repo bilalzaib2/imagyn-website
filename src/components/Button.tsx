@@ -12,7 +12,7 @@ const SIZES = {
   lg: "h-[52px] px-[34px] text-[16px]",
 };
 
-// Each variant sets its own focus-visible outline color — the shared near-black
+// Each variant sets its own focus-visible outline color, the shared near-black
 // --color-accent ring (fine for the light-background variants) would be invisible against
 // the black-section variants below, which is exactly the kind of thing that only shows up
 // once you actually tab through the page instead of just looking at it.

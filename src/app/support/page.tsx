@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
   title: "Support",
-  description: "Get help with Imagyn Reviews — email support, common questions, and where to find setup guides.",
+  description: "Get help with Imagyn Reviews, email support, common questions, and where to find setup guides.",
   path: "/support",
 });
 
@@ -17,12 +17,12 @@ const FAQS = [
     a: "We reply to every support email within one business day, usually much sooner.",
   },
   {
-    q: "A review isn't showing up on my storefront — why?",
+    q: "A review isn't showing up on my storefront, why?",
     a: "Check its status on the Reviews page first. Only Approved reviews display publicly; new reviews may be held by your Moderation Rules until you review them.",
   },
   {
     q: "Can you help me set up widgets in my theme?",
-    a: "Yes — send us your store URL and which page you're trying to add a widget to, and we'll walk you through it.",
+    a: "Yes, send us your store URL and which page you're trying to add a widget to, and we'll walk you through it.",
   },
   {
     q: "I found a bug. What should I include in my report?",
@@ -38,7 +38,7 @@ export default function SupportPage() {
           <SectionHeading
             eyebrow="Support"
             title="We're here to help."
-            description="Reach out any time — a real person reads every message."
+            description="Reach out any time, a real person reads every message."
           />
         </Container>
       </section>
@@ -53,7 +53,7 @@ export default function SupportPage() {
             />
             <SupportCard
               title="Documentation"
-              description="Step-by-step guides for installation, widgets, moderation rules and more."
+              description="Step by step guides for installation, widgets, moderation rules and more."
               action={{ label: "Documentation", href: "/docs" }}
             />
             <SupportCard

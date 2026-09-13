@@ -1,4 +1,4 @@
-// A static label pill — not a button, not a link. Matches the brand's recurring black
+// A static label pill, not a button, not a link. Matches the brand's recurring black
 // (or lime) pill-shaped caption used to name what's on screen ("Analytics + AI",
 // "On-site widgets") without competing with the real CTAs, which use <Button>.
 export function Pill({

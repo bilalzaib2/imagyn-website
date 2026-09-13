@@ -9,15 +9,15 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Brand Studio",
   description:
-    "Design your Shopify review experience without touching a theme file — five starting styles, full control over color, typography and spacing.",
+    "Design your Shopify review experience without touching a theme file, five starting styles, full control over color, typography and spacing.",
   path: "/brand-studio",
 });
 
 const CONTROLS = [
-  { title: "Five starting styles", description: "Minimal, Modern, Editorial, Luxury and Custom — each a real, structural preset, not a color swap." },
-  { title: "Color & typography", description: "Accent color, text color, font scale and letter spacing — applied to every widget at once." },
+  { title: "Five starting styles", description: "Minimal, Modern, Editorial, Luxury and Custom, each a real, structural preset, not a color swap." },
+  { title: "Color & typography", description: "Accent color, text color, font scale and letter spacing, applied to every widget at once." },
   { title: "Spacing & corners", description: "One slider for corner radius, one control for density (Compact, Balanced, Spacious)." },
-  { title: "Card treatment", description: "Flat, spacing-separated or boxed review cards, with border, background and shadow control when boxed." },
+  { title: "Card treatment", description: "Flat, spacing separated or boxed review cards, with border, background and shadow control when boxed." },
 ];
 
 export default function BrandStudioPage() {
@@ -26,13 +26,13 @@ export default function BrandStudioPage() {
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="grid items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Brand Studio</span>
+            <span className="text-xs font-semibold tracking-[0.02em] text-accent">Brand Studio</span>
             <h1 className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
               Design your review experience without touching a theme file.
             </h1>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              Pick a starting style, then fine-tune color, typography, spacing and corner radius. Every change
-              previews live — across the Product Reviews Widget, both rating badges, and the Review Carousel — before
+              Pick a starting style, then fine tune color, typography, spacing and corner radius. Every change
+              previews live, across the Product Reviews Widget, both rating badges, and the Review Carousel, before
               you save anything.
             </p>
             <div className="mt-2 flex flex-wrap gap-4">

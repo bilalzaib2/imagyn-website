@@ -27,7 +27,7 @@ export default function DocsPage() {
           <SectionHeading
             eyebrow="Documentation"
             title="Everything you need to set up Imagyn Reviews."
-            description="Short, practical guides — no fluff. If something isn't covered here, reach out on the Support page."
+            description="Short, practical guides, no fluff. If something isn't covered here, reach out on the Support page."
           />
         </Container>
       </section>
@@ -58,7 +58,7 @@ export default function DocsPage() {
               <li>Install Imagyn Reviews from the Shopify App Store onto your store.</li>
               <li>
                 Open the app and visit <strong className="font-semibold text-foreground">Products</strong> to sync your
-                catalog — this links your Shopify products to their reviews.
+                catalog, this links your Shopify products to their reviews.
               </li>
               <li>
                 Create a review manually from <strong className="font-semibold text-foreground">Reviews → New Review</strong>,
@@ -74,19 +74,19 @@ export default function DocsPage() {
           <DocSection id="widgets" title="Widgets & Theme Editor">
             <p>
               Imagyn Reviews ships three storefront widgets, each added as a theme app block through the
-              Shopify Theme Editor — no code required:
+              Shopify Theme Editor, no code required:
             </p>
             <ul className="flex list-disc flex-col gap-2 pl-5">
               <li>
-                <strong className="font-semibold text-foreground">Product Reviews Widget</strong> — the full
-                experience: summary, rating histogram, review list and a write-a-review form.
+                <strong className="font-semibold text-foreground">Product Reviews Widget</strong>, the full
+                experience: summary, rating histogram, review list and a write a review form.
               </li>
               <li>
-                <strong className="font-semibold text-foreground">Product Rating Badge</strong> — a compact
+                <strong className="font-semibold text-foreground">Product Rating Badge</strong>, a compact
                 star-and-count signal placed near the buy box.
               </li>
               <li>
-                <strong className="font-semibold text-foreground">Collection Rating Badge</strong> — star
+                <strong className="font-semibold text-foreground">Collection Rating Badge</strong>, star
                 ratings on product cards across collection and search grids.
               </li>
             </ul>
@@ -117,11 +117,11 @@ export default function DocsPage() {
           <DocSection id="requests" title="Review Requests">
             <p>
               Send a review request manually from the <strong className="font-semibold text-foreground">Requests</strong>{" "}
-              page with a customer&apos;s name, email and order — Imagyn Reviews emails them a link to leave a
+              page with a customer&apos;s name, email and order, Imagyn Reviews emails them a link to leave a
               review, tracked through sent, opened and completed states.
             </p>
             <p>
-              Automatic review requests — triggered after order fulfillment — have completed Shopify&apos;s
+              Automatic review requests, triggered after order fulfillment, have completed Shopify&apos;s
               protected customer data review and are activating for eligible stores. Manual review requests are
               unaffected and fully available today on every plan, including their full reminder-email schedule.
             </p>
@@ -129,8 +129,8 @@ export default function DocsPage() {
 
           <DocSection id="brand-studio" title="Brand Studio">
             <p>
-              Brand Studio is a no-code design surface for every review widget on your storefront. Start from a
-              preset — Minimal, Modern, Editorial, Luxury or Custom — then fine-tune button style, border radius
+              Brand Studio is a no code design surface for every review widget on your storefront. Start from a
+              preset, Minimal, Modern, Editorial, Luxury or Custom, then fine tune button style, border radius
               and text size with an instant live preview. Changes apply the moment you save. Brand Studio is
               included on the Pro plan.
             </p>
@@ -138,7 +138,7 @@ export default function DocsPage() {
 
           <DocSection id="ai-summaries" title="AI Summaries">
             <p>
-              On the Pro plan, every product with approved reviews gets an AI-generated summary: a plain-language
+              On the Pro plan, every product with approved reviews gets an AI generated summary: a plain language
               read of what customers consistently praise and flag, refreshed automatically as new reviews come
               in. Summaries appear in your moderation queue and on your Dashboard.
             </p>
@@ -146,7 +146,7 @@ export default function DocsPage() {
 
           <DocSection id="billing" title="Billing & Plans">
             <p>
-              Imagyn Reviews has two plans — Free and Pro — billed through Shopify. See the{" "}
+              Imagyn Reviews has two plans, Free and Pro, billed through Shopify. See the{" "}
               <a href="/pricing" className="font-medium text-accent underline-offset-4 hover:underline">
                 Pricing
               </a>{" "}

@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
@@ -14,11 +15,11 @@ export const metadata: Metadata = pageMetadata({
 
 type PlanFeature = { label: string; comingSoon?: boolean };
 
-// Mirrors app/services/billing/plans.ts in the imagyn-reviews repo exactly — a separate
+// Mirrors app/services/billing/plans.ts in the imagyn-reviews repo exactly, a separate
 // codebase, so this is kept in sync by hand. Only two plans are ever merchant-facing there
 // (PLAN_ORDER = ["starter", "growth"]); a third "Scale" tier exists in that file only to
 // preserve existing subscribers' entitlements and must never appear here. `comingSoon`
-// mirrors that file's own flag — a feature only renders without the tag if it has a real
+// mirrors that file's own flag, a feature only renders without the tag if it has a real
 // enforcement point in the app today. Update both files together.
 const PLANS: {
   id: string;
@@ -34,12 +35,12 @@ const PLANS: {
     name: "Free",
     price: "Free",
     trial: null,
-    tagline: "Everything you need to start collecting reviews — free, no limits on the core.",
+    tagline: "Everything you need to start collecting reviews, free, no limits on the core.",
     features: [
       { label: "Unlimited reviews" },
       { label: "Unlimited review requests" },
-      { label: "Automated initial review-request emails" },
-      { label: "Email Studio — customize your review-request email" },
+      { label: "Automated initial review request emails" },
+      { label: "Email Studio, customize your review request email" },
       { label: "Photo reviews" },
       { label: "Video reviews" },
       { label: "Review widgets & rating badges" },
@@ -75,6 +76,71 @@ const PLANS: {
   },
 ];
 
+type ComparisonRow = { label: string; free: boolean | "soon"; pro: boolean | "soon" };
+type ComparisonCategory = { name: string; rows: ComparisonRow[] };
+
+// A category grouped comparison, not a flat feature dump, so a merchant can scan by the job
+// they actually have rather than an alphabetical list. Mirrors app/services/billing/plans.ts
+// and permissions.ts (kept in sync by hand, same as PLANS above): a row shows Free as
+// available whenever permissions.ts grants it with no plan gate at all.
+const COMPARISON: ComparisonCategory[] = [
+  {
+    name: "Collect",
+    rows: [
+      { label: "Unlimited reviews and review requests", free: true, pro: true },
+      { label: "Automated initial review request emails", free: true, pro: true },
+      { label: "Automatic email reminders", free: false, pro: true },
+      { label: "Multiple email templates", free: false, pro: true },
+      { label: "Photo and video reviews", free: true, pro: true },
+    ],
+  },
+  {
+    name: "Manage",
+    rows: [
+      { label: "Moderation rules and merchant replies", free: true, pro: true },
+      { label: "Helpful voting", free: true, pro: true },
+    ],
+  },
+  {
+    name: "Display and brand",
+    rows: [
+      { label: "Review widgets and rating badges", free: true, pro: true },
+      { label: "Multiple widget themes", free: false, pro: true },
+      { label: "Brand Studio and custom branding", free: false, pro: true },
+    ],
+  },
+  {
+    name: "AI and analytics",
+    rows: [
+      { label: "Core analytics", free: true, pro: true },
+      { label: "AI review summaries", free: false, pro: true },
+      { label: "Advanced analytics", free: false, pro: "soon" },
+    ],
+  },
+  {
+    name: "Grow",
+    rows: [
+      { label: "Review Rewards, Coupons and Referrals", free: true, pro: true },
+    ],
+  },
+  {
+    name: "Trust and migration",
+    rows: [
+      { label: "Verified Buyer badge", free: true, pro: true },
+      { label: "Trust and Certification", free: true, pro: true },
+      { label: "Import and Migration, unlimited", free: true, pro: true },
+      { label: "SEO structured data", free: true, pro: true },
+    ],
+  },
+  {
+    name: "Support",
+    rows: [
+      { label: "Community support", free: true, pro: true },
+      { label: "Priority support", free: false, pro: true },
+    ],
+  },
+];
+
 const FAQS = [
   {
     q: "Do I need a credit card to start?",
@@ -82,11 +148,11 @@ const FAQS = [
   },
   {
     q: "Can I change plans later?",
-    a: "Yes — upgrade or downgrade at any time from the app's Billing page. Changes take effect immediately, and Shopify handles billing on your store's regular invoice.",
+    a: "Yes, upgrade or downgrade at any time from the app's Billing page. Changes take effect immediately, and Shopify handles billing on your store's regular invoice.",
   },
   {
     q: "What happens to my reviews if I downgrade?",
-    a: "Nothing is ever deleted, hidden, or limited. Review collection, requests, widgets, and moderation are unlimited on the Free plan — downgrading only turns off Pro-only features like AI summaries and Brand Studio.",
+    a: "Nothing is ever deleted, hidden, or limited. Review collection, requests, widgets, and moderation are unlimited on the Free plan, downgrading only turns off Pro only features like AI summaries and Brand Studio.",
   },
   {
     q: "Is there a setup fee?",
@@ -175,6 +241,45 @@ export default function PricingPage() {
         </Container>
       </section>
 
+      <section className="border-t border-border py-24 md:py-28">
+        <Container>
+          <SectionHeading eyebrow="Full comparison" title="Every job, and which plan covers it." align="left" />
+          <div className="mt-12 overflow-x-auto">
+            <table className="w-full min-w-[560px] border-collapse text-left">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="py-3 pr-4 text-sm font-semibold text-muted-foreground">Feature</th>
+                  <th className="w-28 py-3 text-center text-sm font-semibold text-foreground">Free</th>
+                  <th className="w-28 py-3 text-center text-sm font-semibold text-foreground">Pro</th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARISON.map((category) => (
+                  <React.Fragment key={category.name}>
+                    <tr>
+                      <td colSpan={3} className="pb-2 pt-6 text-sm font-semibold text-foreground">
+                        {category.name}
+                      </td>
+                    </tr>
+                    {category.rows.map((row) => (
+                      <tr key={row.label} className="border-b border-border">
+                        <td className="py-3 pr-4 text-[15px] text-muted-foreground">{row.label}</td>
+                        <td className="py-3 text-center">
+                          <ComparisonCell value={row.free} />
+                        </td>
+                        <td className="py-3 text-center">
+                          <ComparisonCell value={row.pro} />
+                        </td>
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Container>
+      </section>
+
       <section className="border-t border-border py-28 md:py-36">
         <Container className="flex flex-col gap-12">
           <SectionHeading eyebrow="Questions" title="Frequently asked questions" align="left" />
@@ -190,4 +295,18 @@ export default function PricingPage() {
       </section>
     </>
   );
+}
+
+function ComparisonCell({ value }: { value: boolean | "soon" }) {
+  if (value === "soon") {
+    return <span className="text-xs font-medium text-muted-foreground">Soon</span>;
+  }
+  if (value) {
+    return (
+      <span className="inline-flex text-accent" aria-label="Included">
+        ✓
+      </span>
+    );
+  }
+  return <span className="sr-only">Not included</span>;
 }

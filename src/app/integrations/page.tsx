@@ -17,22 +17,22 @@ const INTEGRATIONS = [
   {
     name: "Shopify",
     status: "Native",
-    description: "Built directly on the Shopify Admin API and Theme App Extensions — no separate account, no iframe hack, no data export required.",
+    description: "Built directly on the Shopify Admin API and Theme App Extensions, no separate account, no iframe hack, no data export required.",
   },
   {
     name: "Google Shopping",
     status: "Live",
-    description: "A Merchant Center-ready review feed, kept in sync with your approved reviews — no manual export.",
+    description: "A Merchant Center ready review feed, kept in sync with your approved reviews, no manual export.",
   },
   {
     name: "Public Review Site",
     status: "Live",
-    description: "A shareable, public review page for every product — for an email signature, social bio, or ad landing page.",
+    description: "A shareable, public review page for every product, for an email signature, social bio, or ad landing page.",
   },
   {
     name: "JSON Feed",
     status: "Live",
-    description: "A plain-JSON review feed for any ad network, affiliate feed, or script that isn't Google Merchant Center.",
+    description: "A plain JSON review feed for any ad network, affiliate feed, or script that isn't Google Merchant Center.",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function IntegrationsPage() {
           <SectionHeading
             eyebrow="Integrations"
             title="Native on Shopify. Distributed everywhere else."
-            description="Imagyn Reviews doesn't just live on your storefront — your reviews reach the channels that actually drive traffic."
+            description="Imagyn Reviews doesn't just live on your storefront, your reviews reach the channels that actually drive traffic."
           />
         </Container>
       </section>
@@ -60,7 +60,7 @@ export default function IntegrationsPage() {
             </h2>
             <p className="text-lg leading-relaxed text-muted-foreground">
               A review your customer leaves once shows up on your product page, your storefront widgets, Google
-              Shopping search results, and your public review site — kept in sync automatically as reviews are
+              Shopping search results, and your public review site, kept in sync automatically as reviews are
               approved, edited or removed.
             </p>
           </div>
@@ -83,6 +83,20 @@ export default function IntegrationsPage() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-border py-16">
+        <Container className="flex flex-wrap items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground">Related</p>
+          <div className="flex flex-wrap gap-6">
+            <a href="/import" className="text-[15px] font-medium text-foreground hover:text-accent">
+              Import & Migration →
+            </a>
+            <a href="/features" className="text-[15px] font-medium text-foreground hover:text-accent">
+              All features →
+            </a>
           </div>
         </Container>
       </section>

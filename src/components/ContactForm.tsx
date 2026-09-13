@@ -50,7 +50,7 @@ export function ContactForm({ isEmailConfigured }: { isEmailConfigured: boolean 
       <div className="rounded-2xl border border-border bg-surface p-8 text-center">
         <h3 className="text-lg font-semibold text-foreground">Message sent.</h3>
         <p className="mt-2 text-[15px] text-muted-foreground">
-          Thanks for reaching out — we&apos;ll reply by email within one business day.
+          Thanks for reaching out, we&apos;ll reply by email within one business day.
         </p>
       </div>
     );

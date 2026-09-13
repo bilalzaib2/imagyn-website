@@ -10,9 +10,9 @@ const RATING_DISTRIBUTION = [
   { stars: 1, pct: 1 },
 ];
 
-// Replaces hero-dashboard.png. Built from real Analytics/AI-summary fields
-// (averageRating, totalReviews, summary — see app/services/analytics.server.ts and
-// aiSummary.server.ts) rendered as illustrative, clearly-labeled demo values — never
+// Built from real Analytics/AI-summary fields
+// (averageRating, totalReviews, summary, see app/services/analytics.server.ts and
+// aiSummary.server.ts) rendered as illustrative, clearly-labeled demo values, never
 // implied as Imagyn's own usage numbers.
 export function AnalyticsVisualization() {
   const { ref, inView } = useInView<HTMLDivElement>();
@@ -24,7 +24,7 @@ export function AnalyticsVisualization() {
     <div ref={ref} className="rounded-[28px] border border-border bg-white p-6 md:p-8">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Example data</p>
+          <p className="text-xs font-semibold tracking-wide text-muted-foreground">Example data</p>
           <p className="mt-1 text-3xl font-semibold tracking-[-0.03em] text-foreground">
             {reducedMotion ? "4.8" : rating.toFixed(1)}
             <span className="ml-2 text-sm font-medium text-muted-foreground">
@@ -59,7 +59,7 @@ export function AnalyticsVisualization() {
         }`}
         style={{ transitionDelay: inView ? "500ms" : "0ms" }}
       >
-        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">AI summary</p>
+        <p className="text-xs font-semibold tracking-wide text-muted-foreground">AI summary</p>
         <p className="mt-2 text-sm leading-relaxed text-foreground">
           &ldquo;Customers consistently praise the fit and fast shipping. A few mention sizing runs
           small.&rdquo;

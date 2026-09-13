@@ -15,7 +15,7 @@ const STAGE_LABEL: Record<Stage, string> = {
 
 // Email Studio's real templating variables resolving into a real-looking send, then the
 // tracked lifecycle (sent -> opened -> completed) the app's own ReviewRequestStatus enum
-// actually has — not a generic "email marketing" graphic.
+// actually has, not a generic "email marketing" graphic.
 export function EmailStudioVisual() {
   const { ref, inView } = useInView<HTMLDivElement>();
   const reducedMotion = usePrefersReducedMotion();
@@ -36,7 +36,7 @@ export function EmailStudioVisual() {
   return (
     <div ref={ref} className="rounded-[28px] border border-border bg-white p-6 md:p-8">
       <div className="flex items-center justify-between">
-        <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+        <span className="text-xs font-semibold tracking-wide text-muted-foreground">
           Review request email
         </span>
         <div className="flex items-center gap-1.5">
@@ -56,7 +56,7 @@ export function EmailStudioVisual() {
         <p className="mt-2 text-sm leading-relaxed text-foreground">
           How was your{" "}
           <span className={resolved ? "font-semibold" : "text-muted-foreground"}>
-            {resolved ? "Ceramic Pour-Over Set" : "{{product_name}}"}
+            {resolved ? "Ceramic Pour Over Set" : "{{product_name}}"}
           </span>
           ? We&apos;d love a quick review.
         </p>

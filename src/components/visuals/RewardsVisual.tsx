@@ -3,10 +3,10 @@
 import { Stars } from "./ReviewCard";
 import { useInView } from "@/lib/motion";
 
-// Three real, independent reward mechanisms — not one generic "loyalty" graphic. Matches
+// Three real, independent reward mechanisms, not one generic "loyalty" graphic. Matches
 // the app's actual feature set: Review Rewards (a discount triggered by a review meeting
 // merchant-set conditions), Coupons (a standalone campaign, no review required), and
-// Referrals (a friend's real order triggers the referrer's reward) — see
+// Referrals (a friend's real order triggers the referrer's reward), see
 // rewards.server.ts / coupons.server.ts / referrals.server.ts.
 const ROWS = [
   {
@@ -36,8 +36,8 @@ export function RewardsVisual() {
 
   return (
     <div ref={ref} className="rounded-[28px] border border-border bg-white p-6 md:p-8">
-      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-        Real Shopify discount codes — issued automatically
+      <p className="text-xs font-semibold tracking-wide text-muted-foreground">
+        Real Shopify discount codes, issued automatically
       </p>
 
       <div className="mt-4 flex flex-col gap-3">
@@ -50,7 +50,7 @@ export function RewardsVisual() {
             }`}
           >
             <div className="flex flex-col gap-1">
-              <span className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+              <span className="text-[11px] font-semibold tracking-wide text-muted-foreground">
                 {row.label}
               </span>
               <div className="flex items-center gap-2">

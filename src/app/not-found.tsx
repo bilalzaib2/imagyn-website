@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <section className="flex flex-1 items-center py-32">
       <Container className="flex flex-col items-center gap-6 text-center">
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">404</span>
+        <span className="text-xs font-semibold tracking-[0.02em] text-accent">404</span>
         <h1 className="text-[clamp(2rem,3.4vw,2.75rem)] font-semibold tracking-[-0.035em] text-foreground">
           This page doesn&apos;t exist.
         </h1>

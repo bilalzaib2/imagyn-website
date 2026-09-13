@@ -9,14 +9,14 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "AI Insights",
   description:
-    "Every product gets a plain-language AI summary of what reviewers consistently praise and flag — refreshed automatically as new reviews come in.",
+    "Every product gets a plain language AI summary of what reviewers consistently praise and flag, refreshed automatically as new reviews come in.",
   path: "/ai",
 });
 
 const DETAILS = [
-  { title: "Generated from real reviews", description: "Every summary is built only from your store's own approved reviews — never invented, never generic." },
+  { title: "Generated from real reviews", description: "Every summary is built only from your store's own approved reviews, never invented, never generic." },
   { title: "Refreshes automatically", description: "As enough new approved reviews accumulate on a product, the summary regenerates on its own." },
-  { title: "Surfaced where you already work", description: "Shown in the moderation queue, the product detail page, and the dashboard's AI Spotlight — no separate report to check." },
+  { title: "Surfaced where you already work", description: "Shown in the moderation queue, the product detail page, and the dashboard's AI Spotlight, no separate report to check." },
 ];
 
 export default function AiPage() {
@@ -25,12 +25,12 @@ export default function AiPage() {
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="grid items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">AI Insights</span>
+            <span className="text-xs font-semibold tracking-[0.02em] text-accent">AI Insights</span>
             <h1 className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
               Know what customers think, without reading every review.
             </h1>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              A plain-language summary of the themes across every approved review for a product — what people
+              A plain language summary of the themes across every approved review for a product, what people
               consistently praise, what they flag, and a clear recommendation. Generated from your real data, never
               fabricated.
             </p>
