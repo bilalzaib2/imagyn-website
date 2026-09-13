@@ -94,14 +94,21 @@ export const PRODUCT_GROUPS = [
 // alongside Products and Pricing rather than burying it in a dropdown.
 export const WHY_LINK = { label: "Why Imagyn", href: "/why-imagyn" };
 
+// Same pattern for judge.me's "Judge.me for: [merchant segment]" concept — real, qualitative
+// differentiation only (see merchantSegments.ts's own comment on why no invented statistics
+// back these pages), reached through one top level link rather than its own dropdown, since
+// there are only three real segments today.
+export const SOLUTIONS_LINK = { label: "Solutions", href: "/solutions" };
+
 // Flat form of PRODUCT_GROUPS, kept for the mobile drawer, the footer, and NAV_LINKS below —
 // generated from the grouped source so the two views can never drift out of sync.
 export const PRODUCT_LINKS = PRODUCT_GROUPS.flatMap((group) => group.items);
 
-export const RESOURCES_LINKS = [
-  { label: "Documentation", href: "/docs" },
-  { label: "Support", href: "/support" },
-];
+// The single top nav entry point into the real Resources hub (documentation, guides, import
+// guides, support) — see app/resources/page.tsx. The footer's own Resources column below
+// lists the same real destinations individually, since a footer can hold more without
+// crowding the header the way the top nav would.
+export const RESOURCES_LINKS = [{ label: "Resources", href: "/resources" }];
 
 export const COMPANY_LINKS = [
   { label: "About", href: "/about" },
@@ -114,6 +121,7 @@ export const COMPANY_LINKS = [
 export const NAV_LINKS = [
   ...PRODUCT_LINKS.map(({ label, href }) => ({ label, href })),
   WHY_LINK,
+  SOLUTIONS_LINK,
   { label: "Pricing", href: "/pricing" },
   ...RESOURCES_LINKS,
   ...COMPANY_LINKS,
@@ -121,8 +129,14 @@ export const NAV_LINKS = [
 
 export const FOOTER_LINKS = {
   product: PRODUCT_LINKS.map(({ label, href }) => ({ label, href })),
-  resources: [...RESOURCES_LINKS, { label: "Pricing", href: "/pricing" }],
-  company: [WHY_LINK, ...COMPANY_LINKS],
+  resources: [
+    { label: "Resources", href: "/resources" },
+    { label: "Documentation", href: "/docs" },
+    { label: "Guides", href: "/guides" },
+    { label: "Support", href: "/support" },
+    { label: "Pricing", href: "/pricing" },
+  ],
+  company: [WHY_LINK, SOLUTIONS_LINK, ...COMPANY_LINKS],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },

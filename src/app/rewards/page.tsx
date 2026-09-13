@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -80,9 +81,9 @@ export default function RewardsPage() {
             <a href="/trust" className="text-[15px] font-medium text-foreground hover:text-accent">
               Trust & Certification →
             </a>
-            <a href="/ai" className="text-[15px] font-medium text-foreground hover:text-accent">
+            <Link href="/ai" className="text-[15px] font-medium text-foreground hover:text-accent">
               AI Insights →
-            </a>
+            </Link>
             <a href="/features" className="text-[15px] font-medium text-foreground hover:text-accent">
               All features →
             </a>

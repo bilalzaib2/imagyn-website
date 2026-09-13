@@ -1,36 +1,19 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { WidgetPreview } from "@/components/visuals/WidgetPreview";
+import { WIDGET_SURFACES } from "@/lib/widgetSurfaces";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Widgets",
   description:
-    "Product review lists, star rating badges and collection grid ratings for Shopify, styled through Brand Studio so nothing looks bolted on.",
+    "Product review lists, star rating badges, collection grid ratings and a store wide rollup for Shopify, styled through Brand Studio so nothing looks bolted on.",
   path: "/widgets",
 });
-
-const WIDGETS = [
-  {
-    name: "Product Reviews Widget",
-    description: "The full review experience on a product page, summary, rating histogram, review list and a write a review form.",
-  },
-  {
-    name: "Product Rating Badge",
-    description: "A compact star and count signal placed near the buy box, for shoppers who never scroll to the review list.",
-  },
-  {
-    name: "Collection Rating Badge",
-    description: "Star ratings on product cards everywhere they appear in a grid, collections, search results, featured sections.",
-  },
-  {
-    name: "Review Carousel",
-    description: "A store wide, scrollable showcase of your best real reviews, typically placed on the homepage.",
-  },
-];
 
 const STEPS = [
   {
@@ -58,7 +41,7 @@ export default function WidgetsPage() {
               Storefront widgets that match your brand, not ours.
             </h1>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              Four real widgets, one design system. Every star, badge and review card reads its style from Brand
+              Five real widgets, one design system. Every star, badge and review card reads its style from Brand
               Studio, change your accent color once, and it updates everywhere reviews appear on your storefront.
             </p>
             <div className="mt-2 flex flex-wrap gap-4">
@@ -78,14 +61,18 @@ export default function WidgetsPage() {
 
       <section className="border-t border-border py-24 md:py-28">
         <Container>
-          <SectionHeading eyebrow="Four widgets" title="Reviews, wherever a customer is looking." align="left" />
+          <SectionHeading eyebrow="Five widgets" title="Reviews, wherever a customer is looking." align="left" />
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
-            {WIDGETS.map((widget, index) => (
-              <Reveal key={widget.name} delayMs={index * 80}>
-                <div className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7">
+            {WIDGET_SURFACES.map((widget, index) => (
+              <Reveal key={widget.slug} delayMs={index * 80}>
+                <a
+                  href={`/widgets/${widget.slug}`}
+                  className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-accent"
+                >
                   <h3 className="text-lg font-semibold text-foreground">{widget.name}</h3>
-                  <p className="text-[15px] leading-relaxed text-muted-foreground">{widget.description}</p>
-                </div>
+                  <p className="text-[15px] leading-relaxed text-muted-foreground">{widget.summary}</p>
+                  <span className="mt-2 text-[14px] font-medium text-foreground">See details →</span>
+                </a>
               </Reveal>
             ))}
           </div>
@@ -116,9 +103,9 @@ export default function WidgetsPage() {
             <a href="/brand-studio" className="text-[15px] font-medium text-foreground hover:text-accent">
               Brand Studio →
             </a>
-            <a href="/ai" className="text-[15px] font-medium text-foreground hover:text-accent">
+            <Link href="/ai" className="text-[15px] font-medium text-foreground hover:text-accent">
               AI Insights →
-            </a>
+            </Link>
             <a href="/features" className="text-[15px] font-medium text-foreground hover:text-accent">
               All features →
             </a>

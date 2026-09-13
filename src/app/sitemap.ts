@@ -1,14 +1,20 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/constants";
 import { IMPORT_SOURCES } from "@/lib/importSources";
+import { WIDGET_SURFACES } from "@/lib/widgetSurfaces";
+import { AI_SURFACES } from "@/lib/aiSurfaces";
+import { MERCHANT_SEGMENTS } from "@/lib/merchantSegments";
+import { GUIDES } from "@/lib/guides";
 
 const PATHS = [
   "/",
   "/features",
   "/review-requests",
   "/widgets",
+  ...WIDGET_SURFACES.map((widget) => `/widgets/${widget.slug}`),
   "/brand-studio",
   "/ai",
+  ...AI_SURFACES.map((surface) => `/ai/${surface.slug}`),
   "/analytics",
   "/rewards",
   "/trust",
@@ -17,8 +23,13 @@ const PATHS = [
   "/public-review-site",
   "/integrations",
   "/why-imagyn",
+  "/solutions",
+  ...MERCHANT_SEGMENTS.map((segment) => `/solutions/${segment.slug}`),
   "/pricing",
+  "/resources",
   "/docs",
+  "/guides",
+  ...GUIDES.map((guide) => `/guides/${guide.slug}`),
   "/support",
   "/about",
   "/contact",

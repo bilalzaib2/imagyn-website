@@ -144,9 +144,9 @@ export default function TrustPage() {
             <Link href="/import" className="text-[15px] font-medium text-foreground hover:text-accent">
               Import & Migration →
             </Link>
-            <a href="/widgets" className="text-[15px] font-medium text-foreground hover:text-accent">
+            <Link href="/widgets" className="text-[15px] font-medium text-foreground hover:text-accent">
               Widgets →
-            </a>
+            </Link>
             <a href="/features" className="text-[15px] font-medium text-foreground hover:text-accent">
               All features →
             </a>

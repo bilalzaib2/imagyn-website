@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -70,9 +71,9 @@ export default function BrandStudioPage() {
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Related</p>
           <div className="flex flex-wrap gap-6">
-            <a href="/widgets" className="text-[15px] font-medium text-foreground hover:text-accent">
+            <Link href="/widgets" className="text-[15px] font-medium text-foreground hover:text-accent">
               Widgets →
-            </a>
+            </Link>
             <a href="/features" className="text-[15px] font-medium text-foreground hover:text-accent">
               All features →
             </a>

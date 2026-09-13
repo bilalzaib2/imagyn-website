@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { AISummaryVisual } from "@/components/visuals/AISummaryVisual";
+import { AI_SURFACES } from "@/lib/aiSurfaces";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -51,6 +53,26 @@ export default function AiPage() {
 
       <section className="border-t border-border py-24 md:py-28">
         <Container>
+          <SectionHeading eyebrow="Two summaries" title="One for a product, one for your whole store." align="left" />
+          <div className="mt-14 grid gap-6 sm:grid-cols-2">
+            {AI_SURFACES.map((surface, index) => (
+              <Reveal key={surface.slug} delayMs={index * 80}>
+                <a
+                  href={`/ai/${surface.slug}`}
+                  className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-accent"
+                >
+                  <h3 className="text-lg font-semibold text-foreground">{surface.name}</h3>
+                  <p className="text-[15px] leading-relaxed text-muted-foreground">{surface.summary}</p>
+                  <span className="mt-2 text-[14px] font-medium text-foreground">See details →</span>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-border py-24 md:py-28">
+        <Container>
           <SectionHeading eyebrow="How it works" title="From review volume to a decision, automatically." align="left" />
           <div className="mt-14 grid gap-10 md:grid-cols-3">
             {DETAILS.map((item, index) => (
@@ -70,9 +92,9 @@ export default function AiPage() {
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Related</p>
           <div className="flex flex-wrap gap-6">
-            <a href="/widgets" className="text-[15px] font-medium text-foreground hover:text-accent">
+            <Link href="/widgets" className="text-[15px] font-medium text-foreground hover:text-accent">
               Widgets →
-            </a>
+            </Link>
             <a href="/features" className="text-[15px] font-medium text-foreground hover:text-accent">
               All features →
             </a>
