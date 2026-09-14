@@ -22,7 +22,7 @@ export function AnalyticsVisualization() {
 
   return (
     <div ref={ref} className="rounded-[28px] border border-border bg-white p-6 md:p-8">
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
         <div>
           <p className="text-xs font-semibold tracking-wide text-muted-foreground">Example data</p>
           <p className="mt-1 text-3xl font-semibold tracking-[-0.03em] text-foreground">
@@ -32,7 +32,9 @@ export function AnalyticsVisualization() {
             </span>
           </p>
         </div>
-        <span className="rounded-full bg-lime px-3 py-1 text-xs font-semibold text-lime-ink">+12% this month</span>
+        <span className="shrink-0 whitespace-nowrap rounded-full bg-foreground px-3 py-1 text-xs font-semibold text-white">
+          +12% this month
+        </span>
       </div>
 
       <div className="mt-6 flex flex-col gap-2">

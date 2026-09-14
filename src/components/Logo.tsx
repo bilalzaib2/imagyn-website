@@ -8,7 +8,7 @@ import Link from "next/link";
 // share the exact same 584.05 x 93.31 viewBox, so the width/height below must scale
 // together with it — changing one without the other would visibly distort the logo.
 const ASPECT_RATIO = 584.05 / 93.31;
-const HEIGHT = 18;
+const HEIGHT = 26;
 const WIDTH = Math.round(HEIGHT * ASPECT_RATIO);
 
 export function Logo({ className = "", variant = "dark" }: { className?: string; variant?: "dark" | "light" }) {
@@ -24,7 +24,7 @@ export function Logo({ className = "", variant = "dark" }: { className?: string;
         width={WIDTH}
         height={HEIGHT}
         priority
-        className="h-[18px] w-auto"
+        className="h-[26px] w-auto"
       />
     </Link>
   );

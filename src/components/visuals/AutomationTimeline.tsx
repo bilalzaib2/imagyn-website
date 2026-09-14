@@ -33,17 +33,58 @@ export function AutomationTimeline() {
 
   return (
     <div ref={ref} className="rounded-[28px] border border-border bg-white p-6 md:p-8">
-      <div className="flex flex-col gap-0 md:flex-row md:items-start md:gap-0">
+      {/* Mobile & tablet: a purpose-built vertical timeline row per step (marker + connector
+          column beside a content column), not the desktop composition shrunk down. The
+          connector is a real flex-1 line inside the marker column, so it stretches to match
+          each row's own content height and always meets the next dot cleanly. */}
+      <div className="flex flex-col md:hidden">
+        {STEPS.map((step, i) => {
+          const isLast = i === STEPS.length - 1;
+          return (
+            <div key={`${step.label}-${step.detail}`} className="flex gap-4">
+              <div className="flex flex-col items-center">
+                <span
+                  className={`z-10 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-colors duration-300 motion-reduce:transition-none ${
+                    effectiveActiveStep >= i ? "border-foreground bg-foreground" : "border-border bg-white"
+                  }`}
+                >
+                  {effectiveActiveStep >= i ? <span className="h-1.5 w-1.5 rounded-full bg-lime" /> : null}
+                </span>
+                {!isLast ? (
+                  <div className="mt-1 w-px flex-1 bg-border">
+                    <div
+                      style={{ height: effectiveActiveStep > i ? "100%" : "0%" }}
+                      className="w-full bg-foreground transition-all duration-300 motion-reduce:transition-none"
+                    />
+                  </div>
+                ) : null}
+              </div>
+              <div className={`flex flex-col gap-0.5 ${isLast ? "" : "pb-6"}`}>
+                <span
+                  className={`text-sm font-semibold transition-colors duration-300 motion-reduce:transition-none ${
+                    effectiveActiveStep >= i ? "text-foreground" : "text-muted-foreground/50"
+                  }`}
+                >
+                  {step.label}
+                </span>
+                <span className="text-xs text-muted-foreground">{step.detail}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Desktop: the original spacious horizontal composition, unchanged. */}
+      <div className="hidden md:flex md:items-start md:gap-0">
         {STEPS.map((step, i) => (
-          <div key={`${step.label}-${step.detail}`} className="relative flex flex-1 flex-col items-start gap-3 md:items-center md:text-center">
+          <div key={`${step.label}-${step.detail}`} className="relative flex flex-1 flex-col items-center gap-3 text-center">
             {i > 0 ? (
-              <div className="absolute left-[7px] top-[-24px] h-6 w-px bg-border md:left-[-50%] md:top-[15px] md:h-px md:w-full">
+              <div className="absolute left-[-50%] top-[15px] h-px w-full bg-border">
                 <div
                   style={{
-                    height: effectiveActiveStep >= i ? "100%" : "0%",
                     width: effectiveActiveStep >= i ? "100%" : "0%",
                   }}
-                  className="h-full w-full bg-foreground transition-all duration-300 motion-reduce:transition-none"
+                  className="h-full bg-foreground transition-all duration-300 motion-reduce:transition-none"
                 />
               </div>
             ) : null}
@@ -54,7 +95,7 @@ export function AutomationTimeline() {
             >
               {effectiveActiveStep >= i ? <span className="h-1.5 w-1.5 rounded-full bg-lime" /> : null}
             </div>
-            <div className="flex flex-col gap-0.5 pl-2 md:pl-0">
+            <div className="flex flex-col gap-0.5">
               <span
                 className={`text-sm font-semibold transition-colors duration-300 motion-reduce:transition-none ${
                   effectiveActiveStep >= i ? "text-foreground" : "text-muted-foreground/50"
