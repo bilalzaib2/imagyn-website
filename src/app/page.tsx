@@ -80,7 +80,7 @@ export default function Home() {
         className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32"
         style={{ background: "linear-gradient(160deg, var(--color-forest), var(--color-forest-surface))" }}
       >
-        <Container className="relative grid items-center gap-16 lg:grid-cols-[2fr_3fr] lg:gap-12">
+        <Container className="relative grid grid-cols-1 items-center gap-10 sm:gap-16 lg:grid-cols-[2fr_3fr] lg:gap-12">
           <div className="flex flex-col gap-6">
             <Pill tone="light">Shopify Review App</Pill>
             <h1 className="text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.045em] text-white">

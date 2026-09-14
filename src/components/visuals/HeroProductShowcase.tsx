@@ -21,8 +21,8 @@ const SLIDES = [
     eyebrow: "Store Reviews",
     render: () => (
       <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-4">
-          <span className="text-4xl font-semibold tracking-[-0.02em] text-foreground">4.8</span>
+        <div className="flex items-center gap-3 sm:gap-4">
+          <span className="text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl">4.8</span>
           <div className="flex flex-col gap-1">
             <Stars rating={5} size={15} />
             <span className="text-[12px] text-muted-foreground">128 reviews across your catalog</span>
@@ -71,8 +71,13 @@ const SLIDES = [
           Your best approved reviews, pulled from across the whole catalog.
         </p>
         <div className="flex gap-2 sm:gap-3">
-          {DEMO_REVIEWS.slice(0, 3).map((review) => (
-            <div key={review.name} className="min-w-0 flex-1 rounded-xl border border-border p-2.5 sm:p-3">
+          {DEMO_REVIEWS.slice(0, 3).map((review, i) => (
+            <div
+              key={review.name}
+              className={`min-w-0 flex-1 rounded-xl border border-border p-2.5 sm:p-3 ${
+                i === 2 ? "hidden sm:block" : ""
+              }`}
+            >
               <Stars rating={review.rating} size={10} />
               <p className="mt-1.5 truncate text-[11px] font-semibold text-foreground sm:text-[12px]">
                 {review.title}
@@ -174,12 +179,12 @@ export function HeroProductShowcase() {
           touchStartX.current = null;
         }}
       >
-        <div className="p-6 md:p-8">
+        <div className="p-5 sm:p-6 md:p-8">
           <span className="text-xs font-semibold tracking-[0.02em] text-accent">{slide.eyebrow}</span>
           <div
             key={slide.key}
             aria-live="polite"
-            className={`mt-5 min-h-[200px] sm:min-h-[220px] md:min-h-[240px] ${
+            className={`mt-4 min-h-[170px] sm:mt-5 sm:min-h-[200px] md:min-h-[240px] ${
               reducedMotion ? "" : "animate-fade-in"
             }`}
           >
@@ -187,7 +192,7 @@ export function HeroProductShowcase() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-4 border-t border-border bg-surface px-6 py-4">
+        <div className="flex items-center justify-center gap-3 border-t border-border bg-surface px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
           <button
             type="button"
             aria-label="Previous surface"
