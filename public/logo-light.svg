@@ -3,6 +3,7 @@
   <defs>
     <style>
       .cls-1 {
+        fill: #f5f5f5;
         font-family: Helvetica, Helvetica;
         font-size: 69.66px;
       }

@@ -51,6 +51,50 @@ export function usePrefersReducedMotion() {
   );
 }
 
+// Normalized 0-to-1 scroll progress through a single element's own bounds: 0 when the
+// element's top has just reached the bottom of the viewport, 1 when its bottom has just
+// left the top of the viewport. Used to drive lightweight parallax-style transforms (the
+// hero's floating cards) directly from real scroll position, not a one-time entrance.
+// rAF-throttled and passive so it never blocks the scroll thread; returns 0 (and never
+// attaches the listener) when the user prefers reduced motion, so callers can skip the
+// scroll-linked transform entirely and fall back to a static resting position.
+export function useScrollProgress<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [progress, setProgress] = useState(0);
+  const reducedMotion = usePrefersReducedMotion();
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || reducedMotion) return;
+
+    let frame: number | null = null;
+
+    const measure = () => {
+      frame = null;
+      const rect = node.getBoundingClientRect();
+      const total = window.innerHeight + rect.height;
+      const traveled = window.innerHeight - rect.top;
+      setProgress(Math.min(1, Math.max(0, traveled / total)));
+    };
+
+    const onScroll = () => {
+      if (frame !== null) return;
+      frame = requestAnimationFrame(measure);
+    };
+
+    measure();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame !== null) cancelAnimationFrame(frame);
+    };
+  }, [reducedMotion]);
+
+  return { ref, progress: reducedMotion ? 0 : progress };
+}
+
 // Counts a number up from 0 once the element holding it scrolls into view. Used only for
 // clearly-labeled illustrative demo values (never real merchant data) — see each call
 // site's own "demo" labeling.

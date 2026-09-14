@@ -1,10 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// The source logo.svg is drawn in near-black fills, deliberately, per the locked brand
-// asset (the logo family itself is finalized and never redrawn — see design_decisions_locked
-// memory). `variant="light"` renders it on a dark section (the footer's forest background)
-// by inverting the same file with a CSS filter, not by introducing a second logo asset.
+// Real, supplied brand assets (the logo family is finalized and never redrawn or
+// approximated — see design_decisions_locked memory): logo.svg is the green dot emblem
+// with black wordmark text for light backgrounds, logo-light.svg is the same lockup with
+// the wordmark in off white for dark backgrounds (the footer, and the dark hero). Both
+// share the exact same 584.05 x 93.31 viewBox, so the width/height below must scale
+// together with it — changing one without the other would visibly distort the logo.
+const ASPECT_RATIO = 584.05 / 93.31;
+const HEIGHT = 18;
+const WIDTH = Math.round(HEIGHT * ASPECT_RATIO);
+
 export function Logo({ className = "", variant = "dark" }: { className?: string; variant?: "dark" | "light" }) {
   return (
     <Link
@@ -13,12 +19,12 @@ export function Logo({ className = "", variant = "dark" }: { className?: string;
       aria-label="Imagyn Reviews home"
     >
       <Image
-        src="/logo.svg"
+        src={variant === "light" ? "/logo-light.svg" : "/logo.svg"}
         alt="Imagyn Reviews"
-        width={79}
-        height={18}
+        width={WIDTH}
+        height={HEIGHT}
         priority
-        className={`h-[18px] w-auto ${variant === "light" ? "invert" : ""}`}
+        className="h-[18px] w-auto"
       />
     </Link>
   );

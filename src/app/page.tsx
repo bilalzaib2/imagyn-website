@@ -72,8 +72,14 @@ export default function Home() {
   return (
     <>
       {/* HERO, an animated, custom-built visual of reviews arriving and settling into
-          trust, not a screenshot of the app's own UI. */}
-      <section className="relative overflow-hidden bg-foreground pt-20 pb-24 md:pt-28 md:pb-32">
+          trust, not a screenshot of the app's own UI. Background uses the same tonal
+          green-black system as the footer (forest -> forest-surface), a gradient rather
+          than the flat foreground black used elsewhere, so the two dark surfaces feel
+          like one system rather than two different darks. */}
+      <section
+        className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32"
+        style={{ background: "linear-gradient(160deg, var(--color-forest), var(--color-forest-surface))" }}
+      >
         <CircleCluster
           layout="corner"
           className="pointer-events-none absolute -right-6 -top-10 h-[220px] w-[280px] opacity-90 md:h-[320px] md:w-[400px]"
