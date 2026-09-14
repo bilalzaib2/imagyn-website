@@ -56,7 +56,7 @@ export default function TrustPage() {
   return (
     <>
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
             <span className="text-xs font-semibold tracking-[0.02em] text-accent">Trust & Certification</span>
             <h1 className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
@@ -85,7 +85,7 @@ export default function TrustPage() {
       <section className="border-t border-border py-24 md:py-28">
         <Container>
           <SectionHeading eyebrow="Four pillars" title="Every pillar is a real, repeatable check." align="left" />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2">
+          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {PILLARS.map((item, index) => (
               <Reveal key={item.title} delayMs={index * 80}>
                 <div className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7">
@@ -99,7 +99,7 @@ export default function TrustPage() {
       </section>
 
       <section className="border-t border-border py-24 md:py-28">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="order-2 lg:order-1">
             <div className="rounded-[28px] border border-border bg-surface p-8">
               <p className="text-sm font-semibold text-foreground">A note on verified reviews</p>
@@ -126,7 +126,7 @@ export default function TrustPage() {
       <section className="border-t border-border py-28 md:py-36">
         <Container className="flex flex-col gap-12">
           <SectionHeading eyebrow="Questions" title="Frequently asked questions" align="left" />
-          <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
             {FAQS.map((item) => (
               <div key={item.q} className="flex flex-col gap-2">
                 <h3 className="text-base font-semibold text-foreground">{item.q}</h3>

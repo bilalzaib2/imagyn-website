@@ -45,7 +45,7 @@ export default function SupportPage() {
 
       <section className="pb-24">
         <Container>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <SupportCard
               title="Email support"
               description="The fastest way to reach us for setup help, billing questions or bug reports."
@@ -68,7 +68,7 @@ export default function SupportPage() {
       <section className="border-t border-border py-28 md:py-36">
         <Container className="flex flex-col gap-12">
           <SectionHeading eyebrow="Common questions" title="Frequently asked questions" align="left" />
-          <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
             {FAQS.map((item) => (
               <div key={item.q} className="flex flex-col gap-2">
                 <h3 className="text-base font-semibold text-foreground">{item.q}</h3>

@@ -52,7 +52,7 @@ export default function ResourcesPage() {
       </section>
 
       <section className="border-t border-border py-24 md:py-28">
-        <Container className="grid gap-6 sm:grid-cols-2">
+        <Container className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {RESOURCE_GROUPS.map((group, index) => (
             <Reveal key={group.title} delayMs={index * 80}>
               <a

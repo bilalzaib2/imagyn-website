@@ -175,7 +175,7 @@ export default function PricingPage() {
 
       <section className="pb-24 md:pb-32">
         <Container>
-          <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-2">
+          <div className="mx-auto grid grid-cols-1 max-w-3xl gap-6 md:grid-cols-2">
             {PLANS.map((plan) => (
               <div
                 key={plan.id}
@@ -283,7 +283,7 @@ export default function PricingPage() {
       <section className="border-t border-border py-28 md:py-36">
         <Container className="flex flex-col gap-12">
           <SectionHeading eyebrow="Questions" title="Frequently asked questions" align="left" />
-          <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
             {FAQS.map((item) => (
               <div key={item.q} className="flex flex-col gap-2">
                 <h3 className="text-base font-semibold text-foreground">{item.q}</h3>

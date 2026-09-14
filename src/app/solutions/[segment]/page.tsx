@@ -57,7 +57,7 @@ export default async function MerchantSegmentPage({ params }: { params: Promise<
       <section className="border-t border-border py-24 md:py-28">
         <Container>
           <SectionHeading eyebrow="What matters most" title="Three real priorities, not a generic feature list." align="left" />
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
             {segment.priorities.map((priority, index) => (
               <Reveal key={priority.title} delayMs={index * 100}>
                 <a

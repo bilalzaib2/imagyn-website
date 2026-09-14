@@ -66,7 +66,7 @@ export default function WhyImagynPage() {
       <section className="border-t border-border py-24 md:py-28">
         <Container className="flex flex-col divide-y divide-border">
           {REASONS.map((reason, index) => (
-            <Reveal key={reason.title} delayMs={index * 60} className="grid gap-4 py-10 md:grid-cols-[1fr_2fr] md:gap-14">
+            <Reveal key={reason.title} delayMs={index * 60} className="grid grid-cols-1 gap-4 py-10 md:grid-cols-[1fr_2fr] md:gap-14">
               <h2 className="text-xl font-semibold text-foreground">{reason.title}</h2>
               <div className="flex flex-col items-start gap-3">
                 <p className="max-w-2xl text-[15px] leading-relaxed text-muted-foreground">{reason.description}</p>

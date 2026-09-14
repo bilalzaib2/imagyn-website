@@ -25,7 +25,7 @@ export default function BrandStudioPage() {
   return (
     <>
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
             <span className="text-xs font-semibold tracking-[0.02em] text-accent">Brand Studio</span>
             <h1 className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
@@ -54,7 +54,7 @@ export default function BrandStudioPage() {
       <section className="border-t border-border py-24 md:py-28">
         <Container>
           <SectionHeading eyebrow="What you control" title="Real design tokens, not a color picker bolted onto a fixed template." align="left" />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2">
+          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {CONTROLS.map((item, index) => (
               <Reveal key={item.title} delayMs={index * 80}>
                 <div className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7">

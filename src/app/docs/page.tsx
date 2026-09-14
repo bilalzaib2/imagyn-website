@@ -34,7 +34,7 @@ export default function DocsPage() {
 
       <section className="pb-16">
         <Container>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {TOPICS.map((topic) => (
               <a
                 key={topic.id}
@@ -163,7 +163,7 @@ export default function DocsPage() {
 function DocSection({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
     <section id={id} className="scroll-mt-24 py-16">
-      <div className="grid gap-8 lg:grid-cols-[1fr_2fr]">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_2fr]">
         <h2 className="text-2xl font-semibold tracking-[-0.02em] text-foreground">{title}</h2>
         <div className="flex max-w-2xl flex-col gap-4 text-[15px] leading-relaxed text-muted-foreground">
           {children}

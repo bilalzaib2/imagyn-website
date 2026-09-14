@@ -33,7 +33,7 @@ export default function RewardsPage() {
   return (
     <>
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
             <span className="text-xs font-semibold tracking-[0.02em] text-accent">Rewards & Referrals</span>
             <h1 className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
@@ -61,7 +61,7 @@ export default function RewardsPage() {
       <section className="border-t border-border py-24 md:py-28">
         <Container>
           <SectionHeading eyebrow="Three mechanisms" title="Independent, automatic, and honest about when a reward is earned." align="left" />
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
             {MECHANISMS.map((item, index) => (
               <Reveal key={item.name} delayMs={index * 100}>
                 <div className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7">

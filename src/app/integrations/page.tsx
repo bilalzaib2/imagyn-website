@@ -51,7 +51,7 @@ export default function IntegrationsPage() {
       </section>
 
       <section className="border-t border-border py-24 md:py-28">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal>
             <DistributionVisual />
           </Reveal>
@@ -70,7 +70,7 @@ export default function IntegrationsPage() {
 
       <section className="border-t border-border py-24 md:py-28">
         <Container>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {INTEGRATIONS.map((item, index) => (
               <Reveal key={item.name} delayMs={index * 80}>
                 <div className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7">

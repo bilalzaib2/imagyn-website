@@ -120,7 +120,7 @@ export default function Home() {
       {/* LIGHT, Collect: the review request email itself, with its real merge tokens
           resolving and the send moving through its actual lifecycle. */}
       <section className="py-24 md:py-32">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-5">
             <Pill tone="dark">Collect</Pill>
             <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
@@ -138,7 +138,7 @@ export default function Home() {
 
       {/* LIGHT, Automation: when requests go out, with zero manual work. */}
       <section className="border-t border-border py-24 md:py-32">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-5">
             <Pill tone="dark">Automation</Pill>
             <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
@@ -156,7 +156,7 @@ export default function Home() {
       {/* LIME, analytics is where the product proves itself with real numbers, so it
           earns the boldest section treatment on the page. Used exactly once. */}
       <section className="bg-lime py-24 md:py-32">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-5">
             <Pill tone="dark">Analytics + AI</Pill>
             <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-lime-ink">
@@ -175,7 +175,7 @@ export default function Home() {
       {/* LIGHT, on-site widgets, the part a shopper actually sees. Cycles the same
           review through all four real widget formats instead of one static screenshot. */}
       <section className="py-24 md:py-32">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-5">
             <Pill tone="dark">Storefront widgets</Pill>
             <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
@@ -196,7 +196,7 @@ export default function Home() {
 
       {/* LIGHT, Reward: the fourth real stage, three independent mechanisms. */}
       <section className="border-t border-border py-24 md:py-32">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-5">
             <Pill tone="dark">Reward</Pill>
             <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
@@ -217,7 +217,7 @@ export default function Home() {
           typical review app's trust story. Real product UI floats above the dark
           background exactly as it does on a light section, unchanged internally. */}
       <section className="bg-forest py-24 md:py-32">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal>
             <TrustCertificationVisual />
           </Reveal>
@@ -237,7 +237,7 @@ export default function Home() {
 
       {/* BLACK, brand customization, the emotional close before capabilities. */}
       <section className="bg-foreground py-24 md:py-32">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="flex flex-col items-start gap-6">
             <Pill tone="lime">Customization + conversion</Pill>
             <h2 className="max-w-2xl text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
@@ -257,7 +257,7 @@ export default function Home() {
 
       {/* LIGHT, Grow: the fifth real stage, reviews reaching shoppers beyond your storefront. */}
       <section className="border-t border-border py-24 md:py-32">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-5">
             <Pill tone="dark">Grow</Pill>
             <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
@@ -277,7 +277,7 @@ export default function Home() {
           scrolled the whole platform story and is now deciding whether leaving their old
           platform is safe. */}
       <section className="border-t border-border py-24 md:py-32">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-5">
             <Pill tone="dark">Switch</Pill>
             <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">

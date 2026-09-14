@@ -64,7 +64,7 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
       {guide.whatMigrates.length > 0 ? (
         <section className="border-t border-border py-16 md:py-20">
           <Container className="max-w-3xl">
-            <div className="grid gap-8 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
               <div>
                 <p className="text-sm font-semibold text-foreground">What migrates</p>
                 <ul className="mt-4 flex flex-col gap-3">
@@ -132,7 +132,7 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
           <p className="text-sm font-semibold text-foreground">The details that matter</p>
           <div className="mt-6 flex flex-col divide-y divide-border rounded-2xl border border-border bg-surface">
             {FACT_ROWS(guide).map((row) => (
-              <div key={row.label} className="grid gap-2 p-6 sm:grid-cols-[180px_1fr] sm:gap-6">
+              <div key={row.label} className="grid grid-cols-1 gap-2 p-6 sm:grid-cols-[180px_1fr] sm:gap-6">
                 <p className="text-sm font-semibold text-foreground">{row.label}</p>
                 <p className="text-[14px] leading-relaxed text-muted-foreground">{row.value}</p>
               </div>

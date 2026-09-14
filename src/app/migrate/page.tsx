@@ -26,7 +26,7 @@ export default function MigrateIndexPage() {
       </section>
 
       <section className="border-t border-border py-24 md:py-28">
-        <Container className="grid gap-6 sm:grid-cols-2">
+        <Container className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {MIGRATION_GUIDES.map((guide, index) => (
             <Reveal key={guide.slug} delayMs={index * 70}>
               <a

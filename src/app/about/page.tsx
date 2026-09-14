@@ -42,7 +42,7 @@ export default function AboutPage() {
 
       <section className="border-t border-border py-24 md:py-28">
         <Container>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {PRINCIPLES.map((item, index) => (
               <Reveal key={item.title} delayMs={index * 100}>
                 <div className="flex h-full flex-col gap-3 rounded-2xl border border-border bg-surface p-7">

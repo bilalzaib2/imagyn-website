@@ -73,7 +73,7 @@ export function ContactForm({ isEmailConfigured }: { isEmailConfigured: boolean 
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <fieldset disabled={!isEmailConfigured} className="flex flex-col gap-5 disabled:opacity-50">
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <Field label="Name" name="name" type="text" required autoComplete="name" />
             <Field label="Email" name="email" type="email" required autoComplete="email" />
           </div>

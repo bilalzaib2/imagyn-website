@@ -56,7 +56,7 @@ export default function ImportPage() {
   return (
     <>
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
             <span className="text-xs font-semibold tracking-[0.02em] text-accent">Import & Migration</span>
             <h1 className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
@@ -85,7 +85,7 @@ export default function ImportPage() {
       <section className="border-t border-border py-24 md:py-28">
         <Container>
           <SectionHeading eyebrow="Supported sources" title="Coming from somewhere else? We probably read that file." align="left" />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {IMPORT_SOURCES.map((source, index) => (
               <Reveal key={source.slug} delayMs={index * 70}>
                 <a
@@ -112,7 +112,7 @@ export default function ImportPage() {
       <section className="border-t border-border py-24 md:py-28">
         <Container>
           <SectionHeading eyebrow="How it works" title="See it before it happens. Undo it if you need to." align="left" />
-          <div className="mt-14 grid gap-10 md:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-3">
             {STEPS.map((step, index) => (
               <Reveal key={step.title} delayMs={index * 100}>
                 <div className="flex flex-col gap-3">
@@ -127,7 +127,7 @@ export default function ImportPage() {
       </section>
 
       <section className="border-t border-border py-24 md:py-28">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal>
             <div className="rounded-[28px] border border-border bg-surface p-8">
               <p className="text-sm font-semibold text-foreground">Never fabricated, on purpose</p>
@@ -156,7 +156,7 @@ export default function ImportPage() {
       <section className="border-t border-border py-28 md:py-36">
         <Container className="flex flex-col gap-12">
           <SectionHeading eyebrow="Questions" title="Frequently asked questions" align="left" />
-          <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
             {FAQS.map((item) => (
               <div key={item.q} className="flex flex-col gap-2">
                 <h3 className="text-base font-semibold text-foreground">{item.q}</h3>
