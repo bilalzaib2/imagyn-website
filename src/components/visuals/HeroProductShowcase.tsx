@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { usePrefersReducedMotion } from "@/lib/motion";
 import { DEMO_REVIEWS, ReviewCardVisual, Stars } from "./ReviewCard";
 
@@ -181,48 +182,59 @@ export function HeroProductShowcase() {
       >
         <div className="p-5 sm:p-6 md:p-8">
           <span className="text-xs font-semibold tracking-[0.02em] text-accent">{slide.eyebrow}</span>
-          <div
-            key={slide.key}
-            aria-live="polite"
-            className={`mt-4 min-h-[170px] sm:mt-5 sm:min-h-[200px] md:min-h-[240px] ${
-              reducedMotion ? "" : "animate-fade-in"
-            }`}
-          >
-            {slide.render()}
-          </div>
+          <motion.div layout className="mt-4 overflow-hidden sm:mt-5">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={slide.key}
+                aria-live="polite"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {slide.render()}
+              </motion.div>
+            </AnimatePresence>
+          </motion.div>
         </div>
 
         <div className="flex items-center justify-center gap-3 border-t border-border bg-surface px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
-          <button
+          <motion.button
             type="button"
             aria-label="Previous surface"
             onClick={() => goTo(index - 1)}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.92 }}
             className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-accent"
           >
             ←
-          </button>
+          </motion.button>
           <div className="flex items-center gap-2">
             {SLIDES.map((s, i) => (
-              <button
+              <motion.button
                 key={s.key}
                 type="button"
                 aria-label={`Go to ${s.eyebrow}`}
                 aria-current={i === index}
                 onClick={() => goTo(i)}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
                 className={`h-1.5 rounded-full transition-all ${
                   i === index ? "w-6 bg-accent" : "w-1.5 bg-border"
                 }`}
               />
             ))}
           </div>
-          <button
+          <motion.button
             type="button"
             aria-label="Next surface"
             onClick={() => goTo(index + 1)}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.92 }}
             className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-accent"
           >
             →
-          </button>
+          </motion.button>
         </div>
       </div>
       <span className="mt-4 text-[11px] tracking-wide text-white/40">Example storefront</span>
