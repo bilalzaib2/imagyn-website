@@ -4,7 +4,7 @@ import { Button } from "@/components/Button";
 import { Pill } from "@/components/Pill";
 import { CircleCluster } from "@/components/CircleCluster";
 import { Reveal } from "@/components/Reveal";
-import { HeroComposition } from "@/components/visuals/HeroComposition";
+import { HeroProductShowcase } from "@/components/visuals/HeroProductShowcase";
 import { EmailStudioVisual } from "@/components/visuals/EmailStudioVisual";
 import { AutomationTimeline } from "@/components/visuals/AutomationTimeline";
 import { AnalyticsVisualization } from "@/components/visuals/AnalyticsVisualization";
@@ -71,19 +71,15 @@ const CAPABILITIES = [
 export default function Home() {
   return (
     <>
-      {/* HERO, an animated, custom-built visual of reviews arriving and settling into
-          trust, not a screenshot of the app's own UI. Background uses the same tonal
-          green-black system as the footer (forest -> forest-surface), a gradient rather
-          than the flat foreground black used elsewhere, so the two dark surfaces feel
-          like one system rather than two different darks. */}
+      {/* HERO, a real product showcase carousel (Store Reviews -> Product Reviews Widget ->
+          Review Carousel -> AI Summary -> Trust & Certification, on loop) rather than
+          decorative shapes, so the visual hierarchy comes from typography, real product UI
+          and motion instead of abstract circles. Background keeps the same tonal
+          green-black system as the footer (forest -> forest-surface). */}
       <section
         className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32"
         style={{ background: "linear-gradient(160deg, var(--color-forest), var(--color-forest-surface))" }}
       >
-        <CircleCluster
-          layout="corner"
-          className="pointer-events-none absolute -right-6 -top-10 h-[220px] w-[280px] opacity-90 md:h-[320px] md:w-[400px]"
-        />
         <Container className="relative grid items-center gap-16 lg:grid-cols-[2fr_3fr] lg:gap-12">
           <div className="flex flex-col gap-6">
             <Pill tone="light">Shopify Review App</Pill>
@@ -101,7 +97,7 @@ export default function Home() {
             </div>
           </div>
 
-          <HeroComposition />
+          <HeroProductShowcase />
         </Container>
       </section>
 
