@@ -5,6 +5,7 @@ import { WIDGET_SURFACES } from "@/lib/widgetSurfaces";
 import { AI_SURFACES } from "@/lib/aiSurfaces";
 import { MERCHANT_SEGMENTS } from "@/lib/merchantSegments";
 import { GUIDES } from "@/lib/guides";
+import { MIGRATION_GUIDES } from "@/lib/migrationGuides";
 
 const PATHS = [
   "/",
@@ -20,6 +21,8 @@ const PATHS = [
   "/trust",
   "/import",
   ...IMPORT_SOURCES.map((source) => `/import/${source.slug}`),
+  "/migrate",
+  ...MIGRATION_GUIDES.map((guide) => `/migrate/${guide.slug}`),
   "/public-review-site",
   "/integrations",
   "/why-imagyn",

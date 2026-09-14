@@ -5,6 +5,7 @@ import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { IMPORT_SOURCES, getImportSource } from "@/lib/importSources";
+import { getMigrationGuide } from "@/lib/migrationGuides";
 import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -32,6 +33,7 @@ export default async function ImportSourcePage({ params }: { params: Promise<{ s
   }
 
   const otherSources = IMPORT_SOURCES.filter((s) => s.slug !== source.slug);
+  const migrationGuide = getMigrationGuide(source.slug);
 
   return (
     <>
@@ -50,6 +52,14 @@ export default async function ImportSourcePage({ params }: { params: Promise<{ s
               See every source
             </Button>
           </div>
+          {migrationGuide ? (
+            <p className="mt-6 text-[15px] text-muted-foreground">
+              Migrating from {source.name}?{" "}
+              <a href={`/migrate/${migrationGuide.slug}`} className="font-medium text-foreground hover:text-accent">
+                Read the full step by step migration guide →
+              </a>
+            </p>
+          ) : null}
         </Container>
       </section>
 
