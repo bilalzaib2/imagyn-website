@@ -4,9 +4,11 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
+import { JsonLd } from "@/components/JsonLd";
 import { IMPORT_SOURCES, getImportSource } from "@/lib/importSources";
 import { getMigrationGuide } from "@/lib/migrationGuides";
-import { pageMetadata } from "@/lib/seo";
+import { getComparison } from "@/lib/comparisons";
+import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return IMPORT_SOURCES.map((source) => ({ source: source.slug }));
@@ -34,9 +36,17 @@ export default async function ImportSourcePage({ params }: { params: Promise<{ s
 
   const otherSources = IMPORT_SOURCES.filter((s) => s.slug !== source.slug);
   const migrationGuide = getMigrationGuide(source.slug);
+  const comparison = getComparison(source.slug);
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Import & Migration", path: "/import" },
+          { name: source.name, path: `/import/${source.slug}` },
+        ])}
+      />
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container>
           <span className="text-xs font-semibold tracking-[0.02em] text-accent">Import & Migration</span>
@@ -104,6 +114,11 @@ export default async function ImportSourcePage({ params }: { params: Promise<{ s
             <a href="/trust" className="text-[15px] font-medium text-foreground hover:text-accent">
               Trust & Certification →
             </a>
+            {comparison ? (
+              <a href={`/compare/${comparison.slug}`} className="text-[15px] font-medium text-foreground hover:text-accent">
+                Imagyn Reviews vs {comparison.name} →
+              </a>
+            ) : null}
           </div>
         </Container>
       </section>

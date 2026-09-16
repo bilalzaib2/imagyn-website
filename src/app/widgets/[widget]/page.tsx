@@ -4,8 +4,9 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
+import { JsonLd } from "@/components/JsonLd";
 import { WIDGET_SURFACES, getWidgetSurface } from "@/lib/widgetSurfaces";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return WIDGET_SURFACES.map((widget) => ({ widget: widget.slug }));
@@ -35,6 +36,13 @@ export default async function WidgetSurfacePage({ params }: { params: Promise<{ 
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Widgets", path: "/widgets" },
+          { name: widget.name, path: `/widgets/${widget.slug}` },
+        ])}
+      />
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container>
           <span className="text-xs font-semibold tracking-[0.02em] text-accent">Widgets</span>

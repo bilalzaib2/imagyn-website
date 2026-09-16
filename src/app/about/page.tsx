@@ -33,6 +33,7 @@ export default function AboutPage() {
       <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
+            level="h1"
             eyebrow="About"
             title="A focused review platform, built to be used."
             description={`${siteConfig.name} is built by Imagyn Studios, one product, built for Shopify merchants who want their reviews to look like part of their store, not a plugin.`}

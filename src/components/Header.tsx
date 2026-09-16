@@ -135,7 +135,7 @@ export function Header() {
           <Button href={siteConfig.appUrl} variant="ghost" size="md">
             Log in
           </Button>
-          <Button href="/pricing" variant="primary" size="md">
+          <Button href={siteConfig.appStoreUrl} variant="primary" size="md">
             Get Started
           </Button>
         </div>
@@ -239,7 +239,7 @@ export function Header() {
               <Button href={siteConfig.appUrl} variant="secondary" size="md">
                 Log in
               </Button>
-              <Button href="/pricing" variant="primary" size="md">
+              <Button href={siteConfig.appStoreUrl} variant="primary" size="md">
                 Get Started
               </Button>
             </div>

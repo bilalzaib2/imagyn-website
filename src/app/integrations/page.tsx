@@ -43,6 +43,7 @@ export default function IntegrationsPage() {
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container>
           <SectionHeading
+            level="h1"
             eyebrow="Integrations"
             title="Native on Shopify. Distributed everywhere else."
             description="Imagyn Reviews doesn't just live on your storefront, your reviews reach the channels that actually drive traffic."

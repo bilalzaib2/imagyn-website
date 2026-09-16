@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
-import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
+import { pageMetadata, faqJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
@@ -163,9 +164,11 @@ const FAQS = [
 export default function PricingPage() {
   return (
     <>
+      <JsonLd data={faqJsonLd(FAQS)} />
       <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
+            level="h1"
             eyebrow="Pricing"
             title="Simple pricing that grows with your store."
             description="Start free, with no limits on the core. Upgrade only when you want AI summaries and full brand control."
@@ -227,8 +230,12 @@ export default function PricingPage() {
                   ))}
                 </ul>
 
+                {/* Shopify apps install once from the App Store; plan selection and
+                   upgrades happen inside the app's own Billing page afterward (see the FAQ
+                   below), so both plans point new visitors to the same install listing
+                   rather than to the merchant dashboard directly. */}
                 <Button
-                  href={siteConfig.appUrl}
+                  href={siteConfig.appStoreUrl}
                   variant={plan.popular ? "primary" : "secondary"}
                   size="md"
                   className="mt-10 w-full"

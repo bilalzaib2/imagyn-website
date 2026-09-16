@@ -6,10 +6,15 @@ import { AI_SURFACES } from "@/lib/aiSurfaces";
 import { MERCHANT_SEGMENTS } from "@/lib/merchantSegments";
 import { GUIDES } from "@/lib/guides";
 import { MIGRATION_GUIDES } from "@/lib/migrationGuides";
+import { COMPARISONS } from "@/lib/comparisons";
 
 const PATHS = [
   "/",
   "/features",
+  "/features/photo-video-reviews",
+  "/features/review-moderation",
+  "/compare",
+  ...COMPARISONS.map((c) => `/compare/${c.slug}`),
   "/review-requests",
   "/widgets",
   ...WIDGET_SURFACES.map((widget) => `/widgets/${widget.slug}`),

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
-import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
+import { pageMetadata, faqJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
@@ -33,9 +34,11 @@ const FAQS = [
 export default function SupportPage() {
   return (
     <>
+      <JsonLd data={faqJsonLd(FAQS)} />
       <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
+            level="h1"
             eyebrow="Support"
             title="We're here to help."
             description="Reach out any time, a real person reads every message."

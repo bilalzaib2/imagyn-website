@@ -33,11 +33,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} · ${siteConfig.tagline}`,
     description: siteConfig.description,
-    site: siteConfig.twitter,
+    ...(siteConfig.twitter ? { site: siteConfig.twitter } : {}),
   },
 };
 
-const organizationJsonLd = {
+// Kept separate from Organization/WebSite below (distinct @type, distinct purpose): this
+// describes the Shopify app product itself, not the company or the site.
+const softwareApplicationJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: siteConfig.name,
@@ -46,11 +48,42 @@ const organizationJsonLd = {
   description: siteConfig.description,
   url: siteConfig.url,
   image: `${siteConfig.url}/logo.svg`,
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
+  // Both real, live plans — see /pricing. Never add a rating/review count here without a
+  // genuine, displayed aggregate to back it.
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Free",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    {
+      "@type": "Offer",
+      name: "Pro",
+      price: "9.99",
+      priceCurrency: "USD",
+      url: `${siteConfig.url}/pricing`,
+    },
+  ],
+};
+
+// The company/entity behind the product — distinct from SoftwareApplication above. `sameAs`
+// intentionally omitted: no independently verified social profile exists yet (checked
+// directly; the @imagynreviews handle referenced in old metadata does not exist on X).
+// Add real profile URLs here only once they're confirmed live.
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Imagyn Studios",
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/logo.svg`,
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.url,
 };
 
 export default function RootLayout({
@@ -64,6 +97,14 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationJsonLd) }}
         />
         <a
           href="#main-content"

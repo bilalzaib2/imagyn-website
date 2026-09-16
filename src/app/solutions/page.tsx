@@ -19,6 +19,7 @@ export default function SolutionsPage() {
       <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
+            level="h1"
             eyebrow="Solutions"
             title="The same platform, three different priorities."
             description="What matters most from a review platform changes as a store grows. Find where your store is today."

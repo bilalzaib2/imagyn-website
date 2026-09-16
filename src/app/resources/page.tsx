@@ -44,6 +44,7 @@ export default function ResourcesPage() {
       <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
+            level="h1"
             eyebrow="Resources"
             title="Everything to learn Imagyn, in one place."
             description="No fluff, and nothing that is not real. Every guide here reflects the product exactly as it works today."

@@ -5,7 +5,8 @@ import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { TrustCertificationVisual } from "@/components/visuals/TrustCertificationVisual";
-import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
+import { pageMetadata, faqJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Trust & Certification",
@@ -55,6 +56,7 @@ const FAQS = [
 export default function TrustPage() {
   return (
     <>
+      <JsonLd data={faqJsonLd(FAQS)} />
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">

@@ -3,12 +3,19 @@ export const siteConfig = {
   tagline: "Build trust with every customer review.",
   description:
     "Imagyn Reviews is a premium Shopify review app: collect authentic customer reviews, moderate with confidence, and showcase them with beautifully crafted, on-brand widgets.",
-  // Update once the marketing domain is finalized — every canonical/OG URL below derives
-  // from this single constant.
-  url: "https://imagyn.co",
+  // The live production domain for this marketing site. Every canonical/OG/sitemap URL
+  // below derives from this single constant — do not point it at imagyn.co (a separate,
+  // unrelated Imagyn Studios property) or any other domain.
+  url: "https://reviews.imagyn.co",
   appUrl: "https://app.imagyn.co",
   supportEmail: "support@imagyn.co",
-  twitter: "@imagynreviews",
+  // The real Shopify App Store listing — this is where a new visitor actually installs
+  // the app. app.imagyn.co is the merchant dashboard/login for people who already have it.
+  appStoreUrl: "https://apps.shopify.com/imagyn-reviews",
+  // No verified @imagynreviews account exists on X (checked directly: x.com/imagynreviews
+  // returns "User Profile Not Found"). Leave unset rather than reference a handle that
+  // doesn't exist — add it back only once a real account is live.
+  twitter: undefined as string | undefined,
 };
 
 // Every entry here resolves to a real, built page — no "coming soon" placeholders. Grouped
@@ -85,6 +92,11 @@ export const PRODUCT_GROUPS = [
         label: "Integrations",
         href: "/integrations",
         description: "Native Shopify data, Google Shopping feeds, and a public review site.",
+      },
+      {
+        label: "Compare",
+        href: "/compare",
+        description: "A factual, feature-by-feature look at Imagyn Reviews next to Judge.me, Loox and Stamped.",
       },
     ],
   },

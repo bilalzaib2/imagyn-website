@@ -3,8 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
+import { JsonLd } from "@/components/JsonLd";
 import { GUIDES, getGuide } from "@/lib/guides";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return GUIDES.map((guide) => ({ guide: guide.slug }));
@@ -30,6 +31,13 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Guides", path: "/guides" },
+          { name: guide.title, path: `/guides/${guide.slug}` },
+        ])}
+      />
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="max-w-3xl">
           <span className="text-xs font-semibold tracking-[0.02em] text-accent">Guide</span>

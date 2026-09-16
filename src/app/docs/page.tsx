@@ -25,6 +25,7 @@ export default function DocsPage() {
       <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
+            level="h1"
             eyebrow="Documentation"
             title="Everything you need to set up Imagyn Reviews."
             description="Short, practical guides, no fluff. If something isn't covered here, reach out on the Support page."

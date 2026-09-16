@@ -56,6 +56,7 @@ export default function WhyImagynPage() {
       <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
+            level="h1"
             eyebrow="Why Imagyn"
             title="A review platform built to be trusted, not just installed."
             description="Five reasons Shopify merchants choose Imagyn Reviews over a generic review widget."

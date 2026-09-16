@@ -5,8 +5,9 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
+import { JsonLd } from "@/components/JsonLd";
 import { MERCHANT_SEGMENTS, getMerchantSegment } from "@/lib/merchantSegments";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return MERCHANT_SEGMENTS.map((segment) => ({ segment: segment.slug }));
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ segment: 
     return pageMetadata({ title: "Solutions", description: "", path: `/solutions/${slug}` });
   }
   return pageMetadata({
-    title: `Imagyn Reviews for ${segment.name.toLowerCase()}`,
+    title: `For ${segment.name.toLowerCase()}`,
     description: segment.summary,
     path: `/solutions/${segment.slug}`,
   });
@@ -36,6 +37,13 @@ export default async function MerchantSegmentPage({ params }: { params: Promise<
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Solutions", path: "/solutions" },
+          { name: segment.name, path: `/solutions/${segment.slug}` },
+        ])}
+      />
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container>
           <span className="text-xs font-semibold tracking-[0.02em] text-accent">For {segment.name.toLowerCase()}</span>

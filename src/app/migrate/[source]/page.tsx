@@ -3,8 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
+import { JsonLd } from "@/components/JsonLd";
 import { MIGRATION_GUIDES, getMigrationGuide } from "@/lib/migrationGuides";
-import { pageMetadata } from "@/lib/seo";
+import { getComparison } from "@/lib/comparisons";
+import { pageMetadata, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return MIGRATION_GUIDES.map((guide) => ({ source: guide.slug }));
@@ -16,7 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<{ source: s
   if (!guide) {
     return pageMetadata({ title: "Migration guide", description: "", path: `/migrate/${slug}` });
   }
-  return pageMetadata({ title: guide.title, description: guide.metaDescription, path: `/migrate/${guide.slug}` });
+  // guide.title ("How to migrate from Judge.me to Imagyn Reviews") is the right copy for
+  // the on-page H1, but repeats the brand name that pageMetadata's title template already
+  // appends — strip the trailing mention so the <title> tag reads once, not twice.
+  const tagTitle = guide.title.replace(/ to Imagyn Reviews$/, "");
+  return pageMetadata({ title: tagTitle, description: guide.metaDescription, path: `/migrate/${guide.slug}` });
 }
 
 const FACT_ROWS = (guide: NonNullable<ReturnType<typeof getMigrationGuide>>) => [
@@ -36,9 +42,18 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
   }
 
   const otherGuides = MIGRATION_GUIDES.filter((g) => g.slug !== guide.slug);
+  const comparison = getComparison(guide.slug);
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Migrate", path: "/migrate" },
+          { name: guide.sourceName, path: `/migrate/${guide.slug}` },
+        ])}
+      />
+      {guide.troubleshooting.length > 0 ? <JsonLd data={faqJsonLd(guide.troubleshooting)} /> : null}
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="max-w-3xl">
           <span className="text-xs font-semibold tracking-[0.02em] text-accent">Migration guide</span>
@@ -171,6 +186,11 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
             <Link href="/import" className="text-[15px] font-medium text-foreground hover:text-accent">
               Import & Migration →
             </Link>
+            {comparison ? (
+              <Link href={`/compare/${comparison.slug}`} className="text-[15px] font-medium text-foreground hover:text-accent">
+                Imagyn Reviews vs {comparison.name} →
+              </Link>
+            ) : null}
           </div>
         </Container>
       </section>

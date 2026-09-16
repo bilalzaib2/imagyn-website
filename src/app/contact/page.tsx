@@ -18,6 +18,7 @@ export default function ContactPage() {
     <section className="pt-24 pb-28 md:pt-32 md:pb-36">
       <Container className="max-w-2xl">
         <SectionHeading
+          level="h1"
           eyebrow="Contact"
           title="Let's talk."
           description={`Have a question about Imagyn Reviews? Send us a message, or email us directly at ${siteConfig.supportEmail}.`}

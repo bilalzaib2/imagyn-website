@@ -34,8 +34,8 @@ const DETAIL_SECTIONS = [
       "Verified Buyer badges on any review tied to a real order",
     ],
     visual: "collection",
-    href: "/review-requests",
-    exploreLabel: "Explore Review Requests",
+    href: "/features/photo-video-reviews",
+    exploreLabel: "Explore Photo & Video Reviews",
   },
   {
     eyebrow: "Moderation",
@@ -48,6 +48,8 @@ const DETAIL_SECTIONS = [
       "Reply publicly to any review, right from the same screen",
     ],
     visual: "moderation",
+    href: "/features/review-moderation",
+    exploreLabel: "Explore Review Moderation",
   },
   {
     eyebrow: "AI Insights",
@@ -180,6 +182,7 @@ export default function FeaturesPage() {
       <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
+            level="h1"
             eyebrow="Features"
             title="Everything you need to turn customers into proof."
             description="A complete review system for Shopify, from the first star rating to the widget that shows it off."

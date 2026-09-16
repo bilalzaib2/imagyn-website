@@ -18,6 +18,7 @@ export default function MigrateIndexPage() {
       <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
+            level="h1"
             eyebrow="Migration guides"
             title="Bring your reviews with you, in detail."
             description="A dedicated, accurate guide for every platform Imagyn can import from today, and an honest one for the platform it cannot yet."

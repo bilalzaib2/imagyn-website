@@ -4,8 +4,9 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
+import { JsonLd } from "@/components/JsonLd";
 import { AI_SURFACES, getAiSurface } from "@/lib/aiSurfaces";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return AI_SURFACES.map((surface) => ({ topic: surface.slug }));
@@ -35,6 +36,13 @@ export default async function AiSurfacePage({ params }: { params: Promise<{ topi
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "AI Insights", path: "/ai" },
+          { name: surface.name, path: `/ai/${surface.slug}` },
+        ])}
+      />
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container>
           <span className="text-xs font-semibold tracking-[0.02em] text-accent">AI Insights</span>

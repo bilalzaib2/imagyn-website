@@ -4,8 +4,9 @@ import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { ImportMigrationVisual } from "@/components/visuals/ImportMigrationVisual";
+import { JsonLd } from "@/components/JsonLd";
 import { IMPORT_SOURCES } from "@/lib/importSources";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, faqJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Import & Migration",
@@ -55,6 +56,7 @@ const FAQS = [
 export default function ImportPage() {
   return (
     <>
+      <JsonLd data={faqJsonLd(FAQS)} />
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">

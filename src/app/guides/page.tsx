@@ -18,6 +18,7 @@ export default function GuidesPage() {
       <section className="pt-24 pb-20 md:pt-32 md:pb-24">
         <Container>
           <SectionHeading
+            level="h1"
             eyebrow="Guides"
             title="Practical guides, written from the real product."
             description="Not a blog. Evergreen walkthroughs of the parts of Imagyn worth understanding in more depth."
