@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Resources",
   description:
-    "Everything to learn Imagyn Reviews: setup documentation, practical guides, and direct support, all built from the real product.",
+    "Everything to learn Imagyn Reviews: setup documentation, practical guides, direct support, and a factual comparison against other Shopify review apps.",
   path: "/resources",
 });
 
@@ -31,10 +31,22 @@ const RESOURCE_GROUPS = [
     linkLabel: "See migration sources",
   },
   {
+    title: "FAQ",
+    description: "Answers to the questions merchants ask most before installing Imagyn Reviews.",
+    href: "/faq",
+    linkLabel: "Read the FAQ",
+  },
+  {
     title: "Support",
     description: "Email support, a contact form, and answers to the questions we hear most often.",
     href: "/support",
     linkLabel: "Get help",
+  },
+  {
+    title: "Compare",
+    description: "A factual, feature-by-feature look at Imagyn Reviews next to Judge.me, Loox and Stamped.",
+    href: "/compare",
+    linkLabel: "See the comparison",
   },
 ];
 

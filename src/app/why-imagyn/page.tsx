@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -77,6 +78,15 @@ export default function WhyImagynPage() {
               </div>
             </Reveal>
           ))}
+        </Container>
+      </section>
+
+      <section className="border-t border-border py-16">
+        <Container className="flex flex-wrap items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground">Related</p>
+          <Link href="/compare" className="text-[15px] font-medium text-foreground hover:text-accent">
+            See a full, feature-by-feature comparison →
+          </Link>
         </Container>
       </section>
 

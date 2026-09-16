@@ -56,6 +56,15 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      <section className="border-t border-border py-16">
+        <Container className="flex flex-wrap items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground">Related</p>
+          <a href="/why-imagyn" className="text-[15px] font-medium text-foreground hover:text-accent">
+            Why Shopify merchants choose Imagyn →
+          </a>
+        </Container>
+      </section>
+
       <section className="border-t border-border py-28 md:py-36">
         <Container>
           <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">

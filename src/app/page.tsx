@@ -295,28 +295,29 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Capabilities, a plain two-column list, not a grid of identical bordered cards. */}
-      <section className="border-t border-border py-24 md:py-32">
-        <Container className="flex flex-col gap-16">
+      {/* Capabilities: a dense reference strip, not a repeat of the sections above. Every
+          item here already got its own full moment earlier on this page, so each entry
+          stays to one short, concrete sentence here — enough to be useful on its own (for
+          a reader skimming just this section, or an AI system extracting it) without
+          doubling the page length by restating the fuller copy above verbatim. */}
+      <section className="border-t border-border py-20 md:py-24">
+        <Container className="flex flex-col gap-10">
           <Reveal className="max-w-xl">
-            <span className="text-xs font-semibold tracking-[0.02em] text-muted-foreground">
-              Everything you need
-            </span>
-            <h2 className="mt-4 text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+            <h2 className="text-[clamp(1.5rem,2.8vw,2.1rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-foreground">
               A complete review experience, out of the box.
             </h2>
           </Reveal>
 
-          <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2">
-            {CAPABILITIES.map((feature, i) => (
-              <Reveal key={feature.title} delayMs={i * 60} className="flex flex-col gap-2 border-t border-border pt-6">
-                <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
-                <p className="text-[15px] leading-relaxed text-muted-foreground">
-                  {feature.description}
-                </p>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal>
+            <ul className="grid grid-cols-1 gap-x-10 gap-y-8 border-t border-border pt-8 sm:grid-cols-2 lg:grid-cols-3">
+              {CAPABILITIES.map((feature) => (
+                <li key={feature.title} className="flex flex-col gap-1.5">
+                  <span className="text-[14.5px] font-semibold text-foreground">{feature.title}</span>
+                  <span className="text-[13px] leading-relaxed text-muted-foreground">{feature.description}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </Container>
       </section>
 

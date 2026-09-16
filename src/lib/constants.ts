@@ -153,6 +153,7 @@ export const FOOTER_LINKS = {
     { label: "Resources", href: "/resources" },
     { label: "Documentation", href: "/docs" },
     { label: "Guides", href: "/guides" },
+    { label: "FAQ", href: "/faq" },
     { label: "Support", href: "/support" },
     { label: "Pricing", href: "/pricing" },
   ],

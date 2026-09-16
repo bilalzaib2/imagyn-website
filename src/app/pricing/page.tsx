@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -251,6 +252,9 @@ export default function PricingPage() {
       <section className="border-t border-border py-24 md:py-28">
         <Container>
           <SectionHeading eyebrow="Full comparison" title="Every job, and which plan covers it." align="left" />
+          <Link href="/compare" className="mt-4 inline-block text-[15px] font-medium text-foreground hover:text-accent">
+            Comparing against Judge.me, Loox or Stamped? See the full breakdown →
+          </Link>
           <div className="mt-12 overflow-x-auto">
             <table className="w-full min-w-[560px] border-collapse text-left">
               <thead>

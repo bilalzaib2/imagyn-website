@@ -38,6 +38,7 @@ const PATHS = [
   "/docs",
   "/guides",
   ...GUIDES.map((guide) => `/guides/${guide.slug}`),
+  "/faq",
   "/support",
   "/about",
   "/contact",
