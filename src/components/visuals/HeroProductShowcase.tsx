@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { usePrefersReducedMotion } from "@/lib/motion";
 import { DEMO_REVIEWS, ReviewCardVisual, Stars } from "./ReviewCard";
 
@@ -34,7 +34,7 @@ const SLIDES = [
             <div key={i} className="flex items-center gap-2">
               <span className="w-3 text-[11px] text-muted-foreground">{5 - i}</span>
               <div className="h-1.5 flex-1 rounded-full bg-border">
-                <div className="h-1.5 rounded-full bg-lime" style={{ width: `${width}%` }} />
+                <div className="h-1.5 rounded-full bg-foreground" style={{ width: `${width}%` }} />
               </div>
             </div>
           ))}
@@ -55,11 +55,14 @@ const SLIDES = [
             <Stars rating={5} size={13} />
             <span className="text-sm font-semibold text-foreground">4.8 (128)</span>
           </div>
-          <span className="rounded-full bg-lime px-3 py-1.5 text-[11px] font-semibold text-lime-ink">
+          <span className="rounded-full bg-foreground px-3 py-1.5 text-[11px] font-semibold text-white">
             Write a review →
           </span>
         </div>
-        <ReviewCardVisual review={DEMO_REVIEWS[0]} variant="modern" />
+        {/* One of five real Brand Studio styles (see BrandTransformation further down the
+            homepage) — shown here as editorial/cream rather than the site's own green, proof
+            this widget takes on a merchant's own storefront look, not Imagyn's. */}
+        <ReviewCardVisual review={DEMO_REVIEWS[0]} variant="editorial" />
       </div>
     ),
   },
@@ -101,13 +104,13 @@ const SLIDES = [
           larger orders.
         </p>
         <div className="flex flex-wrap gap-1.5">
-          <span className="rounded-full bg-lime-soft px-2.5 py-1 text-[11px] font-medium text-lime-ink">
+          <span className="rounded-full bg-accent-soft px-2.5 py-1 text-[11px] font-medium text-foreground">
             True to size
           </span>
-          <span className="rounded-full bg-lime-soft px-2.5 py-1 text-[11px] font-medium text-lime-ink">
+          <span className="rounded-full bg-accent-soft px-2.5 py-1 text-[11px] font-medium text-foreground">
             Fast shipping
           </span>
-          <span className="rounded-full bg-lime-soft px-2.5 py-1 text-[11px] font-medium text-lime-ink">
+          <span className="rounded-full bg-accent-soft px-2.5 py-1 text-[11px] font-medium text-foreground">
             Great packaging
           </span>
         </div>
@@ -145,6 +148,15 @@ export function HeroProductShowcase() {
   const [paused, setPaused] = useState(false);
   const reducedMotion = usePrefersReducedMotion();
   const touchStartX = useRef<number | null>(null);
+  const parallaxRef = useRef<HTMLDivElement>(null);
+
+  // A gentle upward drift as the hero scrolls out of view, motivated as the visual
+  // receding to make room for the story that follows it, not motion for its own sake.
+  // Scroll-linked via Motion's useScroll (no scroll-event listeners), and the transform
+  // range collapses to zero under reduced motion rather than being skipped outright, so
+  // the hook order here never changes between renders.
+  const { scrollYProgress } = useScroll({ target: parallaxRef, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [0, reducedMotion ? 0 : 48]);
 
   const goTo = useCallback((next: number) => {
     setIndex(((next % SLIDES.length) + SLIDES.length) % SLIDES.length);
@@ -159,7 +171,7 @@ export function HeroProductShowcase() {
   const slide = SLIDES[index];
 
   return (
-    <div className="flex w-full flex-col items-center md:items-end">
+    <motion.div ref={parallaxRef} style={{ y }} className="flex w-full flex-col items-center md:items-end">
       <div
         className="w-full max-w-[620px] overflow-hidden rounded-[28px] bg-white shadow-elevated"
         onMouseEnter={() => setPaused(true)}
@@ -238,6 +250,6 @@ export function HeroProductShowcase() {
         </div>
       </div>
       <span className="mt-4 text-[11px] tracking-wide text-white/40">Example storefront</span>
-    </div>
+    </motion.div>
   );
 }

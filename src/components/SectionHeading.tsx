@@ -22,7 +22,7 @@ export function SectionHeading({
       {eyebrow ? (
         <span className="text-xs font-semibold tracking-[0.02em] text-accent">{eyebrow}</span>
       ) : null}
-      <Heading className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+      <Heading className="text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
         {title}
       </Heading>
       {description ? (

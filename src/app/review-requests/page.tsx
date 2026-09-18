@@ -3,8 +3,11 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
+import { NumberedList } from "@/components/NumberedList";
+import { ClosingCTA } from "@/components/ClosingCTA";
 import { AutomationTimeline } from "@/components/visuals/AutomationTimeline";
 import { pageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
   title: "Review Requests",
@@ -26,7 +29,7 @@ export default function ReviewRequestsPage() {
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
             <span className="text-xs font-semibold tracking-[0.02em] text-accent">Review Requests</span>
-            <h1 className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
+            <h1 className="text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
               A request goes out. A review comes back.
             </h1>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -34,7 +37,7 @@ export default function ReviewRequestsPage() {
               fulfilled order, with a reminder schedule you control end to end.
             </p>
             <div className="mt-2 flex flex-wrap gap-4">
-              <Button href="/pricing" size="lg">
+              <Button href={siteConfig.appStoreUrl} size="lg">
                 Get Started
               </Button>
               <Button href="/features" variant="secondary" size="lg">
@@ -51,16 +54,8 @@ export default function ReviewRequestsPage() {
       <section className="border-t border-border py-24 md:py-28">
         <Container>
           <SectionHeading eyebrow="How it works" title="Built to respect the customer on the other end." align="left" />
-          <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-3">
-            {DETAILS.map((item, index) => (
-              <Reveal key={item.title} delayMs={index * 100}>
-                <div className="flex flex-col gap-3">
-                  <span className="text-sm font-semibold text-accent">{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
-                  <p className="text-[15px] leading-relaxed text-muted-foreground">{item.description}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-14">
+            <NumberedList items={DETAILS} />
           </div>
         </Container>
       </section>
@@ -79,18 +74,7 @@ export default function ReviewRequestsPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
-        <Container>
-          <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
-              Stop chasing reviews by hand.
-            </h2>
-            <Button href="/pricing" size="lg">
-              Get Started
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <ClosingCTA title="Stop chasing reviews by hand." />
     </>
   );
 }

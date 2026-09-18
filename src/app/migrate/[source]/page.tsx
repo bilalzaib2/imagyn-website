@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { MIGRATION_GUIDES, getMigrationGuide } from "@/lib/migrationGuides";
 import { getComparison } from "@/lib/comparisons";
 import { pageMetadata, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+import { siteConfig } from "@/lib/constants";
 
 export function generateStaticParams() {
   return MIGRATION_GUIDES.map((guide) => ({ source: guide.slug }));
@@ -66,7 +67,7 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
             {guide.whoFor}
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <Button href="/pricing" size="lg">
+            <Button href={siteConfig.appStoreUrl} size="lg">
               Get Started
             </Button>
             <Button href={guide.importHref} variant="secondary" size="lg">
@@ -201,7 +202,7 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
             <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               Bring your {guide.sourceName} reviews to Imagyn.
             </h2>
-            <Button href="/pricing" size="lg">
+            <Button href={siteConfig.appStoreUrl} size="lg">
               Get Started
             </Button>
           </div>

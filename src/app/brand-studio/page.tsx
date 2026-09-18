@@ -4,8 +4,11 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
+import { InfoCard } from "@/components/InfoCard";
+import { ClosingCTA } from "@/components/ClosingCTA";
 import { BrandTransformation } from "@/components/visuals/BrandTransformation";
 import { pageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
   title: "Brand Studio",
@@ -28,7 +31,7 @@ export default function BrandStudioPage() {
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
             <span className="text-xs font-semibold tracking-[0.02em] text-accent">Brand Studio</span>
-            <h1 className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
+            <h1 className="text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
               Design your review experience without touching a theme file.
             </h1>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -37,7 +40,7 @@ export default function BrandStudioPage() {
               you save anything.
             </p>
             <div className="mt-2 flex flex-wrap gap-4">
-              <Button href="/pricing" size="lg">
+              <Button href={siteConfig.appStoreUrl} size="lg">
                 Get Started
               </Button>
               <Button href="/widgets" variant="secondary" size="lg">
@@ -57,10 +60,7 @@ export default function BrandStudioPage() {
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {CONTROLS.map((item, index) => (
               <Reveal key={item.title} delayMs={index * 80}>
-                <div className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7">
-                  <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
-                  <p className="text-[15px] leading-relaxed text-muted-foreground">{item.description}</p>
-                </div>
+                <InfoCard index={index} title={item.title} description={item.description} />
               </Reveal>
             ))}
           </div>
@@ -81,18 +81,7 @@ export default function BrandStudioPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
-        <Container>
-          <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
-              Make it look like it was always part of your store.
-            </h2>
-            <Button href="/pricing" size="lg">
-              Get Started
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <ClosingCTA title="Make it look like it was always part of your store." />
     </>
   );
 }

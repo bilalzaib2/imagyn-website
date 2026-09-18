@@ -180,7 +180,7 @@ function StageVisual({ stage }: { stage: number }) {
           </div>
           <ReviewCardVisual review={review} variant="modern" className="w-[240px]" />
           <div className="flex gap-2">
-            <span className="rounded-full bg-lime px-3 py-1 text-[11px] font-semibold text-lime-ink">★★★★★</span>
+            <span className="rounded-full bg-accent-soft px-3 py-1 text-[11px] font-semibold text-foreground">★★★★★</span>
             <span className="rounded-full bg-foreground px-3 py-1 text-[11px] font-semibold text-white">Collection grid</span>
           </div>
         </div>

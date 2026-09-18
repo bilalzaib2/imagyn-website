@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
+import { ClosingCTA } from "@/components/ClosingCTA";
 import { JsonLd } from "@/components/JsonLd";
 import { COMPARISONS, getComparison } from "@/lib/comparisons";
 import { pageMetadata, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
@@ -65,7 +66,7 @@ export default async function ComparisonPage({ params }: { params: Promise<{ com
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container>
           <span className="text-xs font-semibold tracking-[0.02em] text-accent">Compare</span>
-          <h1 className="mt-4 text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
+          <h1 className="mt-4 text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
             Imagyn Reviews vs {comparison.name}.
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
@@ -85,25 +86,36 @@ export default async function ComparisonPage({ params }: { params: Promise<{ com
       <section className="border-t border-border py-24 md:py-28">
         <Container>
           <SectionHeading eyebrow="Side by side" title="Feature by feature." align="left" />
-          <div className="mt-12 overflow-x-auto">
-            <table className="w-full min-w-[640px] border-collapse text-left">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="py-3 pr-4 text-sm font-semibold text-muted-foreground">Category</th>
-                  <th className="py-3 pr-4 text-sm font-semibold text-foreground">Imagyn Reviews</th>
-                  <th className="py-3 text-sm font-semibold text-foreground">{comparison.name}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparison.rows.map((row) => (
-                  <tr key={row.label} className="border-b border-border align-top">
-                    <td className="py-4 pr-4 text-[15px] font-semibold text-foreground">{row.label}</td>
-                    <td className="py-4 pr-4 text-[15px] leading-relaxed text-muted-foreground">{row.imagyn}</td>
-                    <td className="py-4 text-[15px] leading-relaxed text-muted-foreground">{row.competitor}</td>
+          <div className="mt-12 overflow-hidden rounded-2xl border border-border">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[640px] border-collapse text-left">
+                <thead>
+                  <tr className="border-b border-border bg-surface">
+                    <th className="py-4 pl-6 pr-4 text-sm font-semibold text-muted-foreground">Category</th>
+                    <th className="border-l-2 border-accent py-4 pr-4 pl-4 text-sm font-semibold text-foreground">
+                      <span className="inline-flex items-center gap-2">
+                        Imagyn Reviews
+                        <span className="rounded-full bg-lime-soft px-2 py-0.5 text-[11px] font-semibold text-lime-ink">
+                          This app
+                        </span>
+                      </span>
+                    </th>
+                    <th className="py-4 pr-6 text-sm font-semibold text-foreground">{comparison.name}</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {comparison.rows.map((row) => (
+                    <tr key={row.label} className="border-b border-border align-top last:border-b-0">
+                      <td className="py-4 pl-6 pr-4 text-[15px] font-semibold text-foreground">{row.label}</td>
+                      <td className="border-l-2 border-accent/30 py-4 pr-4 pl-4 text-[15px] font-medium leading-relaxed text-foreground">
+                        {row.imagyn}
+                      </td>
+                      <td className="py-4 pr-6 text-[15px] leading-relaxed text-muted-foreground">{row.competitor}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
           <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             {comparison.pricingSourceNote} Last checked {comparison.researchedOn}. Pricing and
@@ -116,7 +128,7 @@ export default async function ComparisonPage({ params }: { params: Promise<{ com
       <section className="border-t border-border py-24 md:py-28">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.035em] text-foreground">
+            <h2 className="text-subsection font-semibold leading-[1.15] tracking-[-0.035em] text-foreground">
               Switching from {comparison.name}?
             </h2>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -180,18 +192,12 @@ export default async function ComparisonPage({ params }: { params: Promise<{ com
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
-        <Container>
-          <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
-              See the difference on your own store.
-            </h2>
-            <Button href={siteConfig.appStoreUrl} size="lg">
-              Get Started Free
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <ClosingCTA
+        variant="dark"
+        title="See the difference on your own store."
+        description="Free to install. Switch from your current app whenever you're ready."
+        primaryLabel="Get Started Free"
+      />
     </>
   );
 }

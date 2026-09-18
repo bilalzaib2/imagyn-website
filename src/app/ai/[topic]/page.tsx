@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
+import { ClosingCTA } from "@/components/ClosingCTA";
 import { JsonLd } from "@/components/JsonLd";
 import { AI_SURFACES, getAiSurface } from "@/lib/aiSurfaces";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
+import { siteConfig } from "@/lib/constants";
 
 export function generateStaticParams() {
   return AI_SURFACES.map((surface) => ({ topic: surface.slug }));
@@ -46,12 +48,12 @@ export default async function AiSurfacePage({ params }: { params: Promise<{ topi
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container>
           <span className="text-xs font-semibold tracking-[0.02em] text-accent">AI Insights</span>
-          <h1 className="mt-4 text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
+          <h1 className="mt-4 text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
             {surface.name}.
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">{surface.description}</p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <Button href="/pricing" size="lg">
+            <Button href={siteConfig.appStoreUrl} size="lg">
               Get Started
             </Button>
             <Button href="/ai" variant="secondary" size="lg">
@@ -97,18 +99,7 @@ export default async function AiSurfacePage({ params }: { params: Promise<{ topi
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
-        <Container>
-          <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
-              Let your reviews tell you what&apos;s working.
-            </h2>
-            <Button href="/pricing" size="lg">
-              Get Started
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <ClosingCTA title="Let your reviews tell you what's working." />
     </>
   );
 }

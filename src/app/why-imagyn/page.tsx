@@ -5,6 +5,7 @@ import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { pageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
   title: "Why Imagyn",
@@ -96,7 +97,7 @@ export default function WhyImagynPage() {
             <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               See it running on your own store.
             </h2>
-            <Button href="/pricing" size="lg">
+            <Button href={siteConfig.appStoreUrl} size="lg">
               Get Started
             </Button>
           </div>

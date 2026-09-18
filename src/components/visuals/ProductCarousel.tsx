@@ -35,8 +35,8 @@ const SLIDES = [
           Customers consistently praise fit and fast shipping, with occasional sizing notes.
         </p>
         <div className="flex flex-wrap gap-1">
-          <span className="rounded-full bg-lime-soft px-2 py-0.5 text-[10px] font-medium text-lime-ink">True to size</span>
-          <span className="rounded-full bg-lime-soft px-2 py-0.5 text-[10px] font-medium text-lime-ink">Fast shipping</span>
+          <span className="rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-medium text-foreground">True to size</span>
+          <span className="rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-medium text-foreground">Fast shipping</span>
         </div>
       </div>
     ),
@@ -63,7 +63,7 @@ const SLIDES = [
     render: () => (
       <div className="flex items-end gap-2">
         {[40, 65, 50, 80, 95].map((h, i) => (
-          <div key={i} className="w-6 rounded-t bg-lime" style={{ height: `${h}px` }} />
+          <div key={i} className="w-6 rounded-t bg-foreground" style={{ height: `${h}px` }} />
         ))}
       </div>
     ),

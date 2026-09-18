@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { Pill } from "@/components/Pill";
 import { CircleCluster } from "@/components/CircleCluster";
 import { Reveal } from "@/components/Reveal";
+import { HeroIntro } from "@/components/visuals/HeroIntro";
 import { HeroProductShowcase } from "@/components/visuals/HeroProductShowcase";
 import { EmailStudioVisual } from "@/components/visuals/EmailStudioVisual";
 import { AutomationTimeline } from "@/components/visuals/AutomationTimeline";
-import { AnalyticsVisualization } from "@/components/visuals/AnalyticsVisualization";
+import { SignalShowcase } from "@/components/visuals/SignalShowcase";
 import { WidgetPreview } from "@/components/visuals/WidgetPreview";
 import { JourneySection } from "@/components/visuals/JourneySection";
 import { BrandTransformation } from "@/components/visuals/BrandTransformation";
-import { RewardsVisual } from "@/components/visuals/RewardsVisual";
-import { DistributionVisual } from "@/components/visuals/DistributionVisual";
+import { GrowthBento } from "@/components/visuals/GrowthBento";
 import { TrustCertificationVisual } from "@/components/visuals/TrustCertificationVisual";
-import { ImportMigrationVisual } from "@/components/visuals/ImportMigrationVisual";
 import { ProductCarousel } from "@/components/visuals/ProductCarousel";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/constants";
+import { COMPARISONS } from "@/lib/comparisons";
 
 export const metadata: Metadata = pageMetadata({
   title: `${siteConfig.name} · ${siteConfig.tagline}`,
@@ -81,21 +82,21 @@ export default function Home() {
         style={{ background: "linear-gradient(160deg, var(--color-forest), var(--color-forest-surface))" }}
       >
         <Container className="relative grid grid-cols-1 items-center gap-10 sm:gap-16 lg:grid-cols-[2fr_3fr] lg:gap-12">
-          <div className="flex flex-col gap-6">
+          <HeroIntro>
             <Pill tone="light">Shopify Review App</Pill>
-            <h1 className="text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.045em] text-white">
+            <h1 className="text-[clamp(2.75rem,5.6vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-white">
               Build trust with every <span className="text-lime">customer review</span>.
             </h1>
-            <p className="text-lg leading-relaxed text-white/70">{siteConfig.description}</p>
+            <p className="max-w-md text-lg leading-relaxed text-white/70">{siteConfig.description}</p>
             <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-              <Button href="/pricing" variant="lime" size="lg">
+              <Button href={siteConfig.appStoreUrl} variant="light" size="lg">
                 Get Started
               </Button>
               <Button href="/features" variant="outline-light" size="lg">
                 See Features
               </Button>
             </div>
-          </div>
+          </HeroIntro>
 
           <HeroProductShowcase />
         </Container>
@@ -136,10 +137,14 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* LIGHT, Automation: when requests go out, with zero manual work. */}
+      {/* LIGHT, Automation: visual leads (order swapped from the Collect section above it),
+          breaking the left-text/right-visual repetition before it sets in as a pattern. */}
       <section className="border-t border-border py-24 md:py-32">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
-          <Reveal className="flex flex-col gap-5">
+          <Reveal>
+            <AutomationTimeline />
+          </Reveal>
+          <Reveal className="flex flex-col gap-5 lg:order-2" delayMs={80}>
             <Pill tone="dark">Automation</Pill>
             <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               Set the schedule once. It runs itself.
@@ -149,44 +154,49 @@ export default function Home() {
               customer hasn&apos;t reviewed yet, and stops the moment they do.
             </p>
           </Reveal>
-          <AutomationTimeline />
         </Container>
       </section>
 
-      {/* LIME, analytics is where the product proves itself with real numbers, so it
-          earns the boldest section treatment on the page. Used exactly once. */}
-      <section className="bg-lime py-24 md:py-32">
-        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
-          <Reveal className="flex flex-col gap-5">
-            <Pill tone="dark">Analytics + AI</Pill>
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-lime-ink">
+      {/* DARK (foreground), the page's one oversized-number moment, not another
+          left-text/right-card split. Full-width and typography-led, breaking the zigzag
+          rhythm the sections above it run, and dark rather than a lime flood, keeping the
+          brand green to a single accent (the stars) instead of a whole section background. */}
+      <section className="bg-foreground py-24 md:py-32">
+        <Container className="flex flex-col items-center gap-12">
+          <Reveal className="max-w-lg text-center">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/50">Analytics + AI</span>
+            <h2 className="mt-4 text-section font-semibold leading-[1.1] tracking-[-0.035em] text-white">
               Know what your customers love.
             </h2>
-            <p className="text-lg leading-relaxed text-lime-ink/70">
+            <p className="mt-4 text-lg leading-relaxed text-white/70">
               Average rating, verified review share and rating distribution at a glance, plus an
-              AI generated read on what customers consistently praise and flag, refreshed as new
-              reviews come in.
+              AI generated read on what customers consistently praise and flag.
             </p>
           </Reveal>
-          <AnalyticsVisualization />
+          <Reveal delayMs={100} className="w-full">
+            <SignalShowcase />
+          </Reveal>
         </Container>
       </section>
 
-      {/* LIGHT, on-site widgets, the part a shopper actually sees. Cycles the same
-          review through all four real widget formats instead of one static screenshot. */}
-      <section className="py-24 md:py-32">
-        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
-          <Reveal className="flex flex-col gap-5">
-            <Pill tone="dark">Storefront widgets</Pill>
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+      {/* LIGHT, on-site widgets: a full-width showcase, not another split zigzag. Text
+          centered above, the storefront preview given real width below to actually read as
+          a showcase rather than a card squeezed into half a row. */}
+      <section className="border-t border-border py-24 md:py-32">
+        <Container className="flex flex-col items-center gap-12">
+          <Reveal className="max-w-xl text-center">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">Storefront widgets</span>
+            <h2 className="mt-4 text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               Make every product more trusted.
             </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               Review lists, star rating badges and collection grid ratings, styled through Brand
               Studio so nothing looks bolted onto your theme.
             </p>
           </Reveal>
-          <WidgetPreview />
+          <Reveal delayMs={100} className="w-full">
+            <WidgetPreview />
+          </Reveal>
         </Container>
       </section>
 
@@ -194,21 +204,18 @@ export default function Home() {
           Collect → Understand → Showcase as the visitor scrolls. */}
       <JourneySection />
 
-      {/* LIGHT, Reward: the fourth real stage, three independent mechanisms. */}
+      {/* LIGHT, Reward + Grow + Switch: these were three consecutive full-width split
+          sections (the same left-text/right-card shape three times in a row). One real
+          asymmetric bento says the same three things with actual grid rhythm instead. */}
       <section className="border-t border-border py-24 md:py-32">
-        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
-          <Reveal className="flex flex-col gap-5">
-            <Pill tone="dark">Reward</Pill>
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
-              Give customers a real reason to come back.
+        <Container className="flex flex-col gap-14">
+          <Reveal className="max-w-xl">
+            <span className="text-xs font-semibold tracking-[0.02em] text-muted-foreground">Beyond the storefront</span>
+            <h2 className="mt-4 text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+              Reviews that reward, reach further, and travel with you.
             </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              A discount for leaving a review, a standalone coupon campaign, or a code your
-              best customers share with friends. Every one issues a real Shopify discount code
-              automatically.
-            </p>
           </Reveal>
-          <RewardsVisual />
+          <GrowthBento />
         </Container>
       </section>
 
@@ -239,11 +246,11 @@ export default function Home() {
       <section className="bg-foreground py-24 md:py-32">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="flex flex-col items-start gap-6">
-            <Pill tone="lime">Customization + conversion</Pill>
+            <Pill tone="light">Customization + conversion</Pill>
             <h2 className="max-w-2xl text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
               Your reviews.
               <br />
-              Your <span className="text-lime">brand</span>.
+              Your brand.
             </h2>
             <p className="max-w-xl text-lg leading-relaxed text-white/70">
               Brand Studio hands you five starting styles, Minimal, Modern, Editorial, Luxury
@@ -252,46 +259,6 @@ export default function Home() {
             </p>
           </Reveal>
           <BrandTransformation />
-        </Container>
-      </section>
-
-      {/* LIGHT, Grow: the fifth real stage, reviews reaching shoppers beyond your storefront. */}
-      <section className="border-t border-border py-24 md:py-32">
-        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
-          <Reveal className="flex flex-col gap-5">
-            <Pill tone="dark">Grow</Pill>
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
-              Reviews that work beyond your storefront.
-            </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              A Google Shopping ready feed, a shareable public review page, and a plain JSON
-              feed for anything else. The same approved reviews, reaching shoppers wherever
-              they&apos;re already looking.
-            </p>
-          </Reveal>
-          <DistributionVisual />
-        </Container>
-      </section>
-
-      {/* LIGHT, Migration: the switching moment, positioned near the end for a visitor who
-          scrolled the whole platform story and is now deciding whether leaving their old
-          platform is safe. */}
-      <section className="border-t border-border py-24 md:py-32">
-        <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
-          <Reveal className="flex flex-col gap-5">
-            <Pill tone="dark">Switch</Pill>
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
-              Bring every review with you.
-            </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              Import your existing reviews from Judge.me, Loox, Stamped, Ali Reviews or a plain
-              CSV, with a full preview before anything is committed. Nothing is guessed, and
-              nothing is fabricated along the way.
-            </p>
-          </Reveal>
-          <Reveal delayMs={80}>
-            <ImportMigrationVisual />
-          </Reveal>
         </Container>
       </section>
 
@@ -310,13 +277,132 @@ export default function Home() {
 
           <Reveal>
             <ul className="grid grid-cols-1 gap-x-10 gap-y-8 border-t border-border pt-8 sm:grid-cols-2 lg:grid-cols-3">
-              {CAPABILITIES.map((feature) => (
+              {CAPABILITIES.map((feature, index) => (
                 <li key={feature.title} className="flex flex-col gap-1.5">
+                  <span className="text-[12px] font-semibold text-accent/60">{String(index + 1).padStart(2, "0")}</span>
                   <span className="text-[14.5px] font-semibold text-foreground">{feature.title}</span>
                   <span className="text-[13px] leading-relaxed text-muted-foreground">{feature.description}</span>
                 </li>
               ))}
             </ul>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* Pricing at a glance: the homepage never showed a number before this, so a visitor
+          had to click through to /pricing just to learn a free plan exists at all. Real
+          figures only, pulled from the same two plans /pricing itself defines — this is a
+          glimpse, not a duplicate of that page's full feature-by-feature table. */}
+      <section className="border-t border-border py-24 md:py-32">
+        <Container className="flex flex-col gap-14">
+          <Reveal className="max-w-xl">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Pricing</span>
+            <h2 className="mt-4 text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+              Free to start. Simple when you grow.
+            </h2>
+          </Reveal>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <Reveal className="flex flex-col gap-5 rounded-[28px] border border-border p-8">
+              <div>
+                <p className="text-sm font-semibold text-foreground">Free</p>
+                <p className="mt-2 text-4xl font-semibold tracking-[-0.02em] text-foreground">$0</p>
+              </div>
+              <p className="text-[15px] leading-relaxed text-muted-foreground">
+                Unlimited reviews and requests, photo and video reviews, widgets and
+                moderation. No time limit, no credit card.
+              </p>
+              <Button href={siteConfig.appStoreUrl} variant="secondary" size="md" className="mt-auto w-fit">
+                Get Started Free
+              </Button>
+            </Reveal>
+
+            <Reveal delayMs={80} className="flex flex-col gap-5 rounded-[28px] border border-accent p-8 shadow-elevated">
+              <div>
+                <p className="text-sm font-semibold text-foreground">Pro</p>
+                <p className="mt-2 flex items-baseline gap-1">
+                  <span className="text-4xl font-semibold tracking-[-0.02em] text-foreground">$9.99</span>
+                  <span className="text-sm text-muted-foreground">/month</span>
+                </p>
+              </div>
+              <p className="text-[15px] leading-relaxed text-muted-foreground">
+                Everything in Free, plus AI review summaries, automatic reminder emails and
+                full Brand Studio customization. 14-day free trial.
+              </p>
+              <Button href={siteConfig.appStoreUrl} size="md" className="mt-auto w-fit">
+                Start Pro
+              </Button>
+            </Reveal>
+          </div>
+
+          <a href="/pricing" className="text-[15px] font-medium text-foreground hover:text-accent">
+            See the full plan comparison →
+          </a>
+        </Container>
+      </section>
+
+      {/* Why Imagyn: the homepage never named a competitor or said "why choose us" before
+          this. Real differentiators only, the same ones /why-imagyn and each /compare/[x]
+          page make in full — this is a condensed pointer to that content, not a duplicate
+          of it. The three differentiator blocks are prose, deliberately not a comparison
+          table (a table implies row-by-row parity claims about a competitor this page
+          never verified point-by-point; the real, sourced comparison lives on /compare).
+          The row of per-competitor links below is what actually connects a merchant
+          evaluating a specific alternative straight to that page. */}
+      <section className="border-t border-border py-24 md:py-32">
+        <Container className="flex flex-col gap-14">
+          <Reveal className="max-w-xl">
+            <span className="text-xs font-semibold tracking-[0.02em] text-muted-foreground">Why Imagyn</span>
+            <h2 className="mt-4 text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+              Not the only review app. The one built to be trusted.
+            </h2>
+          </Reveal>
+
+          <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-3">
+            <Reveal className="flex flex-col gap-2">
+              <p className="text-[15px] font-semibold text-foreground">Built natively on Shopify</p>
+              <p className="text-[14px] leading-relaxed text-muted-foreground">
+                No separate dashboard, no iframe hack. Every feature runs on Shopify&apos;s own
+                Admin API and Theme App Extensions.
+              </p>
+            </Reveal>
+            <Reveal delayMs={60} className="flex flex-col gap-2">
+              <p className="text-[15px] font-semibold text-foreground">Verification you can trust</p>
+              <p className="text-[14px] leading-relaxed text-muted-foreground">
+                An imported review never becomes a Verified Buyer review by itself. Switching
+                never quietly inflates your numbers.
+              </p>
+            </Reveal>
+            <Reveal delayMs={120} className="flex flex-col gap-2">
+              <p className="text-[15px] font-semibold text-foreground">Pricing that stays simple</p>
+              <p className="text-[14px] leading-relaxed text-muted-foreground">
+                One flat Pro price, not a bill that grows with your order volume. Free has no
+                usage limits on the core.
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal className="flex flex-col gap-4 border-t border-border pt-10">
+            <p className="text-[13px] font-medium text-muted-foreground">
+              Evaluating a specific alternative? See the factual, side-by-side breakdown.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {COMPARISONS.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/compare/${c.slug}`}
+                  className="rounded-[10px] border border-border px-4 py-2.5 text-[14px] font-medium text-foreground transition-colors hover:border-foreground"
+                >
+                  Imagyn vs {c.name}
+                </Link>
+              ))}
+              <Link
+                href="/why-imagyn"
+                className="px-4 py-2 text-[14px] font-medium text-foreground hover:text-accent"
+              >
+                More reasons merchants choose Imagyn →
+              </Link>
+            </div>
           </Reveal>
         </Container>
       </section>
@@ -328,14 +414,14 @@ export default function Home() {
           className="pointer-events-none absolute inset-x-0 bottom-0 h-[140px] w-full opacity-20"
         />
         <Container className="relative flex flex-col items-center gap-6 text-center">
-          <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-white">
+          <h2 className="max-w-2xl text-[clamp(2.25rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
             Start building trust today.
           </h2>
           <p className="max-w-xl text-lg leading-relaxed text-white/70">
             Free to install. Upgrade only when you need AI summaries, photo reviews and Brand
             Studio.
           </p>
-          <Button href="/pricing" variant="lime" size="lg">
+          <Button href={siteConfig.appStoreUrl} variant="light" size="lg">
             Get Started
           </Button>
         </Container>

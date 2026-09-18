@@ -4,8 +4,11 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
+import { InfoCard } from "@/components/InfoCard";
+import { ClosingCTA } from "@/components/ClosingCTA";
 import { AnalyticsVisualization } from "@/components/visuals/AnalyticsVisualization";
 import { pageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
   title: "Analytics",
@@ -27,7 +30,7 @@ export default function AnalyticsPage() {
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
             <span className="text-xs font-semibold tracking-[0.02em] text-accent">Analytics</span>
-            <h1 className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
+            <h1 className="text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
               Your reviews, read as a trend, not a pile.
             </h1>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -35,7 +38,7 @@ export default function AnalyticsPage() {
               your store&apos;s own real data, on your dashboard, no separate report to check.
             </p>
             <div className="mt-2 flex flex-wrap gap-4">
-              <Button href="/pricing" size="lg">
+              <Button href={siteConfig.appStoreUrl} size="lg">
                 Get Started
               </Button>
               <Button href="/ai" variant="secondary" size="lg">
@@ -55,10 +58,7 @@ export default function AnalyticsPage() {
           <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
             {METRICS.map((item, index) => (
               <Reveal key={item.title} delayMs={index * 100}>
-                <div className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7">
-                  <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
-                  <p className="text-[15px] leading-relaxed text-muted-foreground">{item.description}</p>
-                </div>
+                <InfoCard index={index} title={item.title} description={item.description} />
               </Reveal>
             ))}
           </div>
@@ -79,18 +79,7 @@ export default function AnalyticsPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
-        <Container>
-          <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
-              See what&apos;s actually working.
-            </h2>
-            <Button href="/pricing" size="lg">
-              Get Started
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <ClosingCTA title="See what's actually working." secondaryLabel="See AI Insights" secondaryHref="/ai" />
     </>
   );
 }

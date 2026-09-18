@@ -18,11 +18,25 @@ export const DEMO_REVIEWS: DemoReview[] = [
   { name: "Nora B.", rating: 5, title: "My new favorite", body: "Already ordered two more for gifts.", verified: true },
 ];
 
-function Stars({ rating, size = 12 }: { rating: number; size?: number }) {
+// `color`/`emptyColor` default to the original hardcoded values, so every existing call
+// site (all on light surfaces) renders identically. Only a dark-surface caller (the
+// homepage's SignalShowcase) needs to override them, rather than every site duplicating
+// this star path as a second hand-rolled icon.
+function Stars({
+  rating,
+  size = 12,
+  color = "#0a0a0a",
+  emptyColor = "#e6e6e6",
+}: {
+  rating: number;
+  size?: number;
+  color?: string;
+  emptyColor?: string;
+}) {
   return (
     <div className="flex items-center gap-0.5" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} width={size} height={size} viewBox="0 0 20 20" fill={i < rating ? "#0a0a0a" : "#e6e6e6"}>
+        <svg key={i} width={size} height={size} viewBox="0 0 20 20" fill={i < rating ? color : emptyColor}>
           <path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7L10 1.5z" />
         </svg>
       ))}
@@ -39,11 +53,20 @@ export function ReviewCardVisual({
   variant?: "minimal" | "modern" | "editorial" | "luxury" | "custom";
   className?: string;
 }) {
+  // Five distinct storefront looks, not five names for the same white card: this is what
+  // lets the widget showcase actually demonstrate "matches any brand" instead of just
+  // claiming it. Only `custom` uses the Imagyn green — every other style is intentionally
+  // brand-neutral (black/white, warm cream, ecommerce gray, fashion black), proof that the
+  // product's default identity isn't tied to Imagyn's own color.
   const VARIANT_STYLES: Record<string, string> = {
     minimal: "rounded-2xl border border-border bg-white p-5",
-    modern: "rounded-[28px] bg-white p-5 shadow-elevated",
-    editorial: "border-b-2 border-foreground bg-transparent py-5",
-    luxury: "rounded-lg border border-foreground/15 bg-white p-6 [font-variant:small-caps]",
+    modern: "rounded-xl border border-[#e4e4e4] bg-[#f7f7f5] p-5",
+    editorial: "rounded-sm border border-[#e8ddc8] bg-[#faf6ec] p-5",
+    // Light, not inverted: Stars and the text below are hardcoded dark-on-light (see this
+    // file's own Stars component and the markup below), so a dark card background here
+    // would make its own content unreadable. Premium/fashion comes from the sharp corner,
+    // hairline border and small-caps instead of an inversion.
+    luxury: "rounded-none border border-foreground bg-white p-6 [font-variant:small-caps]",
     custom: "rounded-2xl border-2 border-lime bg-white p-5",
   };
 

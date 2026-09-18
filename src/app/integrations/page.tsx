@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
-import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
+import { InfoCard } from "@/components/InfoCard";
+import { ClosingCTA } from "@/components/ClosingCTA";
 import { DistributionVisual } from "@/components/visuals/DistributionVisual";
 import { pageMetadata } from "@/lib/seo";
 
@@ -57,7 +58,7 @@ export default function IntegrationsPage() {
             <DistributionVisual />
           </Reveal>
           <div className="flex flex-col gap-5 order-1 lg:order-2">
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.035em] text-foreground">
+            <h2 className="text-subsection font-semibold leading-[1.15] tracking-[-0.035em] text-foreground">
               The same approved reviews, everywhere a customer might look.
             </h2>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -74,15 +75,7 @@ export default function IntegrationsPage() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {INTEGRATIONS.map((item, index) => (
               <Reveal key={item.name} delayMs={index * 80}>
-                <div className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold text-foreground">{item.name}</h3>
-                    <span className="rounded-full bg-lime-soft px-3 py-1 text-xs font-semibold text-lime-ink">
-                      {item.status}
-                    </span>
-                  </div>
-                  <p className="text-[15px] leading-relaxed text-muted-foreground">{item.description}</p>
-                </div>
+                <InfoCard title={item.name} description={item.description} badge={item.status} />
               </Reveal>
             ))}
           </div>
@@ -106,18 +99,7 @@ export default function IntegrationsPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
-        <Container>
-          <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
-              Reviews that work as hard as your storefront.
-            </h2>
-            <Button href="/pricing" size="lg">
-              Get Started
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <ClosingCTA title="Reviews that work as hard as your storefront." />
     </>
   );
 }

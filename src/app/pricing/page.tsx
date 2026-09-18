@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
+import { ClosingCTA } from "@/components/ClosingCTA";
 import { JsonLd } from "@/components/JsonLd";
 import { pageMetadata, faqJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/constants";
@@ -183,9 +184,9 @@ export default function PricingPage() {
             {PLANS.map((plan) => (
               <div
                 key={plan.id}
-                className={`flex flex-col rounded-[28px] border p-8 ${
+                className={`flex flex-col rounded-[28px] border bg-surface p-8 ${
                   plan.popular
-                    ? "border-accent shadow-elevated"
+                    ? "border-accent shadow-elevated md:scale-[1.02]"
                     : "border-border"
                 }`}
               >
@@ -304,6 +305,13 @@ export default function PricingPage() {
           </div>
         </Container>
       </section>
+
+      <ClosingCTA
+        variant="dark"
+        title="Start free. Upgrade only when you're ready."
+        description="No credit card required for the Free plan. Cancel or change plans anytime from your Shopify billing page."
+        primaryLabel="Get Started Free"
+      />
     </>
   );
 }

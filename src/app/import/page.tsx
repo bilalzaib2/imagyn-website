@@ -3,10 +3,14 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
+import { LinkCard } from "@/components/LinkCard";
+import { NumberedList } from "@/components/NumberedList";
+import { ClosingCTA } from "@/components/ClosingCTA";
 import { ImportMigrationVisual } from "@/components/visuals/ImportMigrationVisual";
 import { JsonLd } from "@/components/JsonLd";
 import { IMPORT_SOURCES } from "@/lib/importSources";
 import { pageMetadata, faqJsonLd } from "@/lib/seo";
+import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
   title: "Import & Migration",
@@ -61,7 +65,7 @@ export default function ImportPage() {
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
             <span className="text-xs font-semibold tracking-[0.02em] text-accent">Import & Migration</span>
-            <h1 className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
+            <h1 className="text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
               Bring every review with you.
             </h1>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -70,7 +74,7 @@ export default function ImportPage() {
               before anything is committed and nothing ever fabricated along the way.
             </p>
             <div className="mt-2 flex flex-wrap gap-4">
-              <Button href="/pricing" size="lg">
+              <Button href={siteConfig.appStoreUrl} size="lg">
                 Get Started
               </Button>
               <Button href="/trust" variant="secondary" size="lg">
@@ -90,21 +94,12 @@ export default function ImportPage() {
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {IMPORT_SOURCES.map((source, index) => (
               <Reveal key={source.slug} delayMs={index * 70}>
-                <a
+                <LinkCard
                   href={`/import/${source.slug}`}
-                  className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-7 transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-soft motion-reduce:hover:translate-y-0"
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-lg font-semibold text-foreground">{source.name}</h3>
-                    {source.status === "verified" ? (
-                      <span className="rounded-full bg-lime-soft px-3 py-1 text-xs font-semibold text-lime-ink">
-                        Verified
-                      </span>
-                    ) : null}
-                  </div>
-                  <p className="text-[15px] leading-relaxed text-muted-foreground">{source.summary}</p>
-                  <span className="mt-2 text-[14px] font-medium text-foreground">See details →</span>
-                </a>
+                  title={source.name}
+                  description={source.summary}
+                  badge={source.status === "verified" ? "Verified" : undefined}
+                />
               </Reveal>
             ))}
           </div>
@@ -114,16 +109,8 @@ export default function ImportPage() {
       <section className="border-t border-border py-24 md:py-28">
         <Container>
           <SectionHeading eyebrow="How it works" title="See it before it happens. Undo it if you need to." align="left" />
-          <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-3">
-            {STEPS.map((step, index) => (
-              <Reveal key={step.title} delayMs={index * 100}>
-                <div className="flex flex-col gap-3">
-                  <span className="text-sm font-semibold text-accent">{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
-                  <p className="text-[15px] leading-relaxed text-muted-foreground">{step.description}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-14">
+            <NumberedList items={STEPS} />
           </div>
         </Container>
       </section>
@@ -142,7 +129,7 @@ export default function ImportPage() {
             </div>
           </Reveal>
           <div className="flex flex-col gap-5">
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.035em] text-foreground">
+            <h2 className="text-subsection font-semibold leading-[1.15] tracking-[-0.035em] text-foreground">
               Honesty is the whole point of switching.
             </h2>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -183,20 +170,11 @@ export default function ImportPage() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden bg-foreground py-28 md:py-36">
-        <Container className="relative flex flex-col items-center gap-6 text-center">
-          <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-white">
-            Your reviews took time to earn. Keep them.
-          </h2>
-          <p className="max-w-xl text-lg leading-relaxed text-white/70">
-            Free to install, free to import. Upgrade only when you want AI summaries and Brand
-            Studio.
-          </p>
-          <Button href="/pricing" variant="lime" size="lg">
-            Get Started
-          </Button>
-        </Container>
-      </section>
+      <ClosingCTA
+        variant="dark"
+        title="Your reviews took time to earn. Keep them."
+        description="Free to install, free to import. Upgrade only when you want AI summaries and Brand Studio."
+      />
     </>
   );
 }

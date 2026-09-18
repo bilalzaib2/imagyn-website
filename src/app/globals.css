@@ -64,6 +64,16 @@
 
   --font-sans: Helvetica, Arial, sans-serif;
 
+  /* The site's three display sizes, formalized as tokens instead of the hand-typed
+     clamp() string every page's hero/section heading used to carry individually — one
+     source of truth so hero, section and sub-section headings can't quietly drift apart
+     from each other across ~20 files. text-hero is a page's own <h1>; text-section is
+     SectionHeading/ClosingCTA's <h2>; text-subsection is the smaller in-panel <h2> used
+     inside two-column split sections. */
+  --text-hero: clamp(2rem, 4.2vw, 3.25rem);
+  --text-section: clamp(1.75rem, 3.4vw, 2.75rem);
+  --text-subsection: clamp(1.75rem, 3.4vw, 2.5rem);
+
   /* Soft, layered shadows built from the same neutral rather than a generic Tailwind
      gray — this is what keeps cards/panels feeling like they belong to the same product
      instead of looking like a default UI-kit shadow. */

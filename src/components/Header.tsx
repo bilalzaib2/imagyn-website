@@ -6,6 +6,12 @@ import { Logo } from "./Logo";
 import { Button } from "./Button";
 import { PRODUCT_GROUPS, WHY_LINK, SOLUTIONS_LINK, RESOURCES_LINKS, COMPANY_LINKS, siteConfig } from "@/lib/constants";
 
+// Desktop top nav shows About only, not the full COMPANY_LINKS list (About + Contact) — a
+// horizontal bar with 8 items plus two CTAs was crowded. Mobile keeps the full list (see
+// the drawer further down): vertical scanning doesn't have the same crowding problem, and
+// Contact stays fully reachable there, in the footer, and via About/Support's own CTAs.
+const ABOUT_LINK = { label: "About", href: "/about" };
+
 // A single top-level link (Pricing, and each Resources/Company item), same underline-on-
 // hover treatment the old flat nav used, kept for the items that don't need a dropdown.
 function TopLink({ href, label }: { href: string; label: string }) {
@@ -120,15 +126,13 @@ export function Header() {
 
         <nav className="hidden items-center gap-9 md:flex">
           <ProductMenu />
-          <TopLink href={WHY_LINK.href} label={WHY_LINK.label} />
           <TopLink href={SOLUTIONS_LINK.href} label={SOLUTIONS_LINK.label} />
-          <TopLink href="/pricing" label="Pricing" />
           {RESOURCES_LINKS.map((link) => (
             <TopLink key={link.href} href={link.href} label={link.label} />
           ))}
-          {COMPANY_LINKS.map((link) => (
-            <TopLink key={link.href} href={link.href} label={link.label} />
-          ))}
+          <TopLink href="/pricing" label="Pricing" />
+          <TopLink href={WHY_LINK.href} label={WHY_LINK.label} />
+          <TopLink href={ABOUT_LINK.href} label={ABOUT_LINK.label} />
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">

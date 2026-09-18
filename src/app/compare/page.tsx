@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
+import { LinkCard } from "@/components/LinkCard";
+import { ClosingCTA } from "@/components/ClosingCTA";
 import { COMPARISONS } from "@/lib/comparisons";
 import { pageMetadata } from "@/lib/seo";
 
@@ -30,20 +32,19 @@ export default function ComparePage() {
         <Container className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {COMPARISONS.map((comparison, index) => (
             <Reveal key={comparison.slug} delayMs={index * 80}>
-              <a
+              <LinkCard
+                headingLevel="h2"
                 href={`/compare/${comparison.slug}`}
-                className="flex h-full flex-col gap-3 rounded-2xl border border-border bg-surface p-7 transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-soft motion-reduce:hover:translate-y-0"
-              >
-                <h2 className="text-lg font-semibold text-foreground">
-                  Imagyn Reviews vs {comparison.name}
-                </h2>
-                <p className="text-[15px] leading-relaxed text-muted-foreground">{comparison.whatItIs}</p>
-                <span className="mt-2 text-[14px] font-medium text-foreground">See the comparison →</span>
-              </a>
+                title={`Imagyn Reviews vs ${comparison.name}`}
+                description={comparison.whatItIs}
+                ctaLabel="See the comparison"
+              />
             </Reveal>
           ))}
         </Container>
       </section>
+
+      <ClosingCTA title="See the difference on your own store." primaryLabel="Get Started Free" />
     </>
   );
 }
