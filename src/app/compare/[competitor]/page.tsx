@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
@@ -65,7 +66,7 @@ export default async function ComparisonPage({ params }: { params: Promise<{ com
 
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container>
-          <span className="text-xs font-semibold tracking-[0.02em] text-accent">Compare</span>
+          <Eyebrow>Compare</Eyebrow>
           <h1 className="mt-4 text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
             Imagyn Reviews vs {comparison.name}.
           </h1>
@@ -83,11 +84,11 @@ export default async function ComparisonPage({ params }: { params: Promise<{ com
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <SectionHeading eyebrow="Side by side" title="Feature by feature." align="left" />
           <div className="mt-12 overflow-hidden rounded-2xl border border-border">
-            <div className="overflow-x-auto">
+            <div className="relative overflow-x-auto">
               <table className="w-full min-w-[640px] border-collapse text-left">
                 <thead>
                   <tr className="border-b border-border bg-surface">
@@ -125,7 +126,7 @@ export default async function ComparisonPage({ params }: { params: Promise<{ com
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
             <h2 className="text-subsection font-semibold leading-[1.15] tracking-[-0.035em] text-foreground">
@@ -158,7 +159,7 @@ export default async function ComparisonPage({ params }: { params: Promise<{ com
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="flex flex-col gap-12">
           <SectionHeading eyebrow="Questions" title="Frequently asked questions" align="left" />
           <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
@@ -172,7 +173,7 @@ export default async function ComparisonPage({ params }: { params: Promise<{ com
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Other comparisons</p>
           <div className="flex flex-wrap gap-6">

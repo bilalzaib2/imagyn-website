@@ -41,13 +41,13 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {PRINCIPLES.map((item, index) => (
               <Reveal key={item.title} delayMs={index * 100}>
                 <div className="flex h-full flex-col gap-3 rounded-2xl border border-border bg-surface p-7">
-                  <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
+                  <h2 className="text-lg font-semibold text-foreground">{item.title}</h2>
                   <p className="text-[15px] leading-relaxed text-muted-foreground">{item.description}</p>
                 </div>
               </Reveal>
@@ -56,7 +56,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Related</p>
           <a href="/why-imagyn" className="text-[15px] font-medium text-foreground hover:text-accent">
@@ -65,10 +65,10 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+            <h2 className="max-w-2xl text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               Have a question we haven&apos;t answered here?
             </h2>
             <Button href="/contact" size="lg">

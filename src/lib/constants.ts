@@ -8,7 +8,7 @@ export const siteConfig = {
   // unrelated Imagyn Studios property) or any other domain.
   url: "https://reviews.imagyn.co",
   appUrl: "https://app.imagyn.co",
-  supportEmail: "support@imagyn.co",
+  supportEmail: "support@reviews.imagyn.co",
   // The real Shopify App Store listing — this is where a new visitor actually installs
   // the app. app.imagyn.co is the merchant dashboard/login for people who already have it.
   appStoreUrl: "https://apps.shopify.com/imagyn-reviews",
@@ -24,6 +24,24 @@ export const siteConfig = {
 // closer to how a mature review platform organizes ten real destinations than one flat list.
 // `resources` and `company` render as simple links. Pricing stays a standalone top-level
 // item, matching how every serious SaaS marketing site treats it — never buried in a dropdown.
+// The consumer side of the network — the discovery surfaces a shopper actually came for.
+// Deliberately first in the nav and separate from PRODUCT_GROUPS below, which is the merchant
+// marketing tree: someone reading reviews should not have to navigate a SaaS menu to browse.
+// ONE top-level entry, not four. The merchant nav was already at capacity, and adding a link
+// per consumer surface overflowed the header at 1200px — the logo collapsed and the CTAs
+// wrapped to two lines. Reviews/Products/Stores are reachable from /discover itself and from
+// the segmented control that sits on every discovery surface, so they do not need to compete
+// for space in the global nav.
+export const DISCOVER_LINKS = [{ label: "Discover", href: "/discover" }];
+
+/** The consumer surfaces, for the mobile menu and any in-page navigation that wants them
+ *  enumerated. Kept separate from the single global nav entry above. */
+export const DISCOVER_SURFACES = [
+  { label: "Reviews", href: "/reviews" },
+  { label: "Products", href: "/products" },
+  { label: "Stores", href: "/stores" },
+];
+
 export const PRODUCT_GROUPS = [
   {
     label: "Collect & manage",

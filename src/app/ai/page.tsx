@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
@@ -31,7 +32,7 @@ export default function AiPage() {
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
-            <span className="text-xs font-semibold tracking-[0.02em] text-accent">AI Insights</span>
+            <Eyebrow>AI Insights</Eyebrow>
             <h1 className="text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
               Know what customers think, without reading every review.
             </h1>
@@ -55,7 +56,7 @@ export default function AiPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <SectionHeading eyebrow="Two summaries" title="One for a product, one for your whole store." align="left" />
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -68,7 +69,7 @@ export default function AiPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <SectionHeading eyebrow="How it works" title="From review volume to a decision, automatically." align="left" />
           <div className="mt-14">
@@ -77,7 +78,7 @@ export default function AiPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Related</p>
           <div className="flex flex-wrap gap-6">

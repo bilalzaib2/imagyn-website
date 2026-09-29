@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { Button } from "./Button";
-import { PRODUCT_GROUPS, WHY_LINK, SOLUTIONS_LINK, RESOURCES_LINKS, COMPANY_LINKS, siteConfig } from "@/lib/constants";
+import { DISCOVER_LINKS, DISCOVER_SURFACES, PRODUCT_GROUPS, WHY_LINK, SOLUTIONS_LINK, RESOURCES_LINKS, COMPANY_LINKS, siteConfig } from "@/lib/constants";
 
 // Desktop top nav shows About only, not the full COMPANY_LINKS list (About + Contact) — a
 // horizontal bar with 8 items plus two CTAs was crowded. Mobile keeps the full list (see
@@ -124,7 +124,13 @@ export function Header() {
       <Container className="flex h-20 items-center justify-between">
         <Logo />
 
-        <nav className="hidden items-center gap-9 md:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
+          {/* Discovery first: the consumer surfaces lead the nav, divided from the merchant
+              marketing tree so neither audience is funnelled through the other's navigation. */}
+          {DISCOVER_LINKS.map((link) => (
+            <TopLink key={link.href} href={link.href} label={link.label} />
+          ))}
+          <span className="h-4 w-px bg-border" aria-hidden="true" />
           <ProductMenu />
           <TopLink href={SOLUTIONS_LINK.href} label={SOLUTIONS_LINK.label} />
           {RESOURCES_LINKS.map((link) => (
@@ -135,7 +141,7 @@ export function Header() {
           <TopLink href={ABOUT_LINK.href} label={ABOUT_LINK.label} />
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <Button href={siteConfig.appUrl} variant="ghost" size="md">
             Log in
           </Button>
@@ -149,7 +155,7 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Toggle menu"
-          className="flex h-10 w-10 items-center justify-center rounded-full md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full lg:hidden"
         >
           <span className="relative block h-4 w-5">
             <span
@@ -166,7 +172,7 @@ export function Header() {
       </Container>
 
       {open ? (
-        <div className="border-t border-border bg-background md:hidden">
+        <div className="border-t border-border bg-background lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             <button
               type="button"
@@ -207,6 +213,17 @@ export function Header() {
               </div>
             ) : null}
 
+            {[...DISCOVER_LINKS, ...DISCOVER_SURFACES].map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="rounded-lg px-3 py-3 text-[15px] font-medium text-foreground hover:bg-surface"
+              >
+                {link.label}
+              </a>
+            ))}
+            <div className="mx-3 my-1 h-px bg-border" aria-hidden="true" />
             <a
               href={WHY_LINK.href}
               onClick={() => setOpen(false)}

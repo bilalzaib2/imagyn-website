@@ -28,7 +28,7 @@ export default function SolutionsPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {MERCHANT_SEGMENTS.map((segment, index) => (
             <Reveal key={segment.slug} delayMs={index * 80}>
@@ -44,7 +44,7 @@ export default function SolutionsPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Related</p>
           <div className="flex flex-wrap gap-6">

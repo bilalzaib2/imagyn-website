@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { Pill } from "@/components/Pill";
 import { CircleCluster } from "@/components/CircleCluster";
@@ -16,6 +17,7 @@ import { BrandTransformation } from "@/components/visuals/BrandTransformation";
 import { GrowthBento } from "@/components/visuals/GrowthBento";
 import { TrustCertificationVisual } from "@/components/visuals/TrustCertificationVisual";
 import { ProductCarousel } from "@/components/visuals/ProductCarousel";
+import { NetworkSection } from "@/components/NetworkSection";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/constants";
 import { COMPARISONS } from "@/lib/comparisons";
@@ -69,7 +71,7 @@ const CAPABILITIES = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       {/* HERO, a real product showcase carousel (Store Reviews -> Product Reviews Widget ->
@@ -84,16 +86,21 @@ export default function Home() {
         <Container className="relative grid grid-cols-1 items-center gap-10 sm:gap-16 lg:grid-cols-[2fr_3fr] lg:gap-12">
           <HeroIntro>
             <Pill tone="light">Shopify Review App</Pill>
-            <h1 className="text-[clamp(2.75rem,5.6vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-white">
-              Build trust with every <span className="text-lime">customer review</span>.
+            <h1 className="text-display font-semibold leading-[1.02] tracking-[-0.045em] text-white">
+              Every review, <span className="text-lime">published twice</span>.
             </h1>
-            <p className="max-w-md text-lg leading-relaxed text-white/70">{siteConfig.description}</p>
+            <p className="max-w-md text-lg leading-relaxed text-white/70">
+              Imagyn Reviews collects authentic customer reviews for your Shopify store,
+              moderates them with confidence and displays them in on-brand widgets. Every
+              approved review also joins a public discovery network, where shoppers browse
+              real customer experiences by product and store.
+            </p>
             <div className="mt-2 flex flex-col gap-3 sm:flex-row">
               <Button href={siteConfig.appStoreUrl} variant="light" size="lg">
                 Get Started
               </Button>
-              <Button href="/features" variant="outline-light" size="lg">
-                See Features
+              <Button href="/discover" variant="outline-light" size="lg">
+                Browse the network
               </Button>
             </div>
           </HeroIntro>
@@ -104,11 +111,11 @@ export default function Home() {
 
       {/* LIGHT, a fast platform overview before the page walks through each stage on its
           own: five real surfaces, cycling automatically. */}
-      <section className="py-24 md:py-28">
+      <section className="py-[var(--section-y)]">
         <Container className="flex flex-col items-center gap-10">
           <div className="max-w-xl text-center">
-            <span className="text-xs font-semibold tracking-[0.02em] text-accent">The platform</span>
-            <h2 className="mt-4 text-[clamp(1.75rem,3.4vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+            <Eyebrow align="center">The platform</Eyebrow>
+            <h2 className="mt-4 text-subsection font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               One system, five real surfaces.
             </h2>
           </div>
@@ -120,11 +127,11 @@ export default function Home() {
 
       {/* LIGHT, Collect: the review request email itself, with its real merge tokens
           resolving and the send moving through its actual lifecycle. */}
-      <section className="py-24 md:py-32">
+      <section className="py-[var(--section-y)]">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-5">
             <Pill tone="dark">Collect</Pill>
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+            <h2 className="text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               Ask at the right moment.
             </h2>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -139,14 +146,14 @@ export default function Home() {
 
       {/* LIGHT, Automation: visual leads (order swapped from the Collect section above it),
           breaking the left-text/right-visual repetition before it sets in as a pattern. */}
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal>
             <AutomationTimeline />
           </Reveal>
           <Reveal className="flex flex-col gap-5 lg:order-2" delayMs={80}>
             <Pill tone="dark">Automation</Pill>
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+            <h2 className="text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               Set the schedule once. It runs itself.
             </h2>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -161,10 +168,10 @@ export default function Home() {
           left-text/right-card split. Full-width and typography-led, breaking the zigzag
           rhythm the sections above it run, and dark rather than a lime flood, keeping the
           brand green to a single accent (the stars) instead of a whole section background. */}
-      <section className="bg-foreground py-24 md:py-32">
+      <section className="bg-foreground py-[var(--section-y)]">
         <Container className="flex flex-col items-center gap-12">
           <Reveal className="max-w-lg text-center">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/50">Analytics + AI</span>
+            <Eyebrow tone="light">Analytics + AI</Eyebrow>
             <h2 className="mt-4 text-section font-semibold leading-[1.1] tracking-[-0.035em] text-white">
               Know what your customers love.
             </h2>
@@ -182,10 +189,10 @@ export default function Home() {
       {/* LIGHT, on-site widgets: a full-width showcase, not another split zigzag. Text
           centered above, the storefront preview given real width below to actually read as
           a showcase rather than a card squeezed into half a row. */}
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="flex flex-col items-center gap-12">
           <Reveal className="max-w-xl text-center">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">Storefront widgets</span>
+            <Eyebrow>Storefront widgets</Eyebrow>
             <h2 className="mt-4 text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               Make every product more trusted.
             </h2>
@@ -207,7 +214,7 @@ export default function Home() {
       {/* LIGHT, Reward + Grow + Switch: these were three consecutive full-width split
           sections (the same left-text/right-card shape three times in a row). One real
           asymmetric bento says the same three things with actual grid rhythm instead. */}
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="flex flex-col gap-14">
           <Reveal className="max-w-xl">
             <span className="text-xs font-semibold tracking-[0.02em] text-muted-foreground">Beyond the storefront</span>
@@ -223,14 +230,14 @@ export default function Home() {
           (four real, repeatable checks, never purchased) is more differentiated than a
           typical review app's trust story. Real product UI floats above the dark
           background exactly as it does on a light section, unchanged internally. */}
-      <section className="bg-forest py-24 md:py-32">
+      <section className="bg-forest py-[var(--section-y)]">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal>
             <TrustCertificationVisual />
           </Reveal>
           <Reveal className="flex flex-col gap-5 lg:order-2" delayMs={80}>
             <Pill tone="lime">Trust</Pill>
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-white">
+            <h2 className="text-section font-semibold leading-[1.1] tracking-[-0.035em] text-white">
               A trust badge that has to earn it.
             </h2>
             <p className="text-lg leading-relaxed text-sage">
@@ -243,11 +250,11 @@ export default function Home() {
       </section>
 
       {/* BLACK, brand customization, the emotional close before capabilities. */}
-      <section className="bg-foreground py-24 md:py-32">
+      <section className="bg-foreground py-[var(--section-y)]">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="flex flex-col items-start gap-6">
             <Pill tone="light">Customization + conversion</Pill>
-            <h2 className="max-w-2xl text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
+            <h2 className="max-w-2xl text-hero font-semibold leading-[1.05] tracking-[-0.04em] text-white">
               Your reviews.
               <br />
               Your brand.
@@ -267,10 +274,10 @@ export default function Home() {
           stays to one short, concrete sentence here — enough to be useful on its own (for
           a reader skimming just this section, or an AI system extracting it) without
           doubling the page length by restating the fuller copy above verbatim. */}
-      <section className="border-t border-border py-20 md:py-24">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-col gap-10">
           <Reveal className="max-w-xl">
-            <h2 className="text-[clamp(1.5rem,2.8vw,2.1rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-foreground">
+            <h2 className="text-panel font-semibold leading-[1.15] tracking-[-0.03em] text-foreground">
               A complete review experience, out of the box.
             </h2>
           </Reveal>
@@ -289,14 +296,21 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* LIGHT, the payoff the whole page has been building toward: the differentiator,
+          argued with real published reviews rather than described. The hero already names
+          it in the first viewport, so this lands as the culmination of the product story
+          (collect -> automate -> understand -> display -> trust -> brand -> network)
+          rather than interrupting it. See NetworkSection for why there is no stat block. */}
+      <NetworkSection />
+
       {/* Pricing at a glance: the homepage never showed a number before this, so a visitor
           had to click through to /pricing just to learn a free plan exists at all. Real
           figures only, pulled from the same two plans /pricing itself defines — this is a
           glimpse, not a duplicate of that page's full feature-by-feature table. */}
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="flex flex-col gap-14">
           <Reveal className="max-w-xl">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Pricing</span>
+            <Eyebrow>Pricing</Eyebrow>
             <h2 className="mt-4 text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               Free to start. Simple when you grow.
             </h2>
@@ -349,11 +363,11 @@ export default function Home() {
           never verified point-by-point; the real, sourced comparison lives on /compare).
           The row of per-competitor links below is what actually connects a merchant
           evaluating a specific alternative straight to that page. */}
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="flex flex-col gap-14">
           <Reveal className="max-w-xl">
             <span className="text-xs font-semibold tracking-[0.02em] text-muted-foreground">Why Imagyn</span>
-            <h2 className="mt-4 text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+            <h2 className="mt-4 text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               Not the only review app. The one built to be trusted.
             </h2>
           </Reveal>
@@ -408,13 +422,13 @@ export default function Home() {
       </section>
 
       {/* Closing CTA, the circle motif returns to bookend the hero. */}
-      <section className="relative overflow-hidden bg-foreground py-24 md:py-32">
+      <section className="relative overflow-hidden bg-foreground py-[var(--section-y)]">
         <CircleCluster
           layout="row"
           className="pointer-events-none absolute inset-x-0 bottom-0 h-[140px] w-full opacity-20"
         />
         <Container className="relative flex flex-col items-center gap-6 text-center">
-          <h2 className="max-w-2xl text-[clamp(2.25rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
+          <h2 className="max-w-2xl text-display font-semibold leading-[1.05] tracking-[-0.04em] text-white">
             Start building trust today.
           </h2>
           <p className="max-w-xl text-lg leading-relaxed text-white/70">

@@ -7,6 +7,23 @@ interface PageSeoOptions {
   path: string;
 }
 
+/**
+ * The site-wide social preview image, produced by src/app/opengraph-image.tsx.
+ *
+ * It has to be named explicitly here. Next only attaches a file-based opengraph-image to
+ * the segment that owns it, and any page defining its own `openGraph` block (which every
+ * page using this helper does) replaces the inherited one rather than merging with it. The
+ * result was that the homepage previewed with an image and all 35 other routes previewed
+ * with none — invisible in the page itself, and only ever seen once a link was already
+ * shared somewhere.
+ */
+export const OG_IMAGE = {
+  url: `${siteConfig.url}/opengraph-image`,
+  width: 1200,
+  height: 630,
+  alt: siteConfig.name,
+};
+
 export function pageMetadata({ title, description, path }: PageSeoOptions): Metadata {
   const url = `${siteConfig.url}${path}`;
   // The page title only — the root layout's `title.template` appends " · Imagyn Reviews"
@@ -30,11 +47,13 @@ export function pageMetadata({ title, description, path }: PageSeoOptions): Meta
       siteName: siteConfig.name,
       type: "website",
       locale: "en_US",
+      images: [OG_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
       title: ogTitle,
       description,
+      images: [OG_IMAGE.url],
       ...(siteConfig.twitter ? { site: siteConfig.twitter } : {}),
     },
   };

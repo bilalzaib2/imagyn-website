@@ -1,12 +1,13 @@
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 
 export default function NotFound() {
   return (
-    <section className="flex flex-1 items-center py-32">
+    <section className="flex flex-1 items-center py-[var(--section-y)]">
       <Container className="flex flex-col items-center gap-6 text-center">
-        <span className="text-xs font-semibold tracking-[0.02em] text-accent">404</span>
-        <h1 className="text-[clamp(2rem,3.4vw,2.75rem)] font-semibold tracking-[-0.035em] text-foreground">
+        <Eyebrow align="center">404</Eyebrow>
+        <h1 className="text-section font-semibold tracking-[-0.035em] text-foreground">
           This page doesn&apos;t exist.
         </h1>
         <p className="max-w-md text-lg leading-relaxed text-muted-foreground">

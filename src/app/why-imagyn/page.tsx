@@ -66,7 +66,7 @@ export default function WhyImagynPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="flex flex-col divide-y divide-border">
           {REASONS.map((reason, index) => (
             <Reveal key={reason.title} delayMs={index * 60} className="grid grid-cols-1 gap-4 py-10 md:grid-cols-[1fr_2fr] md:gap-14">
@@ -82,7 +82,7 @@ export default function WhyImagynPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Related</p>
           <Link href="/compare" className="text-[15px] font-medium text-foreground hover:text-accent">
@@ -91,10 +91,10 @@ export default function WhyImagynPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+            <h2 className="max-w-2xl text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               See it running on your own store.
             </h2>
             <Button href={siteConfig.appStoreUrl} size="lg">

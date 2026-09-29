@@ -13,9 +13,9 @@ const LAST_UPDATED = "July 28, 2026";
 
 export default function TermsPage() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-[var(--section-y)]">
       <Container className="max-w-3xl">
-        <h1 className="text-[clamp(2rem,3.4vw,2.75rem)] font-semibold tracking-[-0.035em] text-foreground">
+        <h1 className="text-section font-semibold tracking-[-0.035em] text-foreground">
           Terms of Service
         </h1>
         <p className="mt-3 text-sm text-muted-foreground">Last updated: {LAST_UPDATED}</p>

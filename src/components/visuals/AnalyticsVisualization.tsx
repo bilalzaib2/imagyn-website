@@ -63,8 +63,8 @@ export function AnalyticsVisualization() {
       >
         <p className="text-xs font-semibold tracking-wide text-muted-foreground">AI summary</p>
         <p className="mt-2 text-sm leading-relaxed text-foreground">
-          &ldquo;Customers consistently praise the fit and fast shipping. A few mention sizing runs
-          small.&rdquo;
+          Customers consistently praise the fit and fast shipping. A few mention sizing runs
+          small.
         </p>
       </div>
     </div>

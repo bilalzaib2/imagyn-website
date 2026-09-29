@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
@@ -37,7 +38,7 @@ export default function PublicReviewSitePage() {
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
-            <span className="text-xs font-semibold tracking-[0.02em] text-accent">Public Review Site</span>
+            <Eyebrow>Public Review Site</Eyebrow>
             <h1 className="text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
               Your reviews, off your storefront too.
             </h1>
@@ -60,7 +61,7 @@ export default function PublicReviewSitePage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <SectionHeading eyebrow="How it works" title="Generated from your real reviews, always current." align="left" />
           <div className="mt-14">
@@ -69,7 +70,7 @@ export default function PublicReviewSitePage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Related</p>
           <div className="flex flex-wrap gap-6">

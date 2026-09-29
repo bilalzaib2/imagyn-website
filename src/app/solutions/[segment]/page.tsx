@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
@@ -49,7 +50,7 @@ export default async function MerchantSegmentPage({ params }: { params: Promise<
       />
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container>
-          <span className="text-xs font-semibold tracking-[0.02em] text-accent">For {segment.name.toLowerCase()}</span>
+          <Eyebrow>For {segment.name.toLowerCase()}</Eyebrow>
           <h1 className="mt-4 max-w-3xl text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
             {segment.headline}
           </h1>
@@ -65,7 +66,7 @@ export default async function MerchantSegmentPage({ params }: { params: Promise<
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <SectionHeading eyebrow="What matters most" title="Three real priorities, not a generic feature list." align="left" />
           <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -78,7 +79,7 @@ export default async function MerchantSegmentPage({ params }: { params: Promise<
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Other solutions</p>
           <div className="flex flex-wrap gap-6">

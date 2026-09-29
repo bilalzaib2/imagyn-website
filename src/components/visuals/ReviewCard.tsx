@@ -2,7 +2,20 @@
 // styled to impersonate it. This is the one visual unit every feature demo below reuses
 // (hero stream, journey, widget showcase, Brand Studio switcher), so the whole page reads
 // as one system: the same "review object" moving through different product moments.
+//
+// The content below is PLACEHOLDER UI COPY, not customer testimonials. It previously used
+// invented people ("Priya K.", "Diego R.") with invented praise, which reads as social
+// proof no matter how it is framed — this site has never had a real testimonial to show,
+// and inventing one is not an option. The bylines are now field labels rather than names,
+// and the text describes the field it occupies, so these cards demonstrate widget
+// typography and styling without implying a single real customer said any of it.
+//
+// Real customer reviews are NOT used here on purpose: the marketing site must not hold its
+// own copy of review data. Where real reviews genuinely belong on this site (the homepage
+// network section, and every consumer surface) they are fetched live from the public API
+// instead — see src/lib/discovery.ts.
 export type DemoReview = {
+  /** A field label such as "Customer name", never a person. */
   name: string;
   rating: number;
   title: string;
@@ -11,11 +24,35 @@ export type DemoReview = {
 };
 
 export const DEMO_REVIEWS: DemoReview[] = [
-  { name: "Priya K.", rating: 5, title: "Exactly as described", body: "Fits perfectly and the color is even better in person.", verified: true },
-  { name: "Marcus T.", rating: 5, title: "Fast shipping, great quality", body: "Second order from this store, never disappoints.", verified: true },
-  { name: "Aiko S.", rating: 4, title: "Really happy with this", body: "Small sizing issue but customer support sorted it fast.", verified: true },
-  { name: "Diego R.", rating: 5, title: "Worth every penny", verified: true },
-  { name: "Nora B.", rating: 5, title: "My new favorite", body: "Already ordered two more for gifts.", verified: true },
+  {
+    name: "Customer name",
+    rating: 5,
+    title: "Review title",
+    body: "Review text appears here, in your storefront's own type, spacing and colour.",
+    verified: true,
+  },
+  {
+    name: "Customer name",
+    rating: 5,
+    title: "Photo review title",
+    body: "Longer review copy wraps like this, so you can see the widget's reading rhythm.",
+    verified: true,
+  },
+  {
+    name: "Customer name",
+    rating: 4,
+    title: "Four star review",
+    body: "Ratings below five render exactly the same way, never hidden or reordered.",
+    verified: true,
+  },
+  { name: "Customer name", rating: 5, title: "Title-only review", verified: true },
+  {
+    name: "Customer name",
+    rating: 5,
+    title: "Review awaiting moderation",
+    body: "Held reviews look identical until you publish them.",
+    verified: true,
+  },
 ];
 
 // `color`/`emptyColor` default to the original hardcoded values, so every existing call

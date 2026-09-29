@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/lib/motion";
+import { Eyebrow } from "@/components/Section";
 import { Stars } from "./ReviewCard";
 
 // A real platform-overview carousel, five compact illustrations of real Imagyn surfaces
@@ -119,7 +120,7 @@ export function ProductCarousel() {
       }}
     >
       <div className="flex items-center justify-between">
-        <span className="text-xs font-semibold tracking-[0.02em] text-accent">{slide.eyebrow}</span>
+        <Eyebrow>{slide.eyebrow}</Eyebrow>
         <div className="flex items-center gap-2">
           <button
             type="button"
@@ -148,6 +149,8 @@ export function ProductCarousel() {
       >
         {slide.render()}
       </div>
+
+      <p className="mt-3 text-[11px] text-muted-foreground">Example product UI, not real merchant data</p>
 
       <div className="mt-6 flex items-center justify-center gap-2">
         {SLIDES.map((s, i) => (

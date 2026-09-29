@@ -37,7 +37,7 @@ export default function FaqPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-16 md:py-20">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-col gap-12 max-w-3xl">
           {FAQ_ENTRIES.map((item) => (
             <div key={item.q} className="flex flex-col gap-2">
@@ -48,7 +48,7 @@ export default function FaqPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">More questions, by topic</p>
           <div className="flex flex-wrap gap-6">

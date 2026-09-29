@@ -68,7 +68,7 @@ export default function SupportPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="flex flex-col gap-12">
           <SectionHeading eyebrow="Common questions" title="Frequently asked questions" align="left" />
           <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
@@ -97,7 +97,7 @@ function SupportCard({
   return (
     <div className="flex flex-col gap-4 rounded-2xl border border-border p-8">
       <div>
-        <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+        <h2 className="text-lg font-semibold text-foreground">{title}</h2>
         <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{description}</p>
       </div>
       <Button href={action.href} variant="secondary" size="md" className="mt-auto w-fit">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
@@ -63,7 +64,7 @@ export default function TrustPage() {
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
-            <span className="text-xs font-semibold tracking-[0.02em] text-accent">Trust & Certification</span>
+            <Eyebrow>Trust & Certification</Eyebrow>
             <h1 className="text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
               A trust badge that has to earn it every time.
             </h1>
@@ -87,7 +88,7 @@ export default function TrustPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <SectionHeading eyebrow="Four pillars" title="Every pillar is a real, repeatable check." align="left" />
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -100,7 +101,7 @@ export default function TrustPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <Reveal className="order-2 lg:order-1">
             <div className="rounded-[28px] border border-border bg-surface p-8">
@@ -125,7 +126,7 @@ export default function TrustPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="flex flex-col gap-12">
           <SectionHeading eyebrow="Questions" title="Frequently asked questions" align="left" />
           <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
@@ -139,7 +140,7 @@ export default function TrustPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Related</p>
           <div className="flex flex-wrap gap-6">

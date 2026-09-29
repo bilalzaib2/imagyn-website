@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { usePrefersReducedMotion } from "@/lib/motion";
+import { Eyebrow } from "@/components/Section";
 import { DEMO_REVIEWS, ReviewCardVisual, Stars } from "./ReviewCard";
 
 // Illustrative rating distribution for the Store Reviews slide (5-star down to 1-star, as
@@ -193,7 +194,7 @@ export function HeroProductShowcase() {
         }}
       >
         <div className="p-5 sm:p-6 md:p-8">
-          <span className="text-xs font-semibold tracking-[0.02em] text-accent">{slide.eyebrow}</span>
+          <Eyebrow>{slide.eyebrow}</Eyebrow>
           <motion.div layout className="mt-4 overflow-hidden sm:mt-5">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
@@ -249,7 +250,7 @@ export function HeroProductShowcase() {
           </motion.button>
         </div>
       </div>
-      <span className="mt-4 text-[11px] tracking-wide text-white/40">Example storefront</span>
+      <span className="mt-4 text-[11px] tracking-wide text-white/65">Example storefront, not real merchant data</span>
     </motion.div>
   );
 }

@@ -195,7 +195,7 @@ export default function PricingPage() {
                     Most Popular
                   </span>
                 ) : null}
-                <h3 className="text-xl font-semibold text-foreground">{plan.name}</h3>
+                <h2 className="text-xl font-semibold text-foreground">{plan.name}</h2>
                 <p className="mt-4 flex items-baseline gap-1">
                   <span className="text-4xl font-semibold tracking-[-0.02em] text-foreground">
                     {plan.price}
@@ -250,13 +250,13 @@ export default function PricingPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <SectionHeading eyebrow="Full comparison" title="Every job, and which plan covers it." align="left" />
           <Link href="/compare" className="mt-4 inline-block text-[15px] font-medium text-foreground hover:text-accent">
             Comparing against Judge.me, Loox or Stamped? See the full breakdown →
           </Link>
-          <div className="mt-12 overflow-x-auto">
+          <div className="relative mt-12 overflow-x-auto">
             <table className="w-full min-w-[560px] border-collapse text-left">
               <thead>
                 <tr className="border-b border-border">
@@ -292,7 +292,7 @@ export default function PricingPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="flex flex-col gap-12">
           <SectionHeading eyebrow="Questions" title="Frequently asked questions" align="left" />
           <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">

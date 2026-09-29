@@ -1,3 +1,5 @@
+import { Eyebrow } from "./Section";
+
 export function SectionHeading({
   eyebrow,
   title,
@@ -18,15 +20,13 @@ export function SectionHeading({
   const Heading = level;
 
   return (
-    <div className={`flex max-w-2xl flex-col gap-4 ${alignment}`}>
-      {eyebrow ? (
-        <span className="text-xs font-semibold tracking-[0.02em] text-accent">{eyebrow}</span>
-      ) : null}
+    <div className={`flex max-w-[34ch] flex-col gap-4 ${alignment}`}>
+      {eyebrow ? <Eyebrow align={align}>{eyebrow}</Eyebrow> : null}
       <Heading className="text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
         {title}
       </Heading>
       {description ? (
-        <p className="text-lg leading-[1.6] text-muted-foreground">{description}</p>
+        <p className="max-w-[48ch] text-[17px] leading-[1.6] text-muted-foreground">{description}</p>
       ) : null}
     </div>
   );

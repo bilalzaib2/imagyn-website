@@ -30,10 +30,10 @@ export function SignalShowcase() {
         </p>
       </div>
       <p className="max-w-md text-lg leading-relaxed text-white/80">
-        &ldquo;Customers consistently praise the fit and fast shipping. A few mention sizing
-        runs small.&rdquo;
+        Customers consistently praise the fit and fast shipping. A few mention sizing
+        runs small.
       </p>
-      <span className="text-[11px] font-medium text-white/30">Illustrative example data</span>
+      <span className="text-[11px] font-medium text-white/65">Example AI summary, not real merchant data</span>
     </div>
   );
 }

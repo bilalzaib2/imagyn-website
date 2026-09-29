@@ -28,7 +28,7 @@ export default function ComparePage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {COMPARISONS.map((comparison, index) => (
             <Reveal key={comparison.slug} delayMs={index * 80}>

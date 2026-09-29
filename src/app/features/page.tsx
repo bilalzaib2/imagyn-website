@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { WidgetPreview } from "@/components/visuals/WidgetPreview";
@@ -195,7 +196,7 @@ export default function FeaturesPage() {
         const Visual = section.visual ? VISUALS[section.visual] : null;
 
         return (
-        <section key={section.title} className="border-t border-border py-24 md:py-28">
+        <section key={section.title} className="border-t border-border py-[var(--section-y)]">
           <Container
             className={section.visual ? "grid items-center gap-14 lg:grid-cols-2" : ""}
           >
@@ -208,10 +209,8 @@ export default function FeaturesPage() {
             <div
               className={`flex flex-col gap-5 ${section.visual ? (index % 2 === 1 ? "order-1 lg:order-2" : "order-1") : "max-w-2xl"}`}
             >
-              <span className="text-xs font-semibold tracking-[0.02em] text-accent">
-                {section.eyebrow}
-              </span>
-              <h2 className="text-[clamp(1.75rem,3.4vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.035em] text-foreground">
+              <Eyebrow>{section.eyebrow}</Eyebrow>
+              <h2 className="text-subsection font-semibold leading-[1.15] tracking-[-0.035em] text-foreground">
                 {section.title}
               </h2>
               <p className="text-lg leading-relaxed text-muted-foreground">{section.description}</p>
@@ -237,10 +236,10 @@ export default function FeaturesPage() {
         );
       })}
 
-      <section className="border-t border-border py-28 md:py-36">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+            <h2 className="max-w-2xl text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               See it running on your own store.
             </h2>
             <Button href={siteConfig.appStoreUrl} size="lg">

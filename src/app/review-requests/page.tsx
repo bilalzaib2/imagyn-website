@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
@@ -28,7 +29,7 @@ export default function ReviewRequestsPage() {
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div className="flex flex-col gap-5">
-            <span className="text-xs font-semibold tracking-[0.02em] text-accent">Review Requests</span>
+            <Eyebrow>Review Requests</Eyebrow>
             <h1 className="text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
               A request goes out. A review comes back.
             </h1>
@@ -51,7 +52,7 @@ export default function ReviewRequestsPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <SectionHeading eyebrow="How it works" title="Built to respect the customer on the other end." align="left" />
           <div className="mt-14">
@@ -60,7 +61,7 @@ export default function ReviewRequestsPage() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Related</p>
           <div className="flex flex-wrap gap-6">

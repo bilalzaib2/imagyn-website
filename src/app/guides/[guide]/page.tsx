@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { JsonLd } from "@/components/JsonLd";
 import { GUIDES, getGuide } from "@/lib/guides";
@@ -41,15 +42,15 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
       />
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="max-w-3xl">
-          <span className="text-xs font-semibold tracking-[0.02em] text-accent">Guide</span>
-          <h1 className="mt-4 text-[clamp(2rem,4.2vw,3rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+          <Eyebrow>Guide</Eyebrow>
+          <h1 className="mt-4 text-hero font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
             {guide.title}
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{guide.summary}</p>
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex max-w-3xl flex-col divide-y divide-border">
           {guide.sections.map((section) => (
             <div key={section.heading} className="flex flex-col gap-3 py-10">
@@ -64,7 +65,7 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="max-w-3xl">
           <div className="flex flex-col gap-4 rounded-2xl border border-border bg-surface p-7 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-[15px] text-foreground">See the real feature this guide describes.</p>
@@ -76,7 +77,7 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
       </section>
 
       {otherGuides.length > 0 ? (
-        <section className="border-t border-border py-16">
+        <section className="border-t border-border py-[var(--section-y-tight)]">
           <Container className="flex max-w-3xl flex-wrap items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">More guides</p>
             <div className="flex flex-wrap gap-6">
@@ -97,10 +98,10 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
         </section>
       ) : null}
 
-      <section className="border-t border-border py-28 md:py-36">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+            <h2 className="max-w-2xl text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               See it running on your own store.
             </h2>
             {/* Shopify apps install once from the App Store; plan selection happens inside

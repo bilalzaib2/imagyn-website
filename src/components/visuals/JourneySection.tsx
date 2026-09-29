@@ -50,7 +50,7 @@ export function JourneySection() {
   }, []);
 
   return (
-    <section className="border-t border-border py-24 md:py-32">
+    <section className="border-t border-border py-[var(--section-y)]">
       <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10">
         {/* Desktop/tablet: the full pinned-panel scroll interaction. */}
         <div className="hidden lg:grid lg:grid-cols-2 lg:gap-24">
@@ -65,7 +65,7 @@ export function JourneySection() {
                   {stage.eyebrow}
                 </span>
                 <h3
-                  className={`text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.03em] transition-colors duration-300 motion-reduce:transition-none ${
+                  className={`text-panel font-semibold leading-[1.15] tracking-[-0.03em] transition-colors duration-300 motion-reduce:transition-none ${
                     activeStage === index ? "text-foreground" : "text-muted-foreground/40"
                   }`}
                 >
@@ -99,7 +99,7 @@ export function JourneySection() {
                 <span className="text-xs font-semibold tracking-[0.02em] text-foreground">
                   {stage.eyebrow}
                 </span>
-                <h3 className="text-[clamp(1.5rem,5vw,2rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-foreground">
+                <h3 className="text-panel font-semibold leading-[1.15] tracking-[-0.03em] text-foreground">
                   {stage.title}
                 </h3>
                 <p className="max-w-md text-base leading-relaxed text-muted-foreground">{stage.body}</p>
@@ -185,6 +185,12 @@ function StageVisual({ stage }: { stage: number }) {
           </div>
         </div>
       </div>
+
+      {/* One caption for all three stages. They are stacked absolutely in this container, so
+          a per-stage caption would render three times over itself. */}
+      <p className="absolute inset-x-0 bottom-3 text-center text-[11px] text-muted-foreground">
+        Example product UI, not real merchant data
+      </p>
     </div>
   );
 }

@@ -42,7 +42,7 @@ export default function DocsPage() {
                 href={`#${topic.id}`}
                 className="rounded-2xl border border-border p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-soft"
               >
-                <h3 className="text-base font-semibold text-foreground">{topic.title}</h3>
+                <span className="block text-base font-semibold text-foreground">{topic.title}</span>
                 <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
                   {topic.description}
                 </p>
@@ -163,7 +163,7 @@ export default function DocsPage() {
 
 function DocSection({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="scroll-mt-24 py-16">
+    <section id={id} className="scroll-mt-24 py-[var(--section-y-tight)]">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_2fr]">
         <h2 className="text-2xl font-semibold tracking-[-0.02em] text-foreground">{title}</h2>
         <div className="flex max-w-2xl flex-col gap-4 text-[15px] leading-relaxed text-muted-foreground">

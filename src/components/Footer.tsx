@@ -12,7 +12,7 @@ export function Footer() {
 
   return (
     <footer className="bg-forest">
-      <Container className="py-16 md:py-20">
+      <Container className="py-[var(--section-y-tight)]">
         {/* Company + Legal merged into one column (was five link columns, now four): both
             are short, both are "about the business" rather than "about the product," and
             the merge is what actually reads as designed instead of a sitemap dumped into

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { JsonLd } from "@/components/JsonLd";
 import { MIGRATION_GUIDES, getMigrationGuide } from "@/lib/migrationGuides";
@@ -57,8 +58,8 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
       {guide.troubleshooting.length > 0 ? <JsonLd data={faqJsonLd(guide.troubleshooting)} /> : null}
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container className="max-w-3xl">
-          <span className="text-xs font-semibold tracking-[0.02em] text-accent">Migration guide</span>
-          <h1 className="mt-4 text-[clamp(2rem,4.2vw,3rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+          <Eyebrow>Migration guide</Eyebrow>
+          <h1 className="mt-4 text-hero font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
             {guide.title}
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{guide.intro}</p>
@@ -78,7 +79,7 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
       </section>
 
       {guide.whatMigrates.length > 0 ? (
-        <section className="border-t border-border py-16 md:py-20">
+        <section className="border-t border-border py-[var(--section-y-tight)]">
           <Container className="max-w-3xl">
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
               <div>
@@ -107,7 +108,7 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
           </Container>
         </section>
       ) : (
-        <section className="border-t border-border py-16 md:py-20">
+        <section className="border-t border-border py-[var(--section-y-tight)]">
           <Container className="max-w-3xl">
             <div className="rounded-2xl border border-border bg-surface p-7">
               <p className="text-sm font-semibold text-foreground">No direct import yet</p>
@@ -124,9 +125,9 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
         </section>
       )}
 
-      <section className="border-t border-border py-16 md:py-20">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="max-w-3xl">
-          <p className="text-sm font-semibold text-foreground">Step by step</p>
+          <h2 className="text-sm font-semibold text-foreground">Step by step</h2>
           <div className="mt-8 flex flex-col gap-8">
             {guide.steps.map((step, index) => (
               <div key={step.title} className="flex gap-5">
@@ -143,7 +144,7 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
         </Container>
       </section>
 
-      <section className="border-t border-border py-16 md:py-20">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="max-w-3xl">
           <p className="text-sm font-semibold text-foreground">The details that matter</p>
           <div className="mt-6 flex flex-col divide-y divide-border rounded-2xl border border-border bg-surface">
@@ -157,9 +158,9 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
         </Container>
       </section>
 
-      <section className="border-t border-border py-16 md:py-20">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="max-w-3xl">
-          <p className="text-sm font-semibold text-foreground">Troubleshooting</p>
+          <h2 className="text-sm font-semibold text-foreground">Troubleshooting</h2>
           <div className="mt-6 flex flex-col gap-6">
             {guide.troubleshooting.map((item) => (
               <div key={item.q}>
@@ -171,7 +172,7 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Other migration guides</p>
           <div className="flex flex-wrap gap-6">
@@ -196,10 +197,10 @@ export default async function MigrationGuidePage({ params }: { params: Promise<{
         </Container>
       </section>
 
-      <section className="border-t border-border py-28 md:py-36">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <div className="flex flex-col items-center gap-6 rounded-[32px] bg-surface px-8 py-16 text-center shadow-soft md:px-16">
-            <h2 className="max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
+            <h2 className="max-w-2xl text-section font-semibold leading-[1.1] tracking-[-0.035em] text-foreground">
               Bring your {guide.sourceName} reviews to Imagyn.
             </h2>
             <Button href={siteConfig.appStoreUrl} size="lg">

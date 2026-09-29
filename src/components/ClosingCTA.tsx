@@ -30,8 +30,8 @@ export function ClosingCTA({
     <section
       className={
         isDark
-          ? "relative overflow-hidden bg-foreground py-28 md:py-36"
-          : "border-t border-border py-28 md:py-36"
+          ? "relative overflow-hidden bg-foreground py-[var(--section-y)]"
+          : "border-t border-border py-[var(--section-y)]"
       }
     >
       <Container>

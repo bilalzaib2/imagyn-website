@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ClosingCTA } from "@/components/ClosingCTA";
@@ -47,7 +48,7 @@ export default async function WidgetSurfacePage({ params }: { params: Promise<{ 
       />
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container>
-          <span className="text-xs font-semibold tracking-[0.02em] text-accent">Widgets</span>
+          <Eyebrow>Widgets</Eyebrow>
           <h1 className="mt-4 text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
             {widget.name}.
           </h1>
@@ -63,13 +64,13 @@ export default async function WidgetSurfacePage({ params }: { params: Promise<{ 
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <SectionHeading eyebrow="Where it appears" title={widget.placement} align="left" />
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <SectionHeading eyebrow="What it does" title="Built to be real, not a placeholder." align="left" />
           <ul className="mt-10 flex max-w-2xl flex-col gap-4">
@@ -83,7 +84,7 @@ export default async function WidgetSurfacePage({ params }: { params: Promise<{ 
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Other widgets</p>
           <div className="flex flex-wrap gap-6">

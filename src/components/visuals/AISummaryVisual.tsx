@@ -53,10 +53,12 @@ export function AISummaryVisual() {
           inView ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
         }`}
       >
-        <p className="text-xs font-semibold tracking-wide text-muted-foreground">AI summary</p>
+        <p className="text-xs font-semibold tracking-wide text-muted-foreground">
+          AI summary · example, not real merchant data
+        </p>
         <p className="mt-2 text-sm leading-relaxed text-foreground">
-          &ldquo;Customers consistently praise the fit and fast shipping. A few mention sizing runs
-          small.&rdquo;
+          Customers consistently praise the fit and fast shipping. A few mention sizing runs
+          small.
         </p>
       </div>
     </div>

@@ -67,12 +67,35 @@
   /* The site's three display sizes, formalized as tokens instead of the hand-typed
      clamp() string every page's hero/section heading used to carry individually — one
      source of truth so hero, section and sub-section headings can't quietly drift apart
-     from each other across ~20 files. text-hero is a page's own <h1>; text-section is
+     from each other across ~20 files. text-display is reserved for the marketing home
+     page's own <h1> and nothing else; text-hero is any other page's <h1>; text-section is
      SectionHeading/ClosingCTA's <h2>; text-subsection is the smaller in-panel <h2> used
-     inside two-column split sections. */
+     inside two-column split sections; text-panel is the smallest display step, for headings
+     inside cards and panels.
+
+     These five are the whole display scale and it is deliberately closed. They replaced 15
+     separately hand-typed clamp() strings whose values had drifted apart by a few hundredths
+     of a vw each — visually almost identical in isolation, collectively the reason the site
+     read as several different products. A new heading picks the nearest step; it does not
+     add a sixteenth clamp. */
+  --text-display: clamp(2.75rem, 5.6vw, 4.5rem);
   --text-hero: clamp(2rem, 4.2vw, 3.25rem);
   --text-section: clamp(1.75rem, 3.4vw, 2.75rem);
   --text-subsection: clamp(1.75rem, 3.4vw, 2.5rem);
+  --text-panel: clamp(1.5rem, 2.8vw, 2.1rem);
+
+  /* ONE vertical rhythm for every marketing section, replacing the per-page py-24/py-28/py-36
+     that had drifted across ~34 pages. 96px is the measured median gap in the premium-SaaS
+     reference set; below roughly 64px two sections read as a single crammed block. Sections
+     use padding-block only — never a `padding` shorthand, which would silently zero the
+     horizontal gutter Container owns. */
+  --section-y: clamp(72px, 9vw, 128px);
+  --section-y-tight: clamp(56px, 6vw, 88px);
+
+  /* Editorial eyebrow: small, uppercase, widely tracked. Muted rather than near-black so it
+     labels the section without competing with the heading directly beneath it. */
+  --text-eyebrow: 11px;
+  --tracking-eyebrow: 0.12em;
 
   /* Soft, layered shadows built from the same neutral rather than a generic Tailwind
      gray — this is what keeps cards/panels feeling like they belong to the same product

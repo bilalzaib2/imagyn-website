@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
+import { Eyebrow } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ClosingCTA } from "@/components/ClosingCTA";
@@ -47,7 +48,7 @@ export default async function AiSurfacePage({ params }: { params: Promise<{ topi
       />
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
         <Container>
-          <span className="text-xs font-semibold tracking-[0.02em] text-accent">AI Insights</span>
+          <Eyebrow>AI Insights</Eyebrow>
           <h1 className="mt-4 text-hero font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
             {surface.name}.
           </h1>
@@ -63,13 +64,13 @@ export default async function AiSurfacePage({ params }: { params: Promise<{ topi
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <SectionHeading eyebrow="Where it appears" title={surface.placement} align="left" />
         </Container>
       </section>
 
-      <section className="border-t border-border py-24 md:py-28">
+      <section className="border-t border-border py-[var(--section-y)]">
         <Container>
           <SectionHeading eyebrow="What it does" title="Generated from real reviews, never invented." align="left" />
           <ul className="mt-10 flex max-w-2xl flex-col gap-4">
@@ -83,7 +84,7 @@ export default async function AiSurfacePage({ params }: { params: Promise<{ topi
         </Container>
       </section>
 
-      <section className="border-t border-border py-16">
+      <section className="border-t border-border py-[var(--section-y-tight)]">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">Related</p>
           <div className="flex flex-wrap gap-6">
